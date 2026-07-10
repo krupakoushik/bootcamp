@@ -1,7 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 
 import AppLayout from "./layouts/AppLayouts";
-import HomePage from "./pages/HomePage";
 import NotFoundPage from "./pages/NotFoundPage";
 import CKCSeminar from "./pages/CKCSeminar";
 
