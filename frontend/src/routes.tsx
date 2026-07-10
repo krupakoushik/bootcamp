@@ -12,12 +12,6 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <HomePage />,
-      },
-      
-      {
-        index: true,
-        path: "seminar",
         element: <CKCSeminar />,
       },
 
