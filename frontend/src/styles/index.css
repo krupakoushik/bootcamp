@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+@theme {
+    /* ---------- COLORS ---------- */
+
+    --color-bg: #080808;
+
+    --color-surface: #101010;
+
+    --color-card: #181818;
+
+    --color-border: rgba(255,255,255,.06);
+
+    --color-text: #F5F5F3;
+
+    --color-text-soft: #D6D3D1;
+
+    --color-text-muted: #8A8A8A;
+
+    --color-primary: #BE1F31;
+
+    --color-primary-hover: #9F1726;
+
+    --color-primary-dark: #6E0F1A;
+
+    --color-cream: #FFF9ED;
+
+    --color-gold: #B8954C;
+
+    --color-gold-soft: #D8B979;
+
+    /* Semantic Colors */
+    --color-success: #2ecc71;
+    --color-warning: #fbbf24;
+    --color-error: #ef4444;
+
+    /* ---------- TYPOGRAPHY ---------- */
+
+    --font-bebas: "Bebas Neue";
+    --font-inter: "Inter";
+    --font-anton: "Anton"
+
+    /* ---------- SPACING ---------- */
+
+    --container-width: 1280px;
+
+    --section-padding: clamp(6rem,10vw,10rem);
+
+    --navbar-height: 5rem;
+
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
