@@ -2,7 +2,7 @@ import BG from "@/assets/seminar/seminar-bg.png";
 import Text from "@/assets/seminar/bootcamp-removebg.png"
 import Countdown from "./Countdown.tsx"
 
-export default function Seminar() {
+export default function Boocamp() {
   return (
     <div className="relative h-screen">
 

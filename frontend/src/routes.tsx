@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 
 import AppLayout from "./layouts/AppLayouts";
 import NotFoundPage from "./pages/NotFoundPage";
-import CKCSeminar from "./pages/CKCSeminar";
+import CKCSeminar from "./pages/CKCBootcamp";
 
 export const router = createBrowserRouter([
   {
