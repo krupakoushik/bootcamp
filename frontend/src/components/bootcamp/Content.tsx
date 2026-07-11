@@ -1,3 +1,5 @@
+import Bootcamp from "./Bootcamp"
+
 import Discover from "@/components/camp-content/Discover"
 import Schedule from "@/components/camp-content/Schedule"
 import Sensei from "@/components/camp-content/Sensei"
@@ -6,16 +8,21 @@ import Venue from "@/components/camp-content/Venue"
 import Rules from "@/components/camp-content/Rules"
 import FAQ from "@/components/camp-content/FAQ"
 import Passes from "@/components/camp-content/Passes"
+import Footer from "@/components/camp-content/Footer"
 
+import Registration from "@/components/camp-registration/Registration";
 
 
 
 
 export default function Content() {
 
-
+    
     return (
         <div className="relative h-screen">
+
+            <Bootcamp />
+
             <div className="max-w-7xl mx-auto">
 
                 <Discover />
@@ -28,8 +35,10 @@ export default function Content() {
                     <div className="h-px w-20 bg-gold-soft/30" />
                 </div>
 
-                <Schedule />
-
+                <div id="schedule">
+                    <Schedule />
+                </div>
+                
                 <Sensei />
 
                 <div className="mt-10 mb-10 flex items-center justify-center gap-5">
@@ -51,7 +60,9 @@ export default function Content() {
                     <div className="h-px w-20 bg-gold-soft/30" />
                 </div>
 
-                <Venue />
+                <div id="venue">
+                    <Venue />
+                </div>
 
                 <div className="mt-10 mb-10 flex items-center justify-center gap-5">
                     <div className="h-px w-20 bg-gold-soft/30" />
@@ -71,7 +82,9 @@ export default function Content() {
                     <div className="h-px w-20 bg-gold-soft/30" />
                 </div>
 
-                <FAQ />
+                <div id="faq">
+                    <FAQ />
+                </div>
 
                 <div className="mt-10 mb-10 flex items-center justify-center gap-5">
                     <div className="h-px w-20 bg-gold-soft/30" />
@@ -83,6 +96,11 @@ export default function Content() {
 
                 <Passes />
 
+                <div id="registration" className="mt-5">
+                    <Registration />
+                </div>
+
+                <Footer />
 
             </div>
         </div>

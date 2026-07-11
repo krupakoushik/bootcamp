@@ -2,7 +2,7 @@ import Logo from "@/assets/kendo/kendo-w-l-gpt.png"
 
 export default function Discover() {
     return(
-        <div className="grid lg:grid-cols-2 gap-5 rounded-3xl border border-gold-soft/50 bg-white/3 backdrop-blur-xl p-10 mt-5">
+        <div className="grid lg:grid-cols-2 text gap-5 rounded-3xl border border-gold-soft/50 bg-white/3 backdrop-blur-xl p-10 mt-5">
             <div className="font-anton tracking-[0.8em] text-gold-soft">
                 THE WAY OF THE SWORD
                 <h2 className="font-bebas text-8xl tracking-normal text-cream uppercase">discover kendo</h2>

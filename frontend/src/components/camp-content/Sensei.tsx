@@ -9,17 +9,17 @@ import Raj from "@/assets/seminar/raj.jpeg"
 export default function Sensei() {
     return (
     <div>
-        <div className="mt-10 mb-10 flex items-center justify-center gap-5">
+        <div className="mt-10 mb-10 flex items-center justify-center gap-5 text-cream">
             <div className="h-px w-20 bg-gold-soft/30" />
 
-            <p className="font-anton text-gold-soft text-xs md:text-sm tracking-[0.45em] uppercase text-center">
+            <p className="font-anton text-cream text-gold-soft text-xs md:text-sm tracking-[0.45em] uppercase text-center">
                 Learn from those who have walked the path.
             </p>
 
             <div className="h-px w-20 bg-gold-soft/30" />
         </div>
 
-        <div className="rounded-3xl border border-gold-soft/50 bg-white/3 backdrop-blur-xl p-10">
+        <div className="rounded-3xl border text-cream border-gold-soft/50 bg-white/3 backdrop-blur-xl p-10">
 
             <div className="text-center">
 
@@ -43,7 +43,7 @@ export default function Sensei() {
 
             {/* stats */}
 
-            <div className="grid md:grid-cols-3 gap-6 mt-14 text-center">
+            <div className="grid md:grid-cols-3 gap-6 mt-14 text-center text-cream">
 
                 <div>
                     <h3 className="font-bebas text-6xl text-cream">7</h3>

@@ -2,7 +2,7 @@ import Circle from "@/assets/seminar/circle.png";
 
 export default function Schedule() {
     return(
-                    <div className="grid lg:grid-cols-2 gap-5 rounded-3xl border border-gold-soft/50 bg-white/3 backdrop-blur-xl p-10 mt-5">
+                    <div className="grid lg:grid-cols-2 gap-5 rounded-3xl text-cream border border-gold-soft/50 bg-white/3 backdrop-blur-xl p-10 mt-5">
                         <div className="flex items-center justify-center">
                             <img
                                 src={Circle}

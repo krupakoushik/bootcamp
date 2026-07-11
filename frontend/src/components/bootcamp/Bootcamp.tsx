@@ -2,6 +2,7 @@ import BG from "@/assets/seminar/seminar-bg.png";
 import Text from "@/assets/seminar/bootcamp-removebg.png"
 import Countdown from "./Countdown.tsx"
 
+
 export default function Boocamp() {
   return (
     <div className="relative h-screen">
@@ -34,10 +35,12 @@ export default function Boocamp() {
             </p>
 
             {/* CTA buttons */}
-            <div className="mt-12">
-                <a href="#about" className="bg-primary font-bebas text-cream font-extrabold px-24 py-4 rounded-2xl tracking-[0.3em] hover:bg-gold-soft  transition duration-300">
+            <div className="mt-5">
+                <button 
+                onClick={() => document.getElementById("registration")?.scrollIntoView({behavior: "smooth",  block: "start"})} 
+                className="bg-primary font-bebas text-cream font-extrabold px-24 py-4 rounded-2xl tracking-[0.3em] hover:bg-gold-soft  transition duration-300">
                     REGISTER →
-                </a>
+                </button>
             </div>
 
         </div>

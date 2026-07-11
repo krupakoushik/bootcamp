@@ -8,7 +8,7 @@ import {
 
 export default function Schedule() {
     return(
-                <div className="grid lg:grid-cols-2 gap-5 rounded-3xl border border-gold-soft/50 bg-white/3 backdrop-blur-xl p-10 mt-5">
+                <div className="grid lg:grid-cols-2 gap-5 rounded-3xl border text-cream  border-gold-soft/50 bg-white/3 backdrop-blur-xl p-10 mt-5">
                     <div className="font-bebas text-cream text-2xl"><span className="text-8xl">TRAINING VENUE</span>
                         <ul className="space-y-5 mt-8 font-bebas text-2xl text-cream">
 

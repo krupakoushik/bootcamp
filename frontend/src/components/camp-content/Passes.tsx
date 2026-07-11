@@ -1,12 +1,12 @@
 export default function Passes() {
     return(
-
+        <div>
                 <div className="mt-5">
 
                     <div className="grid lg:grid-cols-2 gap-5 rounded-3xl border border-gold-soft/50 bg-white/3 backdrop-blur-xl p-10 mt-5">
                         <div>
                             <p className="font-anton tracking-[0.8em] text-gold-soft uppercase">
-                                Beginner Bootcamp Pass
+                                Dojo Pass
                             </p>
                             <div>
 
@@ -16,7 +16,7 @@ export default function Passes() {
 
                                 </h2>
 
-                                <p className="text-white/60 mt-3 text-cream">
+                                <p className="mt-3 text-cream">
 
                                     One registration.
                                     Two unforgettable days.
@@ -38,5 +38,59 @@ export default function Passes() {
                     </div>
 
                 </div>
-    )
+
+
+                <div className="grid lg:grid-cols-2 gap-5 items-stretch mt-5">
+                    <div className="flex flex-col rounded-3xl border border-gold-soft/50 bg-white/5 p-8">
+                            <p className="font-anton tracking-[0.8em] text-gold-soft uppercase">
+                                Bushido Patron
+                            </p>
+                            <h2 className="font-bebas text-9xl text-cream">
+                                ₹5000
+                            </h2>
+                            <div>
+                            <p className="mt-3 text-cream">
+                                Stand beside us as we introduce more people
+                                to the way of the sword.
+                            </p>
+                            </div>
+                            <ul className="space-y-4 mt-6 text-cream">
+                            <li><span className="text-gold-soft"> 𒉽 </span> Everything included in the Beginner Pass</li>
+                            <li><span className="text-gold-soft"> 𒉽 </span> Exclusive Chennai Kendo Club T-shirt</li>
+                            <li><span className="text-gold-soft"> 𒉽 </span> Official Recognition as an Event Patron</li>
+                            <li><span className="text-gold-soft"> 𒉽 </span> Appreciation across Chennai Kendo Club platforms</li>
+                        </ul>
+                    </div>
+
+                    <div className="flex flex-col rounded-3xl border border-gold-soft/50 bg-white/5 p-8">
+                        <div>
+                            <p className="font-anton tracking-[0.8em] text-gold-soft uppercase">
+                                Legacy Patron
+                            </p>
+                            <h2 className="font-bebas text-9xl text-cream">
+                                ₹8000
+                            </h2>
+                            <div>
+                            <p className="mt-3 text-cream">
+                                Help shape the future of Kendo in India.
+                                Your contribution directly supports seminars,
+                                international instructors and the continued
+                                growth of Chennai Kendo Club.
+                            </p>
+                            </div>
+                        <ul className="space-y-4 mt-6 text-cream">
+                            <li><span className="text-gold-soft"> 𒉽 </span> Everything included in the Patron Pass</li>
+                            <li><span className="text-gold-soft"> 𒉽 </span> Limited Edition CKC Collectors Keychain</li>
+                            <li><span className="text-gold-soft"> 𒉽 </span> One Complimentary Beginner Pass for a Guest</li>
+                            <li><span className="text-gold-soft"> 𒉽 </span> Recognition during the Closing Ceremony</li>
+                            <li><span className="text-gold-soft"> 𒉽 </span> Recognition across Chennai Kendo Club platforms</li>
+                        </ul>
+                    </div>
+                </div>
+
+        </div>
+        </div>
+
+
+    );
 }

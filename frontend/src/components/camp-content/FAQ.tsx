@@ -69,7 +69,7 @@ export default function Schedule() {
 
     return(
                 <div className="mt-5">
-                    <div className="rounded-3xl border border-gold-soft/50 bg-white/5 p-8 mt-5">
+                    <div className="rounded-3xl border border-gold-soft/50 bg-white/5 p-8 mt-5 text-cream">
 
                         <h3 className="font-bebas text-7xl lg:text-8xl">
                             BEFORE YOU REGISTER
