@@ -5,7 +5,7 @@ export default function Footer() {
         <footer className="mt-5">
             <div className="rounded-3xl border border-gold-soft bg-white/5 backdrop-blur-xl p-10 lg:p-14">
 
-                <div className="grid lg:grid-cols-3 text-center gap-12">
+                <div className="grid lg:grid-cols-3 lg:text-left text-center gap-12">
 
                     {/* Logo */}
                     <div>
@@ -57,17 +57,10 @@ export default function Footer() {
                         <div className="mt-6 flex flex-col gap-4 text-white/60">
 
                             <a
-                                href="mailto:contact@chennaikendoclub.in"
+                                href="wa.me/919677278733"
                                 className="hover:text-gold-soft transition"
                             >
-                                contact@chennaikendoclub.in
-                            </a>
-
-                            <a
-                                href="tel:+917674976184"
-                                className="hover:text-gold-soft transition"
-                            >
-                                +91 76749 76184
+                                +91 96772 78733
                             </a>
 
                             <p>
@@ -80,14 +73,6 @@ export default function Footer() {
                                 className="hover:text-gold-soft transition"
                             >
                                 Instagram →
-                            </a>
-
-                            <a
-                                href="https://chat.whatsapp.com/YOUR_LINK"
-                                target="_blank"
-                                className="hover:text-gold-soft transition"
-                            >
-                                WhatsApp Community →
                             </a>
 
                         </div>
