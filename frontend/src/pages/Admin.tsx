@@ -3,7 +3,7 @@ import { Navigate } from "react-router-dom";
 
 import type { Registration } from "@/types/admin";
 
-const API = "https://ckc-bootcamp.onrender.com";
+const API = "https://bootcamp-m8yr.onrender.com";
 
 export default function Admin() {
 

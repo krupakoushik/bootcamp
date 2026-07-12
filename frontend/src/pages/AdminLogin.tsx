@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const API = "https://ckc-bootcamp.onrender.com";
+const API = "https://bootcamp-m8yr.onrender.com";
 
 export default function AdminLogin() {
 
