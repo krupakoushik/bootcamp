@@ -6,7 +6,7 @@ export default function Schedule() {
                         <ul className="space-y-4 mt-6 text-cream">
                             <li><span className="text-gold-soft"> 𒉽 </span> Footwork that builds balance</li>
                             <li><span className="text-gold-soft"> 𒉽 </span> Powerful beginner strikes</li>
-                            <li><span className="text-gold-soft"> 𒉽 </span> Timing & distancet</li>
+                            <li><span className="text-gold-soft"> 𒉽 </span> Timing & distance</li>
                             <li><span className="text-gold-soft"> 𒉽 </span> Dojo etiquette</li>
                             <li><span className="text-gold-soft"> 𒉽 </span> Confidence holding a shinai</li>
                             <li><span className="text-gold-soft"> 𒉽 </span> A foundation to continue training</li>

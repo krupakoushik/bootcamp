@@ -31,7 +31,7 @@ export default function Boocamp() {
 
             <p className="font-bebas text-[1.5rem] text-extrabold text-cream/80 leading-[0.8]">
                 AUG 1 • AUG 2<br />
-                <span className="text-gold-soft text-[0.8rem] tracking-[0.3em]">— OMR | Beginner Friendly | Lunch Included —</span>
+                <span className="text-gold-soft text-[0.8rem] tracking-[0.3em]">— Smashers 1.0, OMR | Beginner Friendly | 10 AM to 4 PM —</span>
             </p>
 
             {/* CTA buttons */}

@@ -6,7 +6,7 @@ export default function Passes() {
                     <div className="grid lg:grid-cols-2 gap-5 rounded-3xl border border-gold-soft/50 bg-white/3 backdrop-blur-xl p-10 mt-5">
                         <div>
                             <p className="font-anton tracking-[0.8em] text-gold-soft uppercase">
-                                Dojo Pass
+                                Beginner Pass
                             </p>
                             <div>
 
@@ -43,7 +43,7 @@ export default function Passes() {
                 <div className="grid lg:grid-cols-2 gap-5 items-stretch mt-5">
                     <div className="flex flex-col rounded-3xl border border-gold-soft/50 bg-white/5 p-8">
                             <p className="font-anton tracking-[0.8em] text-gold-soft uppercase">
-                                Bushido Patron
+                                Supporter Pass
                             </p>
                             <h2 className="font-bebas text-9xl text-cream">
                                 ₹5000
@@ -65,7 +65,7 @@ export default function Passes() {
                     <div className="flex flex-col rounded-3xl border border-gold-soft/50 bg-white/5 p-8">
                         <div>
                             <p className="font-anton tracking-[0.8em] text-gold-soft uppercase">
-                                Legacy Patron
+                                patron pass
                             </p>
                             <h2 className="font-bebas text-9xl text-cream">
                                 ₹8000

@@ -14,7 +14,7 @@ export default function Schedule() {
 
                             <li className="flex items-center gap-4">
                                 <MapPin className="w-6 h-6 text-gold-soft" />
-                                OMR, Chennai - 600096
+                                Smashers 1.0, OMR
                             </li>
 
                             <li className="flex items-center gap-4">

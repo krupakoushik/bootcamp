@@ -60,7 +60,7 @@ export default function Sensei() {
                 </div>
 
                 <div>
-                    <h3 className="font-bebas text-6xl text-cream">100+</h3>
+                    <h3 className="font-bebas text-6xl text-cream">80+</h3>
                     <p className="font-anton tracking-[0.4em] uppercase text-gold-soft text-xs">
                         Years Combined Experience
                     </p>

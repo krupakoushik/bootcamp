@@ -7,6 +7,7 @@ export default function Discover() {
                 THE WAY OF THE SWORD
                 <h2 className="font-bebas text-8xl tracking-normal text-cream uppercase">discover kendo</h2>
                 <div className="text-cream tracking-[0.15em] text-lg mt-4 leading-tight max-w-xl font-inter">
+                    Chennai Kendo Club is part of Aikiken Federation, a section 8 non profit organization dedicated to the growth and development of Kendo in Chennai and India.<br /><br />
                     Kendo is the modern Japanese martial art of swordsmanship, where discipline, respect and precision matter as much as strength.<br /><br />
                     Two immersive days of Japanese swordsmanship,
                             taught by experienced instructors from India,

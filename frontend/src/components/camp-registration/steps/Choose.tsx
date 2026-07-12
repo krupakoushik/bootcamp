@@ -35,9 +35,9 @@ export default function Choose({
                 <div className="grid lg:grid-cols-3 gap-5 mt-16">
 
                     {[
-                        { name: "DOJO PASS", price: "3000" },
-                        { name: "BUSHIDO PASS", price: "5000" },
-                        { name: "LEGACY PATRON", price: "8000" },
+                        { name: "BEGINNER PASS", price: "3000" },
+                        { name: "SUPPORTER PASS", price: "5000" },
+                        { name: "PATRON PASS", price: "8000" },
                     ].map((pass) => (
                         <button
                             key={pass.price}

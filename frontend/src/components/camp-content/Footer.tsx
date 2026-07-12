@@ -68,6 +68,14 @@ export default function Footer() {
                             </p>
 
                             <a
+                                href="https://chat.whatsapp.com/J3NAkwWX0W197jMtBJlElB"
+                                target="_blank"
+                                className="hover:text-gold-soft transition"
+                            >
+                                Whatsapp →
+                            </a>
+
+                            <a
                                 href="https://instagram.com/chennai_kendo_club/"
                                 target="_blank"
                                 className="hover:text-gold-soft transition"

@@ -95,7 +95,7 @@ export default function Success({
                 <div className="grid md:grid-cols-2 gap-5 mt-10">
 
                     <a
-                        href="https://chat.whatsapp.com/YOUR_INVITE_LINK"
+                        href="https://chat.whatsapp.com/J3NAkwWX0W197jMtBJlElB"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="rounded-3xl border border-gold-soft/40 bg-white/5 p-8 hover:border-primary hover:bg-primary/10 transition duration-300"
@@ -119,7 +119,7 @@ export default function Success({
                     </a>
 
                     <a
-                        href="https://instagram.com/chennaikendoclub"
+                        href="https://instagram.com/chennai_kendo_club/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="rounded-3xl border border-gold-soft/40 bg-white/5 p-8 hover:border-primary hover:bg-primary/10 transition duration-300"
