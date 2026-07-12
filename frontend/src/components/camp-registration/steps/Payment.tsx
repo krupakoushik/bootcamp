@@ -11,8 +11,8 @@ type Props = {
 
 const API = "http://localhost:8000";
 
-const UPI_ID = "9941722573@hdfc";
-const PAYEE_NAME = "S SUHAIL HUSSAIN";
+const UPI_ID = "vyapar.175693718407@hdfcbank";
+const PAYEE_NAME = "CHENNAI KENDO CLUB";
 
 export default function Payment({
     next,
