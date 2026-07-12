@@ -9,7 +9,7 @@ type Props = {
     setFormData: React.Dispatch<React.SetStateAction<FormData>>;
 };
 
-const API = "http://localhost:8000";
+const API = "https://ckc-bootcamp.onrender.com";
 
 const UPI_ID = "vyapar.175693718407@hdfcbank";
 const PAYEE_NAME = "CHENNAI KENDO CLUB";
