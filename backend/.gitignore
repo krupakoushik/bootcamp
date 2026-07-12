@@ -1,0 +1,38 @@
+# Virtual environment
+venv/
+.venv/
+
+# Environment variables
+.env
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# VSCode
+.vscode/
+
+# JetBrains
+.idea/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Logs
+*.log
+
+# Uploaded files
+app/uploads/
+
+# Coverage
+.coverage
+htmlcov/
+
+# Python build
+build/
+dist/
+*.egg-info/
