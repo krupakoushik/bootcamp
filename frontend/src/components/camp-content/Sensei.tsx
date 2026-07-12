@@ -12,7 +12,7 @@ export default function Sensei() {
         <div className="mt-10 mb-10 flex items-center justify-center gap-5 text-cream">
             <div className="h-px w-20 bg-gold-soft/30" />
 
-            <p className="font-anton text-cream text-gold-soft text-xs md:text-sm tracking-[0.45em] uppercase text-center">
+            <p className="font-anton text-gold-soft text-xs md:text-sm tracking-[0.45em] uppercase text-center">
                 Learn from those who have walked the path.
             </p>
 

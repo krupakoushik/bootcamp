@@ -14,7 +14,7 @@ export default function Choose({
     setFormData,
 }: Props) {
     return (
-        <div className="rounded-3xl text-cream border border-gold-soft/50 bg-white/5 backdrop-blur-xl min-h-[700px] flex flex-col justify-between p-10">
+        <div className="rounded-3xl text-cream border border-gold-soft/50 bg-white/5 backdrop-blur-xl min-h-175 flex flex-col justify-between p-10">
 
             <div>
 

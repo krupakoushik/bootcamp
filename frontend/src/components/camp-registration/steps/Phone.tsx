@@ -15,7 +15,7 @@ export default function Phone({
     setFormData,
 }: Props) {
     return (
-        <div className="rounded-3xl text-cream border border-gold-soft/50 bg-white/5 backdrop-blur-xl min-h-[650px] flex flex-col justify-between p-10 lg:p-14">
+        <div className="rounded-3xl text-cream border border-gold-soft/50 bg-white/5 backdrop-blur-xl min-h-162.5 flex flex-col justify-between p-10 lg:p-14">
 
             <div>
 
@@ -36,7 +36,6 @@ export default function Phone({
                 <input
                     type="tel"
                     autoFocus
-                    placeholder="+91 9876543210"
                     value={formData.phone}
                     onChange={(e) =>
                         setFormData({
@@ -49,7 +48,7 @@ export default function Phone({
                             next();
                         }
                     }}
-                    className="mt-16 w-full bg-transparent border-b border-gold-soft/30 pb-5 text-5xl font-bebas outline-none placeholder:text-white/20"
+                    className="mt-16 w-full bg-transparent border-b border-gold-soft/30 pb-5 text-5xl font-bebas outline-none"
                 />
 
             </div>

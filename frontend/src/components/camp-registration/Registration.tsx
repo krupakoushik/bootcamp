@@ -28,7 +28,7 @@ export default function Registration() {
 
         waiver: false,
 
-        pass: "3000",
+        pass: "Beginner Pass",
 
         paymentScreenshot: null as File | null,
     });

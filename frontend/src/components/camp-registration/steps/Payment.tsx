@@ -1,5 +1,7 @@
 import type { FormData } from "../types";
 
+import paymentQR from "@/assets/seminar/payment.jpeg";
+
 type Props = {
     next: () => void;
     previous: () => void;
@@ -7,12 +9,100 @@ type Props = {
     setFormData: React.Dispatch<React.SetStateAction<FormData>>;
 };
 
+const API = "http://localhost:8000";
+
+const UPI_ID = "9941722573@hdfc";
+const PAYEE_NAME = "S SUHAIL HUSSAIN";
+
 export default function Payment({
     next,
     previous,
     formData,
     setFormData,
 }: Props) {
+
+    const NOTE = `CKC Bootcamp 2K26`;
+
+    const upiLink =
+        `upi://pay?pa=${UPI_ID}` +
+        `&pn=${encodeURIComponent(PAYEE_NAME)}` +
+        `&am=${formData.pass}` +
+        `&cu=INR` +
+        `&tn=${encodeURIComponent(NOTE)}`;
+
+    const submitRegistration = async () => {
+
+        try {
+
+            if (!formData.paymentScreenshot) {
+
+                alert("Please upload your payment screenshot.");
+
+                return;
+
+            }
+
+            const data = new FormData();
+
+            data.append("name", formData.name);
+            data.append("email", formData.email);
+            data.append("phone", formData.phone);
+
+            data.append("gender", formData.gender);
+
+            data.append("emergency_name", formData.emergencyName);
+            data.append("emergency_phone", formData.emergencyPhone);
+
+            data.append("medical", formData.medical);
+
+            data.append("pass_type", formData.pass);
+
+            data.append(
+                "payment_screenshot",
+                formData.paymentScreenshot
+            );
+
+            const response = await fetch(`${API}/registration/`, {
+
+                method: "POST",
+
+                body: data,
+
+            });
+
+            const result = await response.json();
+
+            console.log(result);
+
+            if (!response.ok) {
+
+                throw new Error(JSON.stringify(result));
+
+            }
+
+            next();
+
+        }
+
+        catch (err) {
+
+            console.error(err);
+
+            if (err instanceof Error) {
+
+                alert(err.message);
+
+            }
+
+            else {
+
+                alert("Unknown error.");
+
+            }
+
+        }
+
+    };
 
     return (
 
@@ -36,8 +126,6 @@ export default function Payment({
 
             <div className="grid lg:grid-cols-2 gap-16 items-center mt-20">
 
-                {/* Left */}
-
                 <div>
 
                     <p className="font-anton tracking-[0.3em] uppercase text-gold-soft text-xs">
@@ -54,20 +142,25 @@ export default function Payment({
                     </p>
 
                     <button
+                        onClick={() => {
+                            window.location.href = upiLink;
+                        }}
                         className="mt-10 bg-primary hover:bg-gold-soft transition duration-300 rounded-2xl px-10 py-4 font-bebas tracking-[0.25em]"
                     >
-                        PAY WITH UPI →
+                        PAY USING UPI →
                     </button>
 
                 </div>
 
-                {/* QR */}
-
                 <div>
 
-                    <div className="rounded-3xl bg-white aspect-square flex items-center justify-center">
+                    <div className="rounded-3xl aspect-square flex items-center justify-center p-6">
 
-                        QR CODE
+                        <img
+                            src={paymentQR}
+                            alt="Payment QR"
+                            className="w-full h-full object-contain rounded-2xl"
+                        />
 
                     </div>
 
@@ -78,8 +171,6 @@ export default function Payment({
                 </div>
 
             </div>
-
-            {/* Upload */}
 
             <div className="mt-24">
 
@@ -175,11 +266,11 @@ export default function Payment({
                 </button>
 
                 <button
-                    onClick={next}
+                    onClick={submitRegistration}
                     disabled={!formData.email.trim()}
                     className="bg-primary disabled:bg-white/10 disabled:text-white/30 disabled:cursor-not-allowed px-10 py-4 rounded-xl font-anton uppercase tracking-[0.35em] hover:bg-gold-soft transition"
                 >
-                    DONE →
+                    SUBMIT →
                 </button>
 
             </div>

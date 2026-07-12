@@ -5,7 +5,7 @@ export default function NotFoundPage() {
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">
           404
         </p>
-        <h1 className="mt-3 font-heading text-5xl uppercase">What are you looking for 👁️👁️</h1>
+        <h1 className="mt-3 font-heading text-5xl uppercase">What are you looking for<br /><br />👁️👁️</h1>
       </div>
     </main>
   );

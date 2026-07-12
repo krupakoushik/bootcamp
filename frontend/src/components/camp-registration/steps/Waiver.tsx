@@ -14,7 +14,7 @@ export default function Waiver({
     setFormData,
 }: Props) {
     return (
-        <div className="rounded-3xl text-cream border border-gold-soft/50 bg-white/5 backdrop-blur-xl min-h-[650px] flex flex-col justify-between p-10 lg:p-14">
+        <div className="rounded-3xl text-cream border border-gold-soft/50 bg-white/5 backdrop-blur-xl min-h-162.5 flex flex-col justify-between p-10 lg:p-14">
 
             <div>
 
@@ -29,7 +29,6 @@ export default function Waiver({
                 <p className="text-white/60 mt-10 leading-9">
                     ✓ I understand that Kendo is a physical activity.<br />
                     ✓ I am participating voluntarily.<br />
-                    ✓ I accept the event terms and conditions.<br />
                     ✓ I consent to photography and videography during the event.
                 </p>
 
@@ -52,14 +51,6 @@ export default function Waiver({
                     </span>
 
                 </label>
-
-                <a
-                    href="/terms"
-                    target="_blank"
-                    className="block mt-6 text-gold-soft hover:underline"
-                >
-                    Read Full Terms →
-                </a>
 
             </div>
 

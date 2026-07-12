@@ -28,9 +28,6 @@ export default function Gender({
                     IDENTIFY?
                 </h2>
 
-                <p className="text-white/50 mt-3">
-                    Optional
-                </p>
 
                 <div className="grid md:grid-cols-2 gap-5 mt-16">
 

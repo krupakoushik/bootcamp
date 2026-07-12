@@ -12,7 +12,7 @@ export default function Name({
     setFormData,
 }: Props) {
     return (
-        <div className="rounded-3xl text-cream border border-gold-soft/50 bg-white/5 backdrop-blur-xl min-h-[650px] flex flex-col justify-between p-10 lg:p-14">
+        <div className="rounded-3xl text-cream border border-gold-soft/50 bg-white/5 backdrop-blur-xl min-h-162.5 flex flex-col justify-between p-10 lg:p-14">
 
             <div>
 
@@ -32,7 +32,6 @@ export default function Name({
 
                 <input
                     type="text"
-                    placeholder="John Doe"
                     value={formData.name}
                     onChange={(e) =>
                         setFormData({
@@ -56,7 +55,6 @@ export default function Name({
                         font-bebas
                         tracking-wide
                         outline-none
-                        placeholder:text-white/10
                         focus:border-primary
                         transition
                     "
