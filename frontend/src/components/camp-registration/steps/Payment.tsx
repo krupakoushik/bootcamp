@@ -6,6 +6,7 @@ import posthog from "@/lib/posthog";
 
 import paymentQR from "@/assets/seminar/payment.jpeg";
 
+
 type Props = {
     next: () => void;
     previous: () => void;
@@ -51,10 +52,6 @@ export default function Payment({
                 alert("Please upload your payment screenshot.");
                 return;
             }
-
-            if (loading) return;
-
-            setLoading(true);
 
             const data = new FormData();
 

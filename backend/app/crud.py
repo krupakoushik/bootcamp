@@ -6,12 +6,27 @@ from app.models import Registration
 
 from app.qr import generate_qr
 
+from sqlalchemy.exc import IntegrityError
+from fastapi import HTTPException
 
 
 def create_registration(
     db: Session,
     registration: dict,
 ):
+
+    existing = (
+        db.query(Registration)
+        .filter(Registration.phone == registration["phone"])
+        .first()
+    )
+
+    if existing:
+        raise HTTPException(
+            status_code=409,
+            detail="You have already registered using this phone number."
+        )
+
 
     new_registration = Registration(
 
@@ -34,51 +49,25 @@ def create_registration(
 
     )
 
-    db.add(new_registration)
+    try:
 
-    db.flush()
+        db.add(new_registration)
 
-    new_registration.ckc_id = f"CKC-BC26-{new_registration.id:04d}"
+        db.flush()
 
-    db.commit()
+        new_registration.ckc_id = f"CKC-BC26-{new_registration.id:04d}"
 
-    db.refresh(new_registration)
+        db.commit()
 
-    return new_registration
+        db.refresh(new_registration)
 
+        return new_registration
 
+    except IntegrityError:
 
+        db.rollback()
 
-from app.qr import generate_qr
-
-
-def verify_registration(
-    db: Session,
-    registration_id: int,
-):
-
-    registration = (
-        db.query(Registration)
-        .filter(Registration.id == registration_id)
-        .first()
-    )
-
-    if registration is None:
-
-        return None
-
-    if registration.verified:
-
-        return registration
-
-    registration.qr_code = generate_qr(
-        registration
-    )
-
-    registration.verified = True
-
-    db.commit()
-
-    db.refresh(registration)
-
-    return registration
+        raise HTTPException(
+            status_code=409,
+            detail="You have already registered using this phone number."
+        )
