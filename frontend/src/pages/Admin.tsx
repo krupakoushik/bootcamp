@@ -33,26 +33,25 @@ export default function Admin() {
 
     return (
 
-        <div style={{ padding: 30 }}>
+        <div className="rounded-3xl border border-gold-soft/50 bg-white/5 p-8 mt-5 text-cream">
 
-            <h1>Registrations</h1>
+            <h1 className="font-bebas text-8xl tracking-normal text-cream uppercase">Registrations</h1>
 
-            <table border={1} cellPadding={10}>
+            <table className="w-full text-left mt-8 border-separate border-spacing-y-2">
 
-                <thead>
+                <thead className="text-gold-soft uppercase tracking-wider text-sm">
 
                     <tr>
 
-                        <th>ID</th>
-                        <th>CKC ID</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th>Gender</th>
-                        <th>Pass</th>
-                        <th>Verified</th>
-                        <th>Screenshot</th>
-                        <th>Actions</th>
+                        <th className="px-4 py-3 text-gold-soft">CKC ID</th>
+                        <th className="px-4 py-3 text-gold-soft">Name</th>
+                        <th className="px-4 py-3 text-gold-soft">Email</th>
+                        <th className="px-4 py-3 text-gold-soft">Phone</th>
+                        <th className="px-4 py-3 text-gold-soft">Gender</th>
+                        <th className="px-4 py-3 text-gold-soft">Pass</th>
+                        <th className="px-4 py-3 text-gold-soft">Verified</th>
+                        <th className="px-4 py-3 text-gold-soft">Screenshot</th>
+                        <th className="px-4 py-3 text-gold-soft">Actions</th>
 
                     </tr>
 
@@ -62,41 +61,61 @@ export default function Admin() {
 
                     {registrations.map((r) => (
 
-                        <tr key={r.id}>
+                        <tr key={r.id}  className="bg-white/5 hover:bg-white/10 transition">
 
-                            <td>{r.id}</td>
+                            <td className="px-4 py-4">{r.ckc_id}</td>
 
-                            <td>{r.ckc_id}</td>
+                            <td className="px-4 py-4">{r.name}</td>
 
-                            <td>{r.name}</td>
+                            <td className="px-4 py-4">{r.email}</td>
 
-                            <td>{r.email}</td>
+                            <td className="px-4 py-4">{r.phone}</td>
 
-                            <td>{r.phone}</td>
+                            <td className="px-4 py-4">{r.gender}</td>
 
-                            <td>{r.gender}</td>
+                            <td className="px-4 py-4">{r.pass_type}</td>
 
-                            <td>{r.pass_type}</td>
+                            <td className="px-4 py-4">
+                                {r.verified ? (
+                                    <span className="text-green-400 font-semibold">
+                                        ✓ Verified
+                                    </span>
+                                ) : (
+                                    <span className="text-red-400 font-semibold">
+                                        Pending
+                                    </span>
+                                )}
+                            </td>
 
-                            <td>{r.verified ? "✅" : "❌"}</td>
-
-                            <td>
+                            <td className="px-4 py-4">
 
                                 <a
                                     href={r.payment_screenshot}
                                     target="_blank"
                                     rel="noopener noreferrer"
+                                    className="text-primary hover:text-gold-soft transition"
                                 >
                                     View
                                 </a>
 
                             </td>
 
-                            <td>
+                            <td className="px-4 py-4">
 
-                                <button
-
-                                    disabled={r.verified}
+                                    <button
+                                        disabled={r.verified}
+                                        className={`
+                                            rounded-lg
+                                            px-4
+                                            py-2
+                                            font-medium
+                                            transition
+                                            ${
+                                                r.verified
+                                                    ? "bg-green-600/20 text-green-400 cursor-default"
+                                                    : "bg-primary text-white hover:bg-gold-soft hover:text-black"
+                                            }
+                                        `}
 
                                     onClick={async () => {
 
