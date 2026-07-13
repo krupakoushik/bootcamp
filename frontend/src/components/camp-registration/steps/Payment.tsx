@@ -1,5 +1,7 @@
 import type { FormData } from "../types";
 
+import { useState } from "react";
+
 import posthog from "@/lib/posthog";
 
 import paymentQR from "@/assets/seminar/payment.jpeg";
@@ -11,17 +13,22 @@ type Props = {
     setFormData: React.Dispatch<React.SetStateAction<FormData>>;
 };
 
+
 const API = "https://bootcamp-m8yr.onrender.com";
 
 const UPI_ID = "vyapar.175693718407@hdfcbank";
 const PAYEE_NAME = "CHENNAI KENDO CLUB";
 
+
 export default function Payment({
+
     next,
     previous,
     formData,
     setFormData,
 }: Props) {
+
+    const [loading, setLoading] = useState(false);
 
     const NOTE = `CKC Bootcamp 2K26`;
 
@@ -34,15 +41,20 @@ export default function Payment({
 
     const submitRegistration = async () => {
 
+        if (loading) return;
+
+        setLoading(true);
+
         try {
 
             if (!formData.paymentScreenshot) {
-
                 alert("Please upload your payment screenshot.");
-
                 return;
-
             }
+
+            if (loading) return;
+
+            setLoading(true);
 
             const data = new FormData();
 
@@ -77,10 +89,9 @@ export default function Payment({
             console.log(result);
 
             if (!response.ok) {
-                throw new Error(JSON.stringify(result));
+                throw new Error(result.detail || "Something went wrong.");
             }
 
-            // 👇 Registration succeeded
             posthog.identify(formData.email, {
                 name: formData.name,
                 email: formData.email,
@@ -103,7 +114,9 @@ export default function Payment({
 
             if (err instanceof Error) {
 
-                alert(err.message);
+                alert(
+                    err.message.replace(/"/g, "")
+                );
 
             }
 
@@ -112,6 +125,12 @@ export default function Payment({
                 alert("Unknown error.");
 
             }
+
+        }
+
+        finally {
+
+            setLoading(false);
 
         }
 
@@ -153,11 +172,11 @@ export default function Payment({
                         Scan the QR code using any UPI application or tap the
                         button below to open your preferred payment app.
                     </p>
-
                     <button
                         onClick={() => {
                             window.location.href = upiLink;
                         }}
+                        disabled={loading}
                         className="mt-10 bg-primary hover:bg-gold-soft transition duration-300 rounded-2xl px-10 py-4 font-bebas tracking-[0.25em]"
                     >
                         PAY USING UPI →
@@ -269,10 +288,33 @@ export default function Payment({
 
             </div>
 
+            {loading && (
+
+                    <div className="mt-8 rounded-xl border border-gold-soft/30 bg-gold-soft/10 p-5">
+
+                        <p className="text-gold-soft font-medium">
+
+                            Uploading your payment screenshot...
+
+                        </p>
+
+                        <p className="text-white/60 mt-2 text-sm">
+
+                            This may take 10–20 seconds depending on your internet connection.
+                            Please don't close this page.
+
+                        </p>
+
+                    </div>
+
+            )}
+
+
             <div className="flex justify-between mt-5">
 
                 <button
                     onClick={previous}
+                    disabled={loading}
                     className="text-gold-soft hover:text-cream transition"
                 >
                     ← Back
@@ -280,10 +322,35 @@ export default function Payment({
 
                 <button
                     onClick={submitRegistration}
-                    disabled={!formData.email.trim()}
+                    disabled={loading || !formData.email.trim()}
                     className="bg-primary disabled:bg-white/10 disabled:text-white/30 disabled:cursor-not-allowed px-10 py-4 rounded-xl font-anton uppercase tracking-[0.35em] hover:bg-gold-soft transition"
                 >
-                    SUBMIT →
+                {loading ? (
+                    <>
+                        <svg
+                            className="animate-spin h-5 w-5 inline mr-3"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                        >
+                            <circle
+                                cx="12"
+                                cy="12"
+                                r="10"
+                                stroke="currentColor"
+                                strokeWidth="4"
+                                className="opacity-20"
+                            />
+                            <path
+                                fill="currentColor"
+                                d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                            />
+                        </svg>
+
+                        PROCESSING REGISTRATION...
+                    </>
+                ) : (
+                    "SUBMIT →"
+                )}
                 </button>
 
             </div>

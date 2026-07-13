@@ -79,7 +79,7 @@ export default function Passes() {
                             </p>
                             </div>
                         <ul className="space-y-4 mt-6 text-cream">
-                            <li><span className="text-gold-soft"> 𒉽 </span> Everything included in the Patron Pass</li>
+                            <li><span className="text-gold-soft"> 𒉽 </span> Everything included in the Supporter Pass</li>
                             <li><span className="text-gold-soft"> 𒉽 </span> Limited Edition CKC Collectors Keychain</li>
                             <li><span className="text-gold-soft"> 𒉽 </span> One Complimentary Beginner Pass for a Guest</li>
                             <li><span className="text-gold-soft"> 𒉽 </span> Recognition during the Closing Ceremony</li>

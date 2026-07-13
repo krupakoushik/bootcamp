@@ -32,7 +32,7 @@ class Registration(Base):
 
     name = Column(String(100), nullable=False)
     email = Column(String(100), nullable=False, index=True)
-    phone = Column(String(20), nullable=False)
+    phone = Column(String(12), unique=True, nullable=False, index=True)
     gender = Column(String(20))
 
     emergency_name = Column(String(100))
