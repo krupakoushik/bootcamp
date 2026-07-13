@@ -1,4 +1,5 @@
-import { useState } from "react";
+import posthog from "@/lib/posthog";
+import { useEffect, useState } from "react";
 
 import Name from "./steps/Name";
 import Email from "./steps/Email";
@@ -10,6 +11,21 @@ import Waiver from "./steps/Waiver";
 import Choose from "./steps/Choose";
 import Payment from "./steps/Payment";
 import Success from "./steps/Success";
+
+
+
+const steps = [
+        { component: Name, name: "Name" },
+        { component: Email, name: "Email" },
+        { component: Phone, name: "Phone" },
+        { component: Gender, name: "Gender" },
+        { component: Emergency, name: "Emergency" },
+        { component: Medical, name: "Medical" },
+        { component: Waiver, name: "Waiver" },
+        { component: Choose, name: "Choose Pass" },
+        { component: Payment, name: "Payment" },
+        { component: Success, name: "Success" },
+];
 
 export default function Registration() {
     const [step, setStep] = useState(0);
@@ -41,20 +57,20 @@ export default function Registration() {
         setStep((prev) => prev - 1);
     };
 
-    const steps = [
-        Name,
-        Email,
-        Phone,
-        Gender,
-        Emergency,
-        Medical,
-        Waiver,
-        Choose,
-        Payment,
-        Success,
-    ];
+    const CurrentStep = steps[step].component;
 
-    const CurrentStep = steps[step];
+    useEffect(() => {
+        posthog.capture("registration_started");
+    }, []);
+
+    useEffect(() => {
+        posthog.capture("registration_step", {
+            step_number: step + 1,
+            step_name: steps[step].name,
+        });
+    }, [step]);    
+
+
 
     return (
         <CurrentStep

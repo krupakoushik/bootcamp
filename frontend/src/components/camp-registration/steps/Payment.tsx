@@ -1,5 +1,7 @@
 import type { FormData } from "../types";
 
+import posthog from "@/lib/posthog";
+
 import paymentQR from "@/assets/seminar/payment.jpeg";
 
 type Props = {
@@ -75,10 +77,20 @@ export default function Payment({
             console.log(result);
 
             if (!response.ok) {
-
                 throw new Error(JSON.stringify(result));
-
             }
+
+            // 👇 Registration succeeded
+            posthog.identify(formData.email, {
+                name: formData.name,
+                email: formData.email,
+                pass: formData.pass,
+            });
+
+            posthog.capture("registration_completed", {
+                pass: formData.pass,
+            });            
+
 
             next();
 
@@ -87,6 +99,7 @@ export default function Payment({
         catch (err) {
 
             console.error(err);
+            posthog.capture("registration_failed");
 
             if (err instanceof Error) {
 

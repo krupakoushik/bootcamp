@@ -7,7 +7,10 @@ type Props = {
 export default function Success({
     formData,
 }: Props) {
+
     return (
+
+
         <div className="rounded-3xl border border-gold-soft/50 bg-white/5 backdrop-blur-xl p-10 lg:p-14 text-cream">
 
             <p className="font-anton tracking-[0.5em] uppercase text-gold-soft text-xs">

@@ -1,6 +1,7 @@
 import BG from "@/assets/seminar/seminar-bg.png";
 import Text from "@/assets/seminar/bootcamp-removebg.png"
 import Countdown from "./Countdown.tsx"
+import posthog from "@/lib/posthog";
 
 
 export default function Boocamp() {
@@ -37,7 +38,16 @@ export default function Boocamp() {
             {/* CTA buttons */}
             <div className="mt-5">
                 <button 
-                onClick={() => document.getElementById("registration")?.scrollIntoView({behavior: "smooth",  block: "start"})} 
+                onClick={() => {
+                    posthog.capture("hero_register_clicked");
+
+                    document
+                        .getElementById("registration")
+                        ?.scrollIntoView({
+                            behavior: "smooth",
+                            block: "start",
+                        });
+                }}
                 className="bg-primary font-bebas text-cream font-extrabold px-24 py-4 rounded-2xl tracking-[0.3em] hover:bg-gold-soft  transition duration-300">
                     REGISTER →
                 </button>
