@@ -37,7 +37,7 @@ export default function Emergency({
                     <input
                         type="text"
                         autoFocus
-                        placeholder="Emergency Contact Name"
+                        placeholder="Name"
                         value={formData.emergencyName}
                         onChange={(e) =>
                             setFormData({
@@ -50,7 +50,7 @@ export default function Emergency({
 
                     <input
                         type="tel"
-                        placeholder="Emergency Contact Number"
+                        placeholder="Contact Number"
                         value={formData.emergencyPhone}
                         onChange={(e) =>
                             setFormData({
