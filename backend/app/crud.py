@@ -71,3 +71,34 @@ def create_registration(
             status_code=409,
             detail="You have already registered using this phone number."
         )
+
+def verify_registration(
+    db: Session,
+    registration_id: int,
+):
+
+    registration = (
+        db.query(Registration)
+        .filter(Registration.id == registration_id)
+        .first()
+    )
+
+    if registration is None:
+
+        return None
+
+    if registration.verified:
+
+        return registration
+
+    registration.qr_code = generate_qr(
+        registration
+    )
+
+    registration.verified = True
+
+    db.commit()
+
+    db.refresh(registration)
+
+    return registration
