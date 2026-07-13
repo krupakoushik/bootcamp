@@ -69,7 +69,7 @@ def create_registration(
 
         raise HTTPException(
             status_code=409,
-            detail="You have already registered using this phone number."
+            detail="This phone number is already registered."
         )
 
 def verify_registration(
