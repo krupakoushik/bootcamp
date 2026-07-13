@@ -54,35 +54,86 @@ export default function AdminLogin() {
 
     return (
 
-        <div>
+        <div className="min-h-screen flex items-center justify-center px-6">
 
-            <input
+            <div className="w-full max-w-md rounded-3xl border border-gold-soft/50 bg-white/5 backdrop-blur-xl p-10 text-cream">
 
-                placeholder="Username"
+                <h1 className="font-bebas text-7xl text-center">
+                    ADMIN
+                </h1>
 
-                value={username}
+                <p className="text-white/50 text-center mt-2">
+                    Chennai Kendo Club
+                </p>
 
-                onChange={(e) => setUsername(e.target.value)}
+                <div className="mt-10 space-y-5">
 
-            />
+                    <input
+                        type="text"
+                        placeholder="Username"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        className="
+                            w-full
+                            rounded-xl
+                            bg-white/10
+                            border
+                            border-white/10
+                            px-5
+                            py-4
+                            outline-none
+                            focus:border-primary
+                            text-white
+                            placeholder:text-white/40
+                        "
+                    />
 
-            <input
+                    <input
+                        type="password"
+                        placeholder="Password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        className="
+                            w-full
+                            rounded-xl
+                            bg-white/10
+                            border
+                            border-white/10
+                            px-5
+                            py-4
+                            outline-none
+                            focus:border-primary
+                            text-white
+                            placeholder:text-white/40
+                        "
+                    />
 
-                type="password"
+                </div>
 
-                placeholder="Password"
+                <button
+                    onClick={login}
+                    disabled={!username.trim() || !password.trim()}
+                    className="
+                        mt-8
+                        w-full
+                        rounded-xl
+                        bg-primary
+                        py-4
+                        font-anton
+                        tracking-[0.3em]
+                        uppercase
+                        transition
+                        disabled:bg-white/10
+                        disabled:text-white/30
+                        disabled:cursor-not-allowed
+                        hover:bg-gold-soft
+                        hover:text-black
+                    "
+                >
+                    Login
+                </button>
 
-                value={password}
-
-                onChange={(e) => setPassword(e.target.value)}
-
-            />
-
-            <button onClick={login}>
-
-                Login
-
-            </button>
+            </div>
 
         </div>
 

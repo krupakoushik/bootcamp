@@ -48,6 +48,8 @@ export default function Admin() {
                         <th className="px-4 py-3 text-gold-soft">Email</th>
                         <th className="px-4 py-3 text-gold-soft">Phone</th>
                         <th className="px-4 py-3 text-gold-soft">Gender</th>
+                        <th className="px-4 py-3 text-gold-soft">Emergency</th>
+                        <th className="px-4 py-3 text-gold-soft">Note</th>
                         <th className="px-4 py-3 text-gold-soft">Pass</th>
                         <th className="px-4 py-3 text-gold-soft">Verified</th>
                         <th className="px-4 py-3 text-gold-soft">Screenshot</th>
@@ -72,6 +74,10 @@ export default function Admin() {
                             <td className="px-4 py-4">{r.phone}</td>
 
                             <td className="px-4 py-4">{r.gender}</td>
+
+                            <td className="px-4 py-4">{r.emergency_phone}</td>
+
+                            <td className="px-4 py-4">{r.medical}</td>
 
                             <td className="px-4 py-4">{r.pass_type}</td>
 
