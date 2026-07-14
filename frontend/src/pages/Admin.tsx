@@ -96,7 +96,7 @@ export default function Admin() {
 
                         </p>
 
-                        <h1 className="font-bebas text-7xl lg:text-8xl leading-none mt-3">
+                        <h1 className="font-bebas text-6xl lg:text-8xl leading-none mt-3">
 
                             Registrations
 
