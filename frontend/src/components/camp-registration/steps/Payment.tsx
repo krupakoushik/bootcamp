@@ -21,6 +21,7 @@ const UPI_ID = "vyapar.175693718407@hdfcbank";
 const PAYEE_NAME = "CHENNAI KENDO CLUB";
 
 
+
 export default function Payment({
 
     next,
@@ -32,6 +33,13 @@ export default function Payment({
     const [loading, setLoading] = useState(false);
 
     const NOTE = `CKC Bootcamp 2K26`;
+
+    const PASS_NAMES: Record<string, string> = {
+        "3000": "Beginner Pass",
+        "5000": "Supporter Pass",
+        "8000": "Patron Pass",
+    };
+
 
     const upiLink =
         `upi://pay?pa=${UPI_ID}` +
@@ -66,7 +74,10 @@ export default function Payment({
 
             data.append("medical", formData.medical);
 
-            data.append("pass_type", formData.pass);
+            data.append(
+                "pass_type",
+                PASS_NAMES[formData.pass]
+            );
 
             data.append(
                 "payment_screenshot",
