@@ -13,6 +13,7 @@ export interface FormData {
     waiver: boolean;
 
     pass: string;
+    amount: string;
 
     paymentScreenshot: File | null;
 }

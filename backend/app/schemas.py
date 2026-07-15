@@ -16,6 +16,8 @@ class RegistrationCreate(BaseModel):
 
     pass_type: str
 
+    amount_paid: int
+
 
 class RegistrationResponse(RegistrationCreate):
 

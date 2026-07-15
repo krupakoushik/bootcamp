@@ -42,6 +42,8 @@ class Registration(Base):
 
     pass_type = Column(String(30), nullable=False)
 
+    amount_paid = Column(Integer, nullable=False, default=2500)
+
     payment_screenshot = Column(String(500))
 
     verified = Column(Boolean, default=False)
@@ -51,8 +53,7 @@ class Registration(Base):
     day1_attended = Column(Boolean, default=False)
     day2_attended = Column(Boolean, default=False)
 
-    certificate_generated = Column(Boolean, default=False)
-    certificate_sent = Column(Boolean, default=False)
+    email_sent = Column(Boolean, default=False)
 
     created_at = Column(
         DateTime(timezone=True),

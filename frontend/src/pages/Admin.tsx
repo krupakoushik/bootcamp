@@ -13,6 +13,11 @@ export default function Admin() {
     const [loading, setLoading] = useState(true);
     const [search, setSearch] = useState("");
     const [selected, setSelected] = useState<Registration | null>(null);
+    const [previewImage, setPreviewImage] = useState<string | null>(null);
+
+    const [filter, setFilter] = useState<
+        "all" | "pending" | "verified"
+    >("all");
 
     const refreshRegistrations = useCallback(async () => {
 
@@ -52,23 +57,25 @@ export default function Admin() {
     }, [refreshRegistrations]);
 
     const filteredRegistrations = useMemo(() => {
+        return registrations
+            .filter((r) => {
+                if (filter === "pending")
+                    return !r.verified;
+                if (filter === "verified")
+                    return r.verified;
+                return true;
+            })
 
-        return registrations.filter((r) => {
-
-            const q = search.toLowerCase();
-
-            return (
-
-                r.name.toLowerCase().includes(q) ||
-                r.phone.includes(q) ||
-                r.email.toLowerCase().includes(q) ||
-                r.ckc_id.toLowerCase().includes(q)
-
-            );
-
-        });
-
-    }, [registrations, search]);
+            .filter((r) => {
+                const q = search.toLowerCase();
+                return (
+                    r.name.toLowerCase().includes(q) ||
+                    r.phone.includes(q) ||
+                    r.email.toLowerCase().includes(q) ||
+                    r.ckc_id.toLowerCase().includes(q)
+                );
+            });
+    }, [registrations, search, filter]);
 
     if (!token) {
 
@@ -83,35 +90,23 @@ export default function Admin() {
     return (
 
         <div className="max-w-7xl mx-auto p-6 text-cream">
-
             <div className="rounded-3xl border border-gold-soft/40 bg-white/5 backdrop-blur-xl p-8">
-
+                
                 <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
-
                     <div>
-
                         <p className="font-anton tracking-[0.45em] uppercase text-gold-soft text-xs">
-
                             Chennai Kendo Club
-
                         </p>
 
                         <h1 className="font-bebas text-6xl lg:text-8xl leading-none mt-3">
-
                             Registrations
-
                         </h1>
-
                     </div>
 
                     <input
-
                         value={search}
-
                         onChange={(e) => setSearch(e.target.value)}
-
                         placeholder="Search by Name, Email, Phone or CKC ID"
-
                         className="
                             w-full
                             lg:w-96
@@ -125,87 +120,114 @@ export default function Admin() {
                             placeholder:text-white/30
                             focus:border-primary
                         "
-
                     />
-
                 </div>
 
                 <div className="grid md:grid-cols-3 gap-5 mt-10">
+                    <div
+                        onClick={() => setFilter("all")}
+                        className={`
+                            rounded-2xl
+                            border
+                            p-6
+                            cursor-pointer
+                            transition
+                            ${
+                                filter === "all"
 
-                    <div className="rounded-2xl border border-gold-soft/20 bg-white/5 p-6">
+                                    ? "border-primary bg-primary/10"
 
-                        <p className="text-white/50 uppercase tracking-[0.25em] text-xs">
-
-                            Total
-
-                        </p>
-
+                                    : "border-gold-soft/20 bg-white/5 hover:border-primary"
+                            }
+                        `}
+                    >
+                        <div>
+                            <p className="text-white/50 uppercase tracking-[0.25em] text-xs">
+                                Total
+                            </p>
+                            <p className="text-xs mt-2 opacity-60">
+                                Click to filter
+                            </p>
+                        </div>
                         <h2 className="font-bebas text-6xl mt-2">
-
                             {total}
-
                         </h2>
-
                     </div>
 
-                    <div className="rounded-2xl border border-green-500/20 bg-green-500/5 p-6">
+                    <div
+                        onClick={() => setFilter("verified")}
+                        className={`
+                            rounded-2xl
+                            border
+                            p-6
+                            cursor-pointer
+                            transition
+                            ${
+                                filter === "verified"
 
-                        <p className="text-green-300 uppercase tracking-[0.25em] text-xs">
+                                    ? "border-green-400 bg-green-500/15"
 
-                            Verified
-
-                        </p>
-
+                                    : "border-green-500/20 bg-green-500/5 hover:border-green-400"
+                            }
+                        `}
+                    >
+                        <div>
+                            <p className="text-green-300 uppercase tracking-[0.25em] text-xs">
+                                Verified
+                            </p>
+                            <p className="text-xs mt-2 opacity-60">
+                                Click to filter
+                            </p>
+                        </div>
                         <h2 className="font-bebas text-6xl mt-2 text-green-400">
-
                             {verified}
-
                         </h2>
-
                     </div>
 
-                    <div className="rounded-2xl border border-red-500/20 bg-red-500/5 p-6">
+                    <div
+                        onClick={() => setFilter("pending")}
+                        className={`
+                            rounded-2xl
+                            border
+                            p-6
+                            cursor-pointer
+                            transition
+                            ${
+                                filter === "pending"
 
-                        <p className="text-red-300 uppercase tracking-[0.25em] text-xs">
+                                    ? "border-red-400 bg-red-500/15"
 
-                            Pending
-
-                        </p>
-
+                                    : "border-red-500/20 bg-red-500/5 hover:border-red-400"
+                            }
+                        `}
+                    >
+                        <div>
+                            <p className="text-red-300 uppercase tracking-[0.25em] text-xs">
+                                Pending
+                            </p>
+                            <p className="text-xs mt-2 opacity-60">
+                                Click to filter
+                            </p>
+                        </div>
                         <h2 className="font-bebas text-6xl mt-2 text-red-400">
-
                             {pending}
-
                         </h2>
-
                     </div>
-
                 </div>
 
                 {loading && (
-
                     <div className="text-center py-20">
-
                         <p className="text-white/60">
-
                             Loading registrations...
-
                         </p>
-
                     </div>
-
                 )}
 
                 {!loading && (
-
                     <div className="grid gap-5 mt-10">
-
-                        {filteredRegistrations.map((r) => (
-
+                        {filteredRegistrations.map((r, index) => (
                             <div
-
                                 key={r.id}
-
                                 className="
                                     rounded-3xl
                                     border
@@ -215,208 +237,152 @@ export default function Admin() {
                                     hover:border-primary
                                     transition
                                 "
-
                             >
-
                                 <div className="flex flex-col lg:flex-row lg:justify-between gap-6">
-
                                     <div className="space-y-4">
+                                        <div className="flex items-center gap-6">
+ 
+                                            <div>
+                                                <p className="text-white/40 uppercase text-xs">
+                                                    Participant
+                                                </p>
+                                                <p className="font-bebas text-4xl">
+                                                    #{index + 1}
+                                                </p>
+                                            </div>
 
-                                        <div>
-
-                                            <p className="text-gold-soft text-xs uppercase tracking-[0.35em]">
-
-                                                CKC ID
-
-                                            </p>
-
-                                            <p className="font-bebas text-3xl">
-
-                                                {r.ckc_id}
-
-                                            </p>
-
+                                            <div>
+                                                <p className="text-gold-soft text-xs uppercase tracking-[0.35em]">
+                                                    CKC ID
+                                                </p>
+                                                <p className="font-bebas text-3xl">
+                                                    {r.ckc_id}
+                                                </p>
+                                            </div>
                                         </div>
 
                                         <div>
-
                                             <h3 className="font-bebas text-5xl leading-none">
-
                                                 {r.name}
-
                                             </h3>
-
                                         </div>
 
                                         <div className="grid md:grid-cols-2 gap-5">
-
                                             <div>
-
                                                 <p className="text-white/40 text-xs uppercase">
-
                                                     Email
-
                                                 </p>
-
                                                 <p className="break-all">
-
                                                     {r.email}
-
                                                 </p>
-
                                             </div>
 
                                             <div>
-
                                                 <p className="text-white/40 text-xs uppercase">
-
                                                     Phone
-
                                                 </p>
-
                                                 <p>
-
                                                     {r.phone}
-
                                                 </p>
-
                                             </div>
 
                                             <div>
-
                                                 <p className="text-white/40 text-xs uppercase">
-
                                                     Gender
-
                                                 </p>
-
                                                 <p>
-
                                                     {r.gender || "-"}
-
                                                 </p>
-
                                             </div>
 
                                             <div>
-
                                                 <p className="text-white/40 text-xs uppercase">
-
                                                     Pass
-
                                                 </p>
-
-                                                <span className="inline-block rounded-full bg-primary/20 text-primary px-3 py-1">
-
+                                                <span
+                                                className={`inline-block rounded-full px-4 py-1 font-semibold ${
+                                                    r.pass_type === "Beginner Pass"
+                                                        ? "bg-blue-500/20 text-blue-300"
+                                                        : r.pass_type === "Supporter Pass"
+                                                        ? "bg-yellow-500/20 text-yellow-300"
+                                                        : "bg-purple-500/20 text-purple-300"
+                                                }`}
+                                                >
                                                     {r.pass_type}
-
                                                 </span>
+                                            </div>
 
+                                            <div>
+                                                <p className="text-white/40 text-xs uppercase">
+                                                    Amount Received
+                                                </p>
+                                                <p className="font-bebas text-5xl text-gold-soft">
+                                                    ₹{r.amount_paid}
+                                                </p>
                                             </div>
 
                                         </div>
-
                                     </div>
 
                                     <div className="flex flex-col justify-between gap-5 min-w-57.5">
+                                    <div>
+                                        {r.verified ? (
+                                            <span className="inline-flex rounded-full bg-green-500/20 text-green-400 px-4 py-2 font-semibold">
+                                                ✅ VERIFIED
+                                            </span>
+                                        ) : (
+                                            <span className="inline-flex rounded-full bg-red-500/20 text-red-400 px-4 py-2 font-semibold">
+                                                ⏳ Pending Verification
+                                            </span>
+                                        )}
+                                    </div>
+                                   
 
-                                        <div>
+                                    <button
+                                        onClick={() => setPreviewImage(r.payment_screenshot)}
+                                        className="
+                                            rounded-xl
+                                            border
+                                            border-primary/30
+                                            bg-primary/10
+                                            px-5
+                                            py-3
+                                            text-center
+                                            hover:bg-primary/20
+                                            transition
+                                        "
+                                    >
+                                        🧾 Payment Proof
+                                    </button>
 
-                                            {r.verified ? (
-
-                                                <span className="inline-flex rounded-full bg-green-500/20 text-green-400 px-4 py-2">
-
-                                                    ✓ Verified
-
-                                                </span>
-
-                                            ) : (
-
-                                                <span className="inline-flex rounded-full bg-red-500/20 text-red-400 px-4 py-2">
-
-                                                    Pending Verification
-
-                                                </span>
-
-                                            )}
-
-                                        </div>
-
-                                        <a
-
-                                            href={r.payment_screenshot}
-
-                                            target="_blank"
-
-                                            rel="noopener noreferrer"
-
+                                    {!r.verified && (
+                                        <button
+                                            onClick={async () => {
+                                                await fetch(
+                                                    `${API}/admin/verify/${r.id}`,
+                                                    {
+                                                        method: "POST",
+                                                        headers: {
+                                                            Authorization: `Bearer ${token}`,
+                                                        },
+                                                    }
+                                                );
+                                                await refreshRegistrations();
+                                            }}
                                             className="
                                                 rounded-xl
-                                                border
-                                                border-primary/30
-                                                bg-primary/10
-                                                px-5
                                                 py-3
-                                                text-center
-                                                hover:bg-primary/20
+                                                bg-primary
+                                                hover:bg-gold-soft
+                                                hover:text-black
                                                 transition
                                             "
-
                                         >
-
-                                            📷 View Screenshot
-
-                                        </a>
-
-                                        <button
-
-                                            disabled={r.verified}
-
-                                            onClick={async () => {
-
-                                                await fetch(
-
-                                                    `${API}/admin/verify/${r.id}`,
-
-                                                    {
-
-                                                        method: "POST",
-
-                                                        headers: {
-
-                                                            Authorization: `Bearer ${token}`,
-
-                                                        },
-
-                                                    }
-
-                                                );
-
-                                                await refreshRegistrations();
-
-                                            }}
-
-                                            className={`
-                                                rounded-xl
-                                                py-3
-                                                font-semibold
-                                                transition
-                                                ${
-                                                    r.verified
-                                                        ? "bg-green-500/20 text-green-400 cursor-default"
-                                                        : "bg-primary hover:bg-gold-soft hover:text-black"
-                                                }
-                                            `}
-
-                                        >
-
-                                            {r.verified ? "Verified" : "Verify"}
-
+                                            Verify Registration
                                         </button>
+                                    )}
                                         <button
-
                                             onClick={() => setSelected(r)}
-
                                             className="
                                                 rounded-xl
                                                 py-3
@@ -427,49 +393,32 @@ export default function Admin() {
                                             "
 
                                         >
-
-                                            Details
-
+                                            👁 View Details
                                         </button>
-
                                     </div>
-
                                 </div>
-
                             </div>
-
                         ))}
 
                         {!filteredRegistrations.length && (
-
                             <div className="rounded-3xl border border-gold-soft/20 bg-white/5 p-20 text-center">
-
                                 <p className="font-bebas text-5xl">
-
                                     No Registrations Found
-
                                 </p>
 
                                 <p className="text-white/50 mt-5">
-
                                     Try searching using a different name,
                                     email, phone number or CKC ID.
-
                                 </p>
-
                             </div>
-
                         )}
 
                     </div>
-
                 )}
-
             </div>
 
 {
     selected && (
-
         <div
             className="
                 fixed
@@ -484,7 +433,6 @@ export default function Admin() {
             "
             onClick={() => setSelected(null)}
         >
-
             <div
                 onClick={(e) => e.stopPropagation()}
                 className="
@@ -500,177 +448,121 @@ export default function Admin() {
                     overflow-y-auto
                 "
             >
-
                 <div className="flex justify-between items-start">
-
                     <div>
-
                         <p className="text-gold-soft uppercase tracking-[0.35em] text-xs">
-
                             Registration
-
                         </p>
 
                         <h2 className="font-bebas text-6xl mt-2">
-
                             {selected.name}
-
                         </h2>
 
                         <p className="text-white/40 mt-2">
-
                             {selected.ckc_id}
-
                         </p>
-
                     </div>
 
                     <button
-
                         onClick={() => setSelected(null)}
-
                         className="text-3xl hover:text-gold-soft"
-
                     >
-
                         ×
-
                     </button>
-
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-8 mt-10">
-
                     <div>
-
                         <p className="text-white/40 uppercase text-xs">
-
                             Email
-
                         </p>
-
                         <p>{selected.email}</p>
-
                     </div>
 
                     <div>
-
                         <p className="text-white/40 uppercase text-xs">
-
                             Phone
-
                         </p>
-
                         <p>{selected.phone}</p>
-
                     </div>
 
                     <div>
-
                         <p className="text-white/40 uppercase text-xs">
-
                             Gender
-
                         </p>
-
                         <p>{selected.gender || "-"}</p>
-
                     </div>
 
                     <div>
-
                         <p className="text-white/40 uppercase text-xs">
-
                             Pass
-
                         </p>
-
                         <p>{selected.pass_type}</p>
-
                     </div>
 
                     <div>
-
                         <p className="text-white/40 uppercase text-xs">
+                            Amount Received
+                        </p>
+                        <p className="font-bebas text-5xl text-gold-soft mt-2">
+                            ₹{selected.amount_paid}
+                        </p>
+                    </div>
 
+                    <div>
+                        <p className="text-white/40 uppercase text-xs">
                             Emergency Contact Name
-
                         </p>
-
                         <p>{selected.emergency_name || "-"}</p>
-
                     </div>
 
                     <div>
-
                         <p className="text-white/40 uppercase text-xs">
-
                             Emergency Contact Number
-
                         </p>
-
                         <p>{selected.emergency_phone || "-"}</p>
-
                     </div>
 
                     <div className="md:col-span-2">
-
                         <p className="text-white/40 uppercase text-xs">
-
                             Medical Notes
-
                         </p>
-
                         <p className="whitespace-pre-wrap">
-
                             {selected.medical || "-"}
-
                         </p>
-
                     </div>
 
                     <div>
-
                         <p className="text-white/40 uppercase text-xs">
-
                             Day 1
-
                         </p>
-
                         <p>
-
                             {selected.day1_attended ? "✅ Present" : "❌ Absent"}
-
                         </p>
-
                     </div>
 
                     <div>
-
                         <p className="text-white/40 uppercase text-xs">
-
                             Day 2
-
                         </p>
-
                         <p>
-
                             {selected.day2_attended ? "✅ Present" : "❌ Absent"}
-
                         </p>
+                    </div>
 
+                    <div>
+                        <p className="text-white/40 uppercase text-xs">
+                            Registered
+                        </p>
+                        <p>
+                            {new Date(selected.created_at).toLocaleString()}
+                        </p>
                     </div>
 
                 </div>
 
-                <a
-
-                    href={selected.payment_screenshot}
-
-                    target="_blank"
-
-                    rel="noopener noreferrer"
-
+                <button
+                    onClick={() => setPreviewImage(selected.payment_screenshot)}
                     className="
                         mt-10
                         inline-block
@@ -681,23 +573,45 @@ export default function Admin() {
                         hover:bg-gold-soft
                         transition
                     "
-
                 >
-
-                    View Payment Screenshot
-
-                </a>
-
+                    🧾 Payment Proof
+                </button>
             </div>
-
         </div>
 
     )
 }
 
+{
+    previewImage && (
+        <div
+            className="
+                fixed
+                inset-0
+                bg-black/80
+                backdrop-blur-sm
+                flex
+                items-center
+                justify-center
+                z-50
+                p-5
+            "
+            onClick={() => setPreviewImage(null)}
+        >
+            <img
+                src={previewImage}
+                className="
+                    max-w-5xl
+                    max-h-[90vh]
+                    rounded-3xl
+                    shadow-2xl
+                "
+                onClick={(e) => e.stopPropagation()}
+            />
+        </div>
+    )
+}
 
         </div>
-
     );
-
 }

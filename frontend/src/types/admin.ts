@@ -16,6 +16,7 @@ export interface Registration {
     medical: string;
 
     pass_type: string;
+    amount_paid: string;
 
     payment_screenshot: string;
 
@@ -26,8 +27,7 @@ export interface Registration {
     day1_attended: boolean;
     day2_attended: boolean;
 
-    certificate_generated: boolean;
-    certificate_sent: boolean;
+    email_sent: boolean;
 
     created_at: string;
 }

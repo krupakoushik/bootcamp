@@ -27,6 +27,8 @@ def register(
 
     pass_type: str = Form(...),
 
+    amount_paid: int = Form(...),
+
     payment_screenshot: UploadFile = File(...),
 
     db: Session = Depends(get_db),
@@ -44,6 +46,7 @@ def register(
         "emergency_phone": emergency_phone,
         "medical": medical,
         "pass_type": pass_type,
+        "amount_paid": amount_paid,
         "payment_screenshot": payment_url,
     }
 

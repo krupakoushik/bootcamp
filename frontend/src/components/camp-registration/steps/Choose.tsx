@@ -45,6 +45,7 @@ export default function Choose({
                                 setFormData({
                                     ...formData,
                                     pass: pass.price,
+                                    amount: pass.price,
                                 })
                             }
                             className={`rounded-3xl border p-8 transition ${

@@ -44,6 +44,7 @@ export default function Payment({
     const upiLink =
         `upi://pay?pa=${UPI_ID}` +
         `&pn=${encodeURIComponent(PAYEE_NAME)}` +
+        `&am=${formData.amount}` +
         `&cu=INR` +
         `&tn=${encodeURIComponent(NOTE)}`;
 
@@ -79,6 +80,11 @@ export default function Payment({
             );
 
             data.append(
+                "amount_paid",
+                formData.amount
+            );
+
+            data.append(
                 "payment_screenshot",
                 formData.paymentScreenshot
             );
@@ -102,12 +108,14 @@ export default function Payment({
             posthog.identify(formData.email, {
                 name: formData.name,
                 email: formData.email,
-                pass: formData.pass,
+                pass: PASS_NAMES[formData.pass],
+                amount: formData.amount,
             });
 
             posthog.capture("registration_completed", {
-                pass: formData.pass,
-            });            
+                pass: PASS_NAMES[formData.pass],
+                amount: formData.amount,
+            });         
 
 
             next();
@@ -176,9 +184,40 @@ export default function Payment({
                     </h2>
 
                     <p className="text-white/70 mt-6 leading-8">
-                        Scan the QR code using any UPI application or tap the
-                        button below to open your preferred payment app.
+                        Scan the QR code or use your preferred UPI application to complete your payment.
                     </p>
+
+                    <div className="mt-10">
+
+                        <p className="font-anton tracking-[0.3em] uppercase text-gold-soft text-xs">
+                            CONFIRM THE AMOUNT YOU ARE PAYING
+                        </p>
+
+                        <input
+                            type="number"
+                            min="1"
+                            value={formData.amount}
+                            onChange={(e) =>
+                                setFormData({
+                                    ...formData,
+                                    amount: e.target.value,
+                                })
+                            }
+                            className="
+                                mt-4
+                                w-72
+                                bg-transparent
+                                border-b
+                                border-gold-soft
+                                pb-4
+                                text-6xl
+                                font-bebas
+                                outline-none
+                                focus:border-primary
+                            "
+                        />
+
+                        </div>
                     <button
                         onClick={() => {
                             window.location.href = upiLink;
@@ -307,7 +346,7 @@ export default function Payment({
 
                         <p className="text-white/60 mt-2 text-sm">
 
-                            This may take 10–20 seconds depending on your internet connection.
+                            This may take 30-60 seconds to train your patience levels.
                             Please don't close this page.
 
                         </p>

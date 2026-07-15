@@ -44,6 +44,8 @@ def create_registration(
         medical=registration["medical"],
 
         pass_type=registration["pass_type"],
+        
+        amount_paid=registration["amount_paid"],
 
         payment_screenshot=registration["payment_screenshot"],
 
