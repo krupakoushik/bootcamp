@@ -35,7 +35,7 @@ export default function Payment({
     const NOTE = `CKC Bootcamp 2K26`;
 
     const PASS_NAMES: Record<string, string> = {
-        "0": "Beginner Pass",
+        "2500": "Beginner Pass",
         "5000": "Supporter Pass",
         "8000": "Patron Pass",
     };
@@ -44,7 +44,6 @@ export default function Payment({
     const upiLink =
         `upi://pay?pa=${UPI_ID}` +
         `&pn=${encodeURIComponent(PAYEE_NAME)}` +
-        `&am=${encodeURIComponent(PAYEE_NAME)}` +
         `&cu=INR` +
         `&tn=${encodeURIComponent(NOTE)}`;
 
