@@ -44,7 +44,7 @@ export default function Payment({
     const upiLink =
         `upi://pay?pa=${UPI_ID}` +
         `&pn=${encodeURIComponent(PAYEE_NAME)}` +
-        `&am=${formData.pass}` +
+        `&am=${encodeURIComponent(PAYEE_NAME)}` +
         `&cu=INR` +
         `&tn=${encodeURIComponent(NOTE)}`;
 
