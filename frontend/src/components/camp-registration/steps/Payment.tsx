@@ -35,7 +35,7 @@ export default function Payment({
     const NOTE = `CKC Bootcamp 2K26`;
 
     const PASS_NAMES: Record<string, string> = {
-        "3000": "Beginner Pass",
+        "0": "Beginner Pass",
         "5000": "Supporter Pass",
         "8000": "Patron Pass",
     };

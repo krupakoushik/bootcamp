@@ -12,7 +12,7 @@ export default function Passes() {
 
                                 <h2 className="font-bebas text-9xl text-cream">
 
-                                    ₹3000
+                                    ₹2500
 
                                 </h2>
 
