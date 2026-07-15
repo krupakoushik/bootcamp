@@ -585,29 +585,29 @@ export default function Admin() {
 {
     previewImage && (
         <div
+            onClick={() => setPreviewImage(null)}
             className="
                 fixed
                 inset-0
-                bg-black/80
-                backdrop-blur-sm
+                z-50
+                bg-black
                 flex
                 items-center
                 justify-center
-                z-50
-                p-5
+                p-4
             "
-            onClick={() => setPreviewImage(null)}
         >
+
             <img
                 src={previewImage}
+                onClick={() => setPreviewImage(null)}
                 className="
-                    max-w-5xl
-                    max-h-[90vh]
-                    rounded-3xl
-                    shadow-2xl
+                    max-w-full
+                    max-h-full
+                    object-contain
                 "
-                onClick={(e) => e.stopPropagation()}
             />
+
         </div>
     )
 }
