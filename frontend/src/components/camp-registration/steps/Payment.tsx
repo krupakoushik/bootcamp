@@ -6,6 +6,8 @@ import posthog from "@/lib/posthog";
 
 import paymentQR from "@/assets/seminar/payment.jpeg";
 
+import { toast } from "sonner";
+
 
 type Props = {
     next: () => void;
@@ -17,8 +19,7 @@ type Props = {
 
 const API = "https://bootcamp-m8yr.onrender.com";
 
-const UPI_ID = "9941722573@hdfc";
-const PAYEE_NAME = "S SUHAIL HUSSAIN";
+const UPI_ID = "vyapar.175693718407@hdfcbank";
 
 
 
@@ -32,8 +33,6 @@ export default function Payment({
 
     const [loading, setLoading] = useState(false);
 
-    const NOTE = `CKC Bootcamp 2K26`;
-
     const PASS_NAMES: Record<string, string> = {
         "2500": "Beginner Pass",
         "5000": "Supporter Pass",
@@ -41,11 +40,17 @@ export default function Payment({
     };
 
 
-    const upiLink =
-        `upi://pay?pa=${UPI_ID}` +
-        `&pn=${encodeURIComponent(PAYEE_NAME)}` +
-        `&cu=INR` +
-        `&tn=${encodeURIComponent(NOTE)}`;
+    const copyUpiId = async () => {
+        try {
+            await navigator.clipboard.writeText(UPI_ID);
+
+            toast.success("UPI ID copied!");
+
+            posthog.capture("upi_id_copied");
+        } catch {
+            alert(`UPI ID: ${UPI_ID}`);
+        }
+    };
 
     const submitRegistration = async () => {
 
@@ -175,24 +180,10 @@ export default function Payment({
                 <div>
 
                     <p className="font-anton tracking-[0.3em] uppercase text-gold-soft text-xs">
-                        REGISTRATION FEE
+                        CONFIRM THE AMOUNT YOU ARE PAYING
                     </p>
 
-                    <h2 className="font-bebas text-8xl mt-4">
-                        ₹{formData.pass}
-                    </h2>
-
-                    <p className="text-white/70 mt-6 leading-8">
-                        Scan the QR code or use your preferred UPI application to complete your payment.
-                    </p>
-
-                    <div className="mt-10">
-
-                        <p className="font-anton tracking-[0.3em] uppercase text-gold-soft text-xs">
-                            CONFIRM THE AMOUNT YOU ARE PAYING
-                        </p>
-
-                        <input
+                    <input
                             type="number"
                             min="1"
                             value={formData.amount}
@@ -209,24 +200,34 @@ export default function Payment({
                                 border-b
                                 border-gold-soft
                                 pb-4
-                                text-6xl
+                                text-8xl
                                 font-bebas
                                 outline-none
                                 focus:border-primary
                             "
-                        />
+                    />
+                    <p className="text-white/70 mt-6 leading-8">
+                        Scan the QR code or copy the UPI ID below to complete your payment. Once done, return here and upload the payment screenshot.
+                    </p>
 
+                        <div className="mt-6 rounded-xl border border-gold-soft/20 bg-white/5 p-5">
+                            <p className="text-gold-soft text-xs tracking-[0.3em] uppercase">
+                                UPI ID
+                            </p>
+
+                            <p className="mt-2 font-mono text-lg break-all select-all">
+                                {UPI_ID}
+                            </p>
                         </div>
-                    <button
-                        onClick={() => {
-                            window.location.href = upiLink;
-                        }}
-                        disabled={loading}
-                        className="mt-10 bg-primary hover:bg-gold-soft transition duration-300 rounded-2xl px-10 py-4 font-bebas tracking-[0.25em]"
-                    >
-                        PAY USING UPI →
-                    </button>
 
+                        <button
+                            onClick={copyUpiId}
+                            disabled={loading}
+                            className="mt-10 bg-primary hover:bg-gold-soft transition duration-300 rounded-2xl px-10 py-4 font-bebas tracking-[0.25em]"
+                        >
+                            📋 COPY UPI ID
+                        </button>
+ 
                 </div>
 
                 <div>
