@@ -17,8 +17,8 @@ type Props = {
 
 const API = "https://bootcamp-m8yr.onrender.com";
 
-const UPI_ID = "vyapar.175693718407@hdfcbank";
-const PAYEE_NAME = "CHENNAI KENDO CLUB";
+const UPI_ID = "krupakoushikkona@okhdfcbank";
+const PAYEE_NAME = "Krupa Koushik Kona";
 
 
 
