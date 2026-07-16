@@ -11,7 +11,7 @@ def send_test_email():
     params = {
         "from": "Chennai Kendo Club <onboarding@resend.dev>",
         "to": ["krupakoushikkona@gmail.com"],
-        "subject": "🥋 Welcome to the Chennai Kendo Club Bootcamp!",
+        "subject": "Welcome to the Chennai Kendo Club Bootcamp!",
         "html": """
 <!DOCTYPE html>
 <html>
@@ -22,128 +22,206 @@ def send_test_email():
 body{
     margin:0;
     padding:0;
-    background:#0b0b0b;
+    background:#0d0d0d;
     font-family:Arial,sans-serif;
 }
 
 .container{
-    max-width:700px;
-    margin:40px auto;
-    background:#151515;
-    border-radius:20px;
-    overflow:hidden;
+    width:100%;
+    max-width:620px;
+    margin:30px auto;
+    background:#171717;
     border:1px solid #8d6e32;
+    border-radius:22px;
+    overflow:hidden;
 }
 
 .hero{
-    background:#0d0d0d;
-    padding:40px 40px 35px;
+    padding:32px 24px;
+    background:#111;
     text-align:center;
 }
 
-.hero h1{
-    color:white;
-    font-size:44px;
-    margin:0;
-}
-
 .hero p{
+    margin:0;
     color:#d7b56d;
+    font-size:12px;
     letter-spacing:4px;
     text-transform:uppercase;
 }
 
-.content{
-    padding:40px;
+.hero h1{
+    margin:18px 0 12px;
     color:white;
-    line-height:1.8;
+    font-size:36px;
+    font-weight:bold;
+}
+
+.hero-badge{
+    display:inline-block;
+    margin-top:8px;
+    padding:8px 18px;
+    border-radius:999px;
+    background:#201b11;
+    border:1px solid #d7b56d;
+    color:#d7b56d;
+    font-size:13px;
+    letter-spacing:1px;
+}
+
+.content{
+    padding:24px;
 }
 
 .ticket{
-    margin-top:35px;
-    position:relative;
-    overflow:visible;
-
+    background:#101010;
     border:2px dashed #d7b56d;
     border-radius:18px;
-    padding:40px 35px;
-    background:#101010;
+    padding:28px 20px;
+    text-align:center;
 }
 
-.ticket::before,
-.ticket::after{
-    content:"";
-    position:absolute;
-    width:28px;
-    height:28px;
-    background:#151515;
-    border-radius:50%;
-    top:50%;
-    transform:translateY(-50%);
-}
-
-.ticket::before{
-    left:-15px;
-}
-
-.ticket::after{
-    right:-15px;
+.ticket-brand{
+    margin:0;
+    color:#d7b56d;
+    font-size:12px;
+    letter-spacing:3px;
 }
 
 .ticket h2{
+    margin:12px 0;
+    color:white;
+    font-size:30px;
+}
+
+.pass-badge{
+    display:inline-block;
+    padding:8px 18px;
+    border-radius:999px;
+    background:#201b11;
+    color:#d7b56d;
+    border:1px solid #d7b56d;
+    font-weight:bold;
+    margin-top:10px;
+}
+
+.ticket-user h3{
+    margin:28px 0 8px;
+    color:white;
+    font-size:32px;
+    letter-spacing:1px;
+}
+
+.ticket-user p{
+    margin:0;
+    color:#d7b56d;
+    letter-spacing:2px;
+}
+
+.ticket hr{
+    margin:28px 0;
+    border:none;
+    border-top:1px dashed #444;
+}
+
+.qr img{
+    width:250px;
+    max-width:100%;
+    background:white;
+    border-radius:18px;
+}
+
+.verified{
+    display:inline-block;
+    margin-top:20px;
+    padding:8px 18px;
+    border-radius:999px;
+    border:1px solid #d7b56d;
+    color:#d7b56d;
+    background:#201b11;
+    font-size:13px;
+    font-weight:bold;
+}
+
+.qr p{
+    margin-top:18px;
+    color:#c8c8c8;
+    font-size:15px;
+}
+
+.details{
+    margin-top:24px;
+}
+
+.detail-card{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    background:#111;
+    border:1px solid #333;
+    border-radius:16px;
+    padding:16px 18px;
+    margin-bottom:14px;
+    color:white;
+}
+
+.icon{
+    font-size:24px;
+}
+
+.arrival{
+    margin-top:26px;
+    padding:22px;
+    border-radius:16px;
+    background:#111;
+    border:1px solid #333;
+}
+
+.arrival h3{
     margin-top:0;
     color:#d7b56d;
 }
 
-.label{
-    color:#999;
+.arrival ul{
+    padding-left:20px;
+    margin-bottom:0;
 }
 
-.value{
-    color:white;
-    font-weight:bold;
-}
-
-.qr{
-    margin-top:35px;
-    text-align:center;
-}
-
-.qr img{
-    width:320px;
-    max-width:90%;
-    padding:14px;
-    background:white;
-    border-radius:20px;
-}
-
-.footer{
-    padding:30px;
-    background:#111;
-    color:#888;
-    text-align:center;
-    font-size:14px;
+.arrival li{
+    margin-bottom:8px;
+    color:#ddd;
 }
 
 .button{
-    display:inline-block;
-    padding:14px 28px;
-    background:#d7b56d;
-    color:black !important;
+    display:block;
+    text-align:center;
+    margin-top:16px;
+    padding:16px;
+    border-radius:14px;
     text-decoration:none;
     font-weight:bold;
-    border-radius:12px;
-    margin-top:20px;
+}
+
+.maps{
+    background:#d7b56d;
+    color:black !important;
 }
 
 .whatsapp{
     background:#25D366;
     color:white !important;
-    border:none;
 }
 
-.whatsapp:hover{
-    background:#2b2b2b;
+.footer{
+    padding:28px;
+    text-align:center;
+    background:#111;
+    color:#888;
+    font-size:14px;
+}
+
+.footer strong{
+    color:white;
 }
 
 </style>
@@ -153,189 +231,126 @@ body{
 <body>
 
 <div class="container">
-<div class="hero">
-<p>CHENNAI KENDO CLUB</p>
-<h1>🥋 You're In!</h1>
+    <div class="hero">
+        <p>CHENNAI KENDO CLUB</p>
+        <h1>Registration Confirmed</h1>
+        <span class="hero-badge">
+            Kendo×Bootcamp'26
+        </span>
+    </div>
 
-<p style="
-margin-top:20px;
-letter-spacing:0;
-text-transform:none;
-font-size:20px;
-color:white;
-">
+    <div class="content">
+        <div class="ticket">
+            <div class="ticket-header">
+                <p class="ticket-brand">
+                    CHENNAI KENDO CLUB
+                </p>
+                <h2>
+                    EVENT PASS
+                </h2>
+                <div class="pass-badge">
+                    Supporter Pass
+                </div>
+            </div>
 
-Welcome to the Chennai Kendo Club
-Beginner Bootcamp 2026
+            <div class="ticket-user">
+                <h3>
+                    CHANDANA
+                </h3>
+                <p>
+                    CKC-BC26-0001
+                </p>
+            </div>
 
-</p>
-</div>
+            <hr>
 
-<div class="content">
-<p>
-Hello Chandana,
-</p>
+            <div class="qr">
+                <img src="https://res.cloudinary.com/z03yj9uk/image/upload/v1783947741/ckc/qrcodes/CKC-BC26-0020.png">
+                <div class="verified">
+                    VERIFIED ENTRY PASS
+                </div>
+                <p style="color:#888;font-size:13px;margin-top:12px;">
+                    No printed ticket required.
+                    Simply present this email at check-in.
+                </p>
+            </div>
+        </div>
 
-<p>
-Thank you for registering for the
-<b>Chennai Kendo Club Beginner Bootcamp 2026.</b>
-We are excited to welcome you to two immersive days of Japanese swordsmanship.
-</p>
+        <div class="details">
+            <div class="detail-card">
+                <div class="icon">
+                    📅
+                </div>
+                <div>
+                    <strong>
+                        1–2 August 2026
+                    </strong>
+                    <br>
+                    Event Dates
+                </div>
+            </div>
 
-<hr style="
-border:none;
-border-top:1px solid #2b2b2b;
-margin:35px 0;
-">
+            <div class="detail-card">
+                <div class="icon">
+                    🕘
+                </div>
+                <div>
+                    <strong>
+                        9:45 AM
+                    </strong>
+                    <br>
+                    Reporting Time
+                </div>
+            </div>
 
-<div class="ticket">
+            <div class="detail-card">
+                <div class="icon">
+                    📍
+                </div>
+                <div>
+                    <strong>
+                        Smashers 1.0
+                    </strong>
+                    <br>
+                    OMR, Chennai
+                </div>
+            </div>
+        </div>
 
-<div style="text-align:center;">
+        <a
+            href="https://maps.app.goo.gl/CqWfn22HNyxK2N8U9"
+            class="button maps"
+        >
+            📍 Open Venue in Google Maps
+        </a>
 
-<p style="margin:0;color:#d7b56d;letter-spacing:3px;font-size:13px;">
-CHENNAI KENDO CLUB
-</p>
+        <div class="arrival">
+            <h3>
+                Before You Arrive
+            </h3>
+            <ul>
+                <li>Comfortable sports clothing</li>
+                <li>Water bottle</li>
+                <li>Your QR Ticket</li>
+            </ul>
+        </div>
+        <a
+            href="https://chat.whatsapp.com/J3NAkwWX0W197jMtBJlElB"
+            class="button whatsapp"
+        >
+            💬 WhatsApp Community
+        </a>
+    </div>
 
-<h2 style="margin:12px 0 5px 0;font-size:32px;">
-🥋 EVENT PASS
-</h2>
-
-<div style="
-display:inline-block;
-padding:8px 18px;
-border-radius:999px;
-background:#2b2415;
-border:1px solid #d7b56d;
-color:#d7b56d;
-font-weight:bold;
-margin:15px 0;
-">
-Supporter Pass
-</div>
-
-<h2 style="
-font-size:34px;
-margin:20px 0 5px;
-letter-spacing:1px;
-">
-CHANDANA
-</h2>
-
-<p style="color:#d7b56d;letter-spacing:2px;font-size:18px;margin-bottom:30px;">
-CKC-BC26-0001
-</p>
-
-</div>
-
-<hr style="
-border:none;
-border-top:1px dashed #555;
-margin:30px 0;
-">
-
-<div class="qr">
-
-<img src="https://res.cloudinary.com/z03yj9uk/image/upload/v1783947741/ckc/qrcodes/CKC-BC26-0020.png">
-
-
-<div style="
-display:inline-block;
-padding:10px 22px;
-background:#201b11;
-border:1px solid #d7b56d;
-border-radius:999px;
-color:#d7b56d;
-font-weight:bold;
-letter-spacing:1px;
-font-size:14px;
-margin-top:20px;
-">
-✔ VERIFIED ENTRY PASS
-</div>
-
-<p style="font-size:18px;font-weight:bold;margin-top:20px;">
-Present this QR during check-in
-</p>
-
-<p style="color:#999;font-size:14px;">
-This QR is unique to you.<br>
-Please do not share it with others.
-</p>
-
-</div>
-
-</div>
-
-<h2 style="margin-top:45px;color:#d7b56d;">
-📅 Event Details
-</h2>
-
-<p>
-<b>Dates</b><br>
-1–2 August 2026
-</p>
-
-<p>
-<b>Reporting Time</b><br>
-9:45 AM
-</p>
-
-<p>
-<b>Venue</b><br>
-Smashers 1.0, OMR
-</p>
-
-<hr style="border:none;border-top:1px solid #333;margin:35px 0;">
-
-<h2 style="color:#d7b56d;">
-Before You Arrive
-</h2>
-
-<ul>
-<li>Comfortable sports clothing</li>
-<li>Water bottle</li>
-<li>Your QR Pass</li>
-<li>Positive attitude</li>
-</ul>
-
-<center>
-
-<a
-href="https://chennaikendoclub.in"
-class="button">
-
-🌐 Visit Website
-
-</a>
-
-&nbsp;&nbsp;
-
-<a
-href="https://wa.me/919677278733"
-class="button whatsapp">
-
-💬 WhatsApp Support
-
-</a>
-
-</center>
-
-</div>
-
-<div class="footer">
-
-<b>Chennai Kendo Club</b>
-
-<br><br>
-
-See you on the dojo floor.
-
-<br>
-
-押忍 (Osu!)
-
-</div>
-
+    <div class="footer">
+        <strong>
+            Chennai Kendo Club
+        </strong>
+        <br><br>
+        See you on the dojo floor.
+        <br><br>
+        押忍 (Osu!)
+    </div>
 </div>
 
 </body>

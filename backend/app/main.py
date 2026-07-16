@@ -37,9 +37,8 @@ app.include_router(auth_router)
 
 @app.get("/")
 def root():
+    return {"message": "CKC Backend Running 🚀"}
 
-    return {
-
-        "message": "CKC Backend Running 🚀"
-
-    }
+@app.get("/health")
+async def health():
+    return {"status": "ok"}
