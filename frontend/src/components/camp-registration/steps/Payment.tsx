@@ -17,10 +17,9 @@ type Props = {
 
 const API = "https://bootcamp-m8yr.onrender.com";
 
-{/*
-const UPI_ID = "vyapar.175693718407@hdfcbank";
-const PAYEE_NAME = "CHENNAI KENDO CLUB";
-*/}
+const UPI_ID = "9941722573@hdfc";
+const PAYEE_NAME = "S SUHAIL HUSSAIN";
+
 
 
 export default function Payment({
@@ -33,7 +32,7 @@ export default function Payment({
 
     const [loading, setLoading] = useState(false);
 
-{/*    const NOTE = `CKC Bootcamp 2K26`;*/}
+    const NOTE = `CKC Bootcamp 2K26`;
 
     const PASS_NAMES: Record<string, string> = {
         "2500": "Beginner Pass",
@@ -42,13 +41,13 @@ export default function Payment({
     };
 
 
-{/*    const upiLink =
-        `upi://pay?pa=${encodeURIComponent(UPI_ID)}` +
+    const upiLink =
+        `upi://pay?pa=${UPI_ID}` +
         `&pn=${encodeURIComponent(PAYEE_NAME)}` +
-        `&am=${encodeURIComponent(formData.amount)}` +
+        `&am=${formData.amount}` +
         `&cu=INR` +
         `&tn=${encodeURIComponent(NOTE)}`;
-*/}
+
     const submitRegistration = async () => {
 
         if (loading) return;
@@ -221,7 +220,7 @@ export default function Payment({
                         </div>
                     <button
                         onClick={() => {
-                            window.location.href = "upi://pay?pa=vyapar.175693718407@hdfcbank&pn=CHENNAI%20KENDO%20CLUB&cu=INR";
+                            window.location.href = upiLink;
                         }}
                         disabled={loading}
                         className="mt-10 bg-primary hover:bg-gold-soft transition duration-300 rounded-2xl px-10 py-4 font-bebas tracking-[0.25em]"
