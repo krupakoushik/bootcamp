@@ -220,6 +220,7 @@ export default function Payment({
                         </div>
                     <button
                         onClick={() => {
+                            console.log(upiLink);
                             window.open(upiLink, "_self");
                         }}
                         disabled={loading}
