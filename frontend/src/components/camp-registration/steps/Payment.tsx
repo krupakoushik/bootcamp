@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import posthog from "@/lib/posthog";
 
-import paymentQR from "@/assets/seminar/payment.jpeg";
+import paymentQR from "@/assets/seminar/payment.png";
 
 import { toast } from "sonner";
 
