@@ -44,6 +44,7 @@ export default function Payment({
     const upiLink =
         `upi://pay?pa=${encodeURIComponent(UPI_ID)}` +
         `&pn=${encodeURIComponent(PAYEE_NAME)}` +
+        `&am=${encodeURIComponent(formData.amount)}` +
         `&cu=INR` +
         `&tn=${encodeURIComponent(NOTE)}`;
 
@@ -219,8 +220,7 @@ export default function Payment({
                         </div>
                     <button
                         onClick={() => {
-                            console.log(upiLink);
-                            window.open(upiLink, "_self");
+                            window.location.href = "upi://pay?pa=vyapar.175693718407@hdfcbank&pn=CHENNAI%20KENDO%20CLUB&cu=INR";
                         }}
                         disabled={loading}
                         className="mt-10 bg-primary hover:bg-gold-soft transition duration-300 rounded-2xl px-10 py-4 font-bebas tracking-[0.25em]"
