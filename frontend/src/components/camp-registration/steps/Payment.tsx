@@ -32,7 +32,7 @@ export default function Payment({
 
     const [loading, setLoading] = useState(false);
 
-    const NOTE = `CKC Bootcamp 2K26`;
+{/*    const NOTE = `CKC Bootcamp 2K26`;*/}
 
     const PASS_NAMES: Record<string, string> = {
         "2500": "Beginner Pass",
@@ -41,13 +41,13 @@ export default function Payment({
     };
 
 
-    const upiLink =
+{/*    const upiLink =
         `upi://pay?pa=${encodeURIComponent(UPI_ID)}` +
         `&pn=${encodeURIComponent(PAYEE_NAME)}` +
         `&am=${encodeURIComponent(formData.amount)}` +
         `&cu=INR` +
         `&tn=${encodeURIComponent(NOTE)}`;
-
+*/}
     const submitRegistration = async () => {
 
         if (loading) return;
