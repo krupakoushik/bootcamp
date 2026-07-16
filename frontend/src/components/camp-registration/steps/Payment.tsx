@@ -42,9 +42,9 @@ export default function Payment({
 
 
     const upiLink =
-        `upi://pay?pa=${UPI_ID}` +
+        `upi://pay?pa=${encodeURIComponent(UPI_ID)}` +
         `&pn=${encodeURIComponent(PAYEE_NAME)}` +
-        `&am=${formData.amount}` +
+        `&am=${encodeURIComponent(formData.amount)}` +
         `&cu=INR` +
         `&tn=${encodeURIComponent(NOTE)}`;
 
@@ -220,7 +220,7 @@ export default function Payment({
                         </div>
                     <button
                         onClick={() => {
-                            window.location.href = upiLink;
+                            window.open(upiLink, "_self");
                         }}
                         disabled={loading}
                         className="mt-10 bg-primary hover:bg-gold-soft transition duration-300 rounded-2xl px-10 py-4 font-bebas tracking-[0.25em]"
