@@ -54,6 +54,10 @@ class Registration(Base):
     day2_attended = Column(Boolean, default=False)
 
     email_sent = Column(Boolean, default=False)
+    email_sent_at = Column(
+        DateTime(timezone=True),
+        nullable=True,
+    )
 
     created_at = Column(
         DateTime(timezone=True),

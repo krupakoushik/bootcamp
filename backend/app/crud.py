@@ -1,14 +1,12 @@
 import uuid
-
 from sqlalchemy.orm import Session
-
 from app.models import Registration
-
 from app.qr import generate_qr
-
 from sqlalchemy.exc import IntegrityError
 from fastapi import HTTPException
+from datetime import datetime
 
+from app.services.mail import send_registration_email
 
 def create_registration(
     db: Session,
@@ -86,21 +84,40 @@ def verify_registration(
     )
 
     if registration is None:
+        raise HTTPException(
+            status_code=404,
+            detail="Registration not found."
+        )
 
-        return None
+    if not registration.verified:
 
-    if registration.verified:
+        registration.qr_code = generate_qr(registration)
+        registration.verified = True
 
-        return registration
+        db.commit()
+        db.refresh(registration)
 
-    registration.qr_code = generate_qr(
-        registration
-    )
+    if not registration.email_sent:
 
-    registration.verified = True
+        try:
 
-    db.commit()
+            send_registration_email(
+                recipient=registration.email,
+                name=registration.name,
+                ckc_id=registration.ckc_id,
+                pass_type=registration.pass_type,
+                qr_url=registration.qr_code,
+            )
 
-    db.refresh(registration)
+            registration.email_sent = True
+            registration.email_sent_at = datetime.utcnow()
+
+            db.commit()
+            db.refresh(registration)
+
+        except Exception as e:
+
+            db.rollback()
+            print(f"Failed to send email: {e}")
 
     return registration

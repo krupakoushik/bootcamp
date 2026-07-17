@@ -1,18 +1,3 @@
-import resend
-import os
-from dotenv import load_dotenv
-
-load_dotenv()
-
-resend.api_key = os.getenv("RESEND_API_KEY")
-
-def send_test_email():
-
-    params = {
-        "from": "Chennai Kendo Club <onboarding@resend.dev>",
-        "to": ["krupakoushikkona@gmail.com"],
-        "subject": "Welcome to the Chennai Kendo Club Bootcamp!",
-        "html": """
 <!DOCTYPE html>
 <html>
 <head>
@@ -110,6 +95,7 @@ body{
     color:white;
     font-size:32px;
     letter-spacing:1px;
+    text-transform: uppercase;
 }
 
 .ticket-user p{
@@ -249,23 +235,23 @@ body{
                     EVENT PASS
                 </h2>
                 <div class="pass-badge">
-                    Supporter Pass
+                    {{ pass_type }}
                 </div>
             </div>
 
             <div class="ticket-user">
                 <h3>
-                    CHANDANA
+                    {{ name }}
                 </h3>
                 <p>
-                    CKC-BC26-0001
+                    {{ ckc_id }}
                 </p>
             </div>
 
             <hr>
 
             <div class="qr">
-                <img src="https://res.cloudinary.com/z03yj9uk/image/upload/v1783947741/ckc/qrcodes/CKC-BC26-0020.png">
+                <img src="{{ qr_url }}" alt="QR Code">
                 <div class="verified">
                     VERIFIED ENTRY PASS
                 </div>
@@ -356,12 +342,3 @@ body{
 </body>
 
 </html>
-"""
-    }
-
-    resend.Emails.send(params)
-    print("email sent!")
-
-
-if __name__ == "__main__":
-    send_test_email()
