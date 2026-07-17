@@ -15,7 +15,7 @@ export default function Admin() {
     const [selected, setSelected] = useState<Registration | null>(null);
     const [previewImage, setPreviewImage] = useState<string | null>(null);
 
-    const [filter, setFilter] = useState<
+    const [filter] = useState<
         "all" | "pending" | "verified"
     >("all");
 
@@ -147,7 +147,7 @@ export default function Admin() {
                         </h2>
                     </div>
 
-                    <div className="border-red-500/20 bg-red-500/5 rounded-2xl border p-6"></div>
+                    <div className="border-red-500/20 bg-red-500/5 rounded-2xl border p-6">
                         <div>
                             <p className="text-red-300 uppercase tracking-[0.25em] text-xs">
                                 Pending
