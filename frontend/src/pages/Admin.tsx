@@ -58,7 +58,7 @@ export default function Admin() {
                     r.name.toLowerCase().includes(q) ||
                     r.phone.includes(q) ||
                     r.email.toLowerCase().includes(q) ||
-                    r.ckc_id.toLowerCase().includes(q) ||
+                    (r.ckc_id ?? "").toLowerCase().includes(q) ||
                     r.pass_type.toLowerCase().includes(q)
                 );
             });

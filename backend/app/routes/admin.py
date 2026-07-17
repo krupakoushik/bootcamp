@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-
+from sqlalchemy import asc, desc
 from app.dependencies import verify_admin
 from app.database import get_db
 from app.models import Registration
@@ -14,14 +14,17 @@ router = APIRouter(
 
 @router.get("/registrations")
 def registrations(
-
     _: dict = Depends(verify_admin),
-
     db: Session = Depends(get_db),
-
 ):
-
-    return db.query(Registration).all()
+    return (
+        db.query(Registration)
+        .order_by(
+            asc(Registration.verified),
+            desc(Registration.created_at),
+        )
+        .all()
+    )
 
 
 @router.post("/verify/{registration_id}")
