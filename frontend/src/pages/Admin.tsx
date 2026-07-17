@@ -20,13 +20,9 @@ export default function Admin() {
     >("all");
 
     const refreshRegistrations = useCallback(async () => {
-
         if (!token) return;
-
         try {
-
             setLoading(true);
-
             const response = await fetch(
                 `${API}/admin/registrations`,
                 {
@@ -35,25 +31,16 @@ export default function Admin() {
                     },
                 }
             );
-
             const data = await response.json();
-
             setRegistrations(data);
-
         }
-
         finally {
-
             setLoading(false);
-
         }
-
     }, [token]);
 
     useEffect(() => {
-
         refreshRegistrations();
-
     }, [refreshRegistrations]);
 
     const filteredRegistrations = useMemo(() => {
@@ -65,27 +52,32 @@ export default function Admin() {
                     return r.verified;
                 return true;
             })
-
             .filter((r) => {
                 const q = search.toLowerCase();
                 return (
                     r.name.toLowerCase().includes(q) ||
                     r.phone.includes(q) ||
                     r.email.toLowerCase().includes(q) ||
-                    r.ckc_id.toLowerCase().includes(q)
+                    r.ckc_id.toLowerCase().includes(q) ||
+                    r.pass_type.toLowerCase().includes(q)
                 );
             });
     }, [registrations, search, filter]);
 
     if (!token) {
-
         return <Navigate to="/admin/login" replace />;
-
     }
 
     const total = registrations.length;
     const verified = registrations.filter(r => r.verified).length;
     const pending = total - verified;
+
+    const total_amount = registrations.reduce(
+        (sum, r) => sum + parseInt(r.amount_paid || "0", 10),
+        0
+    );
+
+    
 
     return (
 
@@ -106,7 +98,7 @@ export default function Admin() {
                     <input
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
-                        placeholder="Search by Name, Email, Phone or CKC ID"
+                        placeholder="Search registrations..."
                         className="
                             w-full
                             lg:w-96
@@ -123,37 +115,27 @@ export default function Admin() {
                     />
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-5 mt-10">
-                    <div
-                        onClick={() => setFilter("all")}
-                        className={`
-                            rounded-2xl
-                            border
-                            p-6
-                            cursor-pointer
-                            transition
-                            ${
-                                filter === "all"
-
-                                    ? "border-primary bg-primary/10"
-
-                                    : "border-gold-soft/20 bg-white/5 hover:border-primary"
-                            }
-                        `}
-                    >
-                        <div>
-                            <p className="text-white/50 uppercase tracking-[0.25em] text-xs">
-                                Total
-                            </p>
-                            <p className="text-xs mt-2 opacity-60">
-                                Click to filter
-                            </p>
-                        </div>
+                <div className="grid md:grid-cols-2 gap-5 mt-10">
+                    <div className="rounded-2xl border p-6 border-gold-soft/20 bg-white/5">
+                        <p className="text-white/50 uppercase tracking-[0.25em] text-xs">
+                            Total Revenue
+                        </p>
+                        <h2 className="font-bebas text-6xl mt-2">
+                            ₹{total_amount.toLocaleString()}
+                        </h2>
+                    </div>
+                    <div className="rounded-2xl border p-6 border-gold-soft/20 bg-white/5">
+                        <p className="text-white/50 uppercase tracking-[0.25em] text-xs">
+                            Total Participants
+                        </p>
                         <h2 className="font-bebas text-6xl mt-2">
                             {total}
                         </h2>
                     </div>
-
+                </div>
+                    
+                    
+                <div className="grid md:grid-cols-2 gap-5 mt-5">
                     <div
                         onClick={() => setFilter("verified")}
                         className={`
@@ -352,7 +334,7 @@ export default function Admin() {
                                             transition
                                         "
                                     >
-                                        🧾 Payment Proof
+                                        Payment Proof
                                     </button>
 
                                     {!r.verified && (
@@ -372,7 +354,7 @@ export default function Admin() {
                                             className="
                                                 rounded-xl
                                                 py-3
-                                                bg-primary
+                                                bg-green-600
                                                 hover:bg-gold-soft
                                                 hover:text-black
                                                 transition
@@ -393,7 +375,7 @@ export default function Admin() {
                                             "
 
                                         >
-                                            👁 View Details
+                                            View Details
                                         </button>
                                     </div>
                                 </div>
