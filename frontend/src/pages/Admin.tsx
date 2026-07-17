@@ -136,29 +136,10 @@ export default function Admin() {
                     
                     
                 <div className="grid md:grid-cols-2 gap-5 mt-5">
-                    <div
-                        onClick={() => setFilter("verified")}
-                        className={`
-                            rounded-2xl
-                            border
-                            p-6
-                            cursor-pointer
-                            transition
-                            ${
-                                filter === "verified"
-
-                                    ? "border-green-400 bg-green-500/15"
-
-                                    : "border-green-500/20 bg-green-500/5 hover:border-green-400"
-                            }
-                        `}
-                    >
+                    <div className="border-green-500/20 bg-green-500/5 rounded-2xl border p-6">
                         <div>
                             <p className="text-green-300 uppercase tracking-[0.25em] text-xs">
                                 Verified
-                            </p>
-                            <p className="text-xs mt-2 opacity-60">
-                                Click to filter
                             </p>
                         </div>
                         <h2 className="font-bebas text-6xl mt-2 text-green-400">
@@ -166,29 +147,10 @@ export default function Admin() {
                         </h2>
                     </div>
 
-                    <div
-                        onClick={() => setFilter("pending")}
-                        className={`
-                            rounded-2xl
-                            border
-                            p-6
-                            cursor-pointer
-                            transition
-                            ${
-                                filter === "pending"
-
-                                    ? "border-red-400 bg-red-500/15"
-
-                                    : "border-red-500/20 bg-red-500/5 hover:border-red-400"
-                            }
-                        `}
-                    >
+                    <div className="border-red-500/20 bg-red-500/5 rounded-2xl border p-6"></div>
                         <div>
                             <p className="text-red-300 uppercase tracking-[0.25em] text-xs">
                                 Pending
-                            </p>
-                            <p className="text-xs mt-2 opacity-60">
-                                Click to filter
                             </p>
                         </div>
                         <h2 className="font-bebas text-6xl mt-2 text-red-400">
