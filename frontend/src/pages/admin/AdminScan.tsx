@@ -104,7 +104,7 @@ export default function AdminScan() {
                 </button>
 
                 <div>
-                    <h1 className="font-bebas text-6xl">
+                    <h1 className="font-bebas text-6xl text-cream">
                         SCAN QR
                     </h1>
                     <p className="text-cream/60">
