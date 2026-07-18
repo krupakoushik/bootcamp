@@ -160,8 +160,8 @@ export default function AdminScan() {
                             <p className="mt-3 text-cream/60">
                                 Point the camera towards the participant's QR code.
                             </p>
-                            <div className="mt-5 inline-flex rounded-full bg-white/10 px-5 py-2">
-                                <span className="font-bold bg-gold-soft text-cream">
+                            <div className="mt-5 inline-flex rounded-full bg-gold-soft px-5 py-2">
+                                <span className="font-bold text-cream">
                                     {day === 1 ? "DAY 1" : "DAY 2"}
                                 </span>
                             </div>

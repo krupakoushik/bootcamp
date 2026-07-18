@@ -35,7 +35,7 @@ export default function QRScanner({ onScan }: Props) {
 
                         setTimeout(() => {
                             scanning.current = true;
-                        }, 2000);
+                        }, 5000);
                     },
                     () => {}
                 );
