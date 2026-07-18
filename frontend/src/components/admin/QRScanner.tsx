@@ -3,11 +3,20 @@ import { useEffect, useRef } from "react";
 
 type Props = {
     onScan: (text: string) => void;
+    resumeSignal: number;
 };
 
-export default function QRScanner({ onScan }: Props) {
+export default function QRScanner({
+    onScan,
+    resumeSignal,
+}: Props) {
+
     const scannerRef = useRef<Html5Qrcode | null>(null);
     const scanning = useRef(true);
+
+    useEffect(() => {
+        scanning.current = true;
+    }, [resumeSignal]);
 
     useEffect(() => {
         const scanner = new Html5Qrcode("reader");
@@ -32,10 +41,6 @@ export default function QRScanner({ onScan }: Props) {
                         scanning.current = false;
 
                         onScan(decodedText);
-
-                        setTimeout(() => {
-                            scanning.current = true;
-                        }, 3000);
                     },
                     () => {}
                 );
