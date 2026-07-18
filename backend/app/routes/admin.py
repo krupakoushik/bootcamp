@@ -5,7 +5,7 @@ from app.dependencies import verify_admin
 from app.database import get_db
 from app.models import Registration
 from app.crud import verify_registration
-from datetime import datetime
+from datetime import datetime, timezone
 from app.schemas import AttendanceScan
 
 router = APIRouter(
@@ -116,7 +116,7 @@ def scan_attendance(
             detail="Registration has not been verified.",
         )
 
-    now = datetime.utcnow()
+    now = datetime.now(timezone.utc)
 
     if request.day == 1:
 
