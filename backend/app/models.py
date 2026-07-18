@@ -51,7 +51,17 @@ class Registration(Base):
     qr_code = Column(String(500))
 
     day1_attended = Column(Boolean, default=False)
+    day1_checked_in_at = Column(
+        DateTime(timezone=True),
+        nullable=True,
+    )
+
     day2_attended = Column(Boolean, default=False)
+    day2_checked_in_at = Column(
+        DateTime(timezone=True),
+        nullable=True,
+    )
+    
 
     email_sent = Column(Boolean, default=False)
     email_sent_at = Column(
