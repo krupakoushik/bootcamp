@@ -151,7 +151,7 @@ export default function AdminScan() {
 
                 <QRScanner onScan={handleScan} />
 
-                <div className={`rounded-2xl p-6 min-h-55 flex items-center transition-all duration-300 ease-out transition-all duration-300 ease-out ${cardStyle}`}>
+                <div className={`rounded-2xl p-6 min-h-55 flex items-center transition-all duration-300 ease-out ${cardStyle}`}>
                     {result.status === "waiting" && (
                         <div className="w-full text-center">
                             <h2 className="font-bebas text-4xl text-gold-soft">
@@ -161,7 +161,7 @@ export default function AdminScan() {
                                 Point the camera towards the participant's QR code.
                             </p>
                             <div className="mt-5 inline-flex rounded-full bg-white/10 px-5 py-2">
-                                <span className={`font-bold ${day === 1 ? "text-green-400" : "text-blue-400"}`}>
+                                <span className="font-bold bg-gold-soft text-cream">
                                     {day === 1 ? "DAY 1" : "DAY 2"}
                                 </span>
                             </div>
