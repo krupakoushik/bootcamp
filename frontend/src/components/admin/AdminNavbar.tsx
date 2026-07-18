@@ -57,7 +57,7 @@ export default function AdminNavbar() {
                                     `pb-1 text-sm font-semibold transition ${
                                         isActive
                                             ? "border-b-2 border-gold-soft text-gold-soft"
-                                            : "text-cream hover:text-white"
+                                            : "text-cream hover:text-cream"
                                     }`
                                 }
                             >
@@ -76,7 +76,7 @@ export default function AdminNavbar() {
                     {/* Mobile Menu */}
                     <button
                         onClick={() => setOpen(true)}
-                        className="md:hidden text-white"
+                        className="md:hidden text-cream"
                     >
                         <Menu size={28} />
                     </button>
@@ -118,7 +118,7 @@ export default function AdminNavbar() {
 
                     <button
                         onClick={() => setOpen(false)}
-                        className="text-white/70 hover:text-white"
+                        className="text-cream/70 hover:text-cream"
                     >
                         <X size={24} />
                     </button>
@@ -137,7 +137,7 @@ export default function AdminNavbar() {
                                 `rounded-xl px-4 py-4 text-lg font-medium transition ${
                                     isActive
                                         ? "bg-gold-soft/10 text-gold-soft"
-                                        : "text-white/70 hover:bg-white/5 hover:text-white"
+                                        : "text-cream/70 hover:bg-white/5 hover:text-cream"
                                 }`
                             }
                         >

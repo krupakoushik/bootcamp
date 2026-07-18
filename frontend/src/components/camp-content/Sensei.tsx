@@ -33,7 +33,7 @@ export default function Sensei() {
                     SENSEIS
                 </h2>
 
-                <p className="max-w-3xl mx-auto mt-6 text-white/70 text-lg">
+                <p className="max-w-3xl mx-auto mt-6 text-cream text-lg">
                     Under the guidance of India's highest ranked Kendoka,
                     alongside visiting instructors from Japan and the United States.
                 </p>
@@ -95,7 +95,7 @@ export default function Sensei() {
                             SENSEI
                         </h3>
 
-                        <p className="mt-4 text-2xl text-white/80">
+                        <p className="mt-4 text-2xl text-cream">
                             Kyoshi • 7 Dan
                         </p>
 
@@ -120,7 +120,7 @@ export default function Sensei() {
                             SENSEI
                         </h3>
 
-                        <p className="mt-4 text-2xl text-white/80">
+                        <p className="mt-4 text-2xl text-cream">
                             Renshi • 6 Dan
                         </p>
 
@@ -160,7 +160,7 @@ export default function Sensei() {
                             SENSEI
                         </h3>
 
-                        <p className="mt-4 text-2xl text-white/80">
+                        <p className="mt-4 text-2xl text-cream">
                             5 Dan
                         </p>
 
@@ -185,7 +185,7 @@ export default function Sensei() {
                             SENSEI
                         </h3>
 
-                        <p className="mt-4 text-2xl text-white/80">
+                        <p className="mt-4 text-2xl text-cream">
                             5 Dan
                         </p>
 
@@ -226,7 +226,7 @@ export default function Sensei() {
                             SENSEI
                         </h3>
 
-                        <p className="mt-4 text-2xl text-white/80">
+                        <p className="mt-4 text-2xl text-cream">
                             4 Dan
                         </p>
 

@@ -26,7 +26,7 @@ export default function Waiver({
                     BEFORE WE CONTINUE
                 </h2>
 
-                <p className="text-white/60 mt-10 leading-9">
+                <p className="text-cream/60 mt-10 leading-9">
                     ✓ I understand that Kendo is a physical activity.<br />
                     ✓ I am participating voluntarily.<br />
                     ✓ I consent to photography and videography during the event.
@@ -66,7 +66,7 @@ export default function Waiver({
                 <button
                     onClick={next}
                     disabled={!formData.waiver}
-                    className="bg-primary disabled:bg-white/10 disabled:text-white/30 disabled:cursor-not-allowed px-10 py-4 rounded-xl font-anton uppercase tracking-[0.35em] hover:bg-gold-soft transition"
+                    className="bg-primary disabled:bg-white/10 disabled:text-cream/30 disabled:cursor-not-allowed px-10 py-4 rounded-xl font-anton uppercase tracking-[0.35em] hover:bg-gold-soft transition"
                 >
                     Continue →
                 </button>

@@ -29,7 +29,7 @@ export default function Phone({
                     PHONE NUMBER?
                 </h2>
 
-                <p className="text-white/60 mt-5 max-w-xl">
+                <p className="text-cream/60 mt-5 max-w-xl">
                     We'll only use this if we need to contact you regarding your registration.
                 </p>
 
@@ -65,7 +65,7 @@ export default function Phone({
                 <button
                     onClick={next}
                     disabled={!formData.email.trim()}
-                    className="bg-primary disabled:bg-white/10 disabled:text-white/30 disabled:cursor-not-allowed px-10 py-4 rounded-xl font-anton uppercase tracking-[0.35em] hover:bg-gold-soft transition"
+                    className="bg-primary disabled:bg-white/10 disabled:text-cream/30 disabled:cursor-not-allowed px-10 py-4 rounded-xl font-anton uppercase tracking-[0.35em] hover:bg-gold-soft transition"
                 >
                     Continue →
                 </button>

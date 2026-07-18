@@ -1,6 +1,6 @@
 export default function NotFoundPage() {
   return (
-    <main className="flex min-h-screen items-center justify-center bg-black text-white">
+    <main className="flex min-h-screen items-center justify-center bg-black text-cream">
       <div className="max-w-md text-center">
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">
           404

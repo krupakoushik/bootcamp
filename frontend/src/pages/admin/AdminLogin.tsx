@@ -62,7 +62,7 @@ export default function AdminLogin() {
                     ADMIN
                 </h1>
 
-                <p className="text-white/50 text-center mt-2">
+                <p className="text-cream/50 text-center mt-2">
                     Chennai Kendo Club
                 </p>
 
@@ -83,8 +83,8 @@ export default function AdminLogin() {
                             py-4
                             outline-none
                             focus:border-primary
-                            text-white
-                            placeholder:text-white/40
+                            text-cream
+                            placeholder:text-cream/40
                         "
                     />
 
@@ -103,8 +103,8 @@ export default function AdminLogin() {
                             py-4
                             outline-none
                             focus:border-primary
-                            text-white
-                            placeholder:text-white/40
+                            text-cream
+                            placeholder:text-cream/40
                         "
                     />
 
@@ -124,7 +124,7 @@ export default function AdminLogin() {
                         uppercase
                         transition
                         disabled:bg-white/10
-                        disabled:text-white/30
+                        disabled:text-cream/30
                         disabled:cursor-not-allowed
                         hover:bg-gold-soft
                         hover:text-black

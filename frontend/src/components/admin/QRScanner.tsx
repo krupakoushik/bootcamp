@@ -22,8 +22,8 @@ export default function QRScanner({ onScan }: Props) {
                     {
                         fps: 10,
                         qrbox: {
-                            width: 250,
-                            height: 250,
+                            width: 280,
+                            height: 280,
                         },
                     },
                     (decodedText) => {
@@ -60,8 +60,8 @@ export default function QRScanner({ onScan }: Props) {
     }, [onScan]);
 
     return (
-        <div className="overflow-hidden rounded-2xl border border-gold-soft/20 bg-black">
-            <div id="reader" />
+        <div className="overflow-hidden rounded-2xl border border-gold-soft/20 bg-black h-[55vh]">
+            <div id="reader" className="h-full" />
         </div>
     );
 }

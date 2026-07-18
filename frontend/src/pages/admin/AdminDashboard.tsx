@@ -53,7 +53,7 @@ export default function Dashboard() {
                 <AdminNavbar />
 
                 <div className="flex h-[80vh] items-center justify-center">
-                    <p className="text-white/50">
+                    <p className="text-cream/50">
                         Loading dashboard...
                     </p>
                 </div>
@@ -77,7 +77,7 @@ export default function Dashboard() {
                         BOOTCAMP ADMIN
                     </h1>
 
-                    <p className="mt-4 text-white/50">
+                    <p className="mt-4 text-cream/50">
                         Operations Dashboard
                     </p>
 
@@ -86,7 +86,7 @@ export default function Dashboard() {
                 <div className="grid gap-6 lg:grid-cols-2">
 
                     <div className="rounded-2xl border p-6 border-gold-soft/20 bg-white/5">
-                        <p className="text-white/50 uppercase tracking-[0.25em] text-xs">
+                        <p className="text-cream/50 uppercase tracking-[0.25em] text-xs">
                             Total Revenue
                         </p>
                         <h2 className="font-bebas text-6xl mt-2">
@@ -95,7 +95,7 @@ export default function Dashboard() {
                     </div>
 
                     <div className="rounded-2xl border p-6 border-gold-soft/20 bg-white/5">
-                        <p className="text-white/50 uppercase tracking-[0.25em] text-xs">
+                        <p className="text-cream/50 uppercase tracking-[0.25em] text-xs">
                             Total Participants
                         </p>
                         <h2 className="font-bebas text-6xl mt-2">
@@ -127,7 +127,7 @@ export default function Dashboard() {
 
 
                     <div className="rounded-2xl border p-6 border-emerald-500/20 bg-emerald-500/5 text-emerald-400">
-                        <p className="text-white/50 uppercase tracking-[0.25em] text-xs">
+                        <p className="text-cream/50 uppercase tracking-[0.25em] text-xs">
                             Day 1 Attendance
                         </p>
                         <h2 className="font-bebas text-6xl mt-2">
@@ -136,7 +136,7 @@ export default function Dashboard() {
                     </div>
 
                     <div className="rounded-2xl border p-6 border-purple-500/20 bg-purple-500/5 text-purple-400">
-                        <p className="text-white/50 uppercase tracking-[0.25em] text-xs">
+                        <p className="text-cream/50 uppercase tracking-[0.25em] text-xs">
                             Day 2 Attendance
                         </p>
                         <h2 className="font-bebas text-6xl mt-2">

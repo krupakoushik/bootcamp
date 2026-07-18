@@ -28,7 +28,7 @@ export default function Emergency({
                     CALL IN CASE OF EMERGENCY?
                 </h2>
 
-                <p className="text-white/60 mt-5 max-w-xl">
+                <p className="text-cream/60 mt-5 max-w-xl">
                     Let's hope we never have to use this. (Optional)
                 </p>
 
@@ -45,7 +45,7 @@ export default function Emergency({
                                 emergencyName: e.target.value,
                             })
                         }
-                        className="w-full bg-transparent border-b border-gold-soft/30 pb-5 text-5xl font-bebas outline-none placeholder:text-white/20"
+                        className="w-full bg-transparent border-b border-gold-soft/30 pb-5 text-5xl font-bebas outline-none placeholder:text-cream/20"
                     />
 
                     <input
@@ -63,7 +63,7 @@ export default function Emergency({
                                 next();
                             }
                         }}
-                        className="w-full bg-transparent border-b border-gold-soft/30 pb-5 text-5xl font-bebas outline-none placeholder:text-white/20"
+                        className="w-full bg-transparent border-b border-gold-soft/30 pb-5 text-5xl font-bebas outline-none placeholder:text-cream/20"
                     />
 
                 </div>

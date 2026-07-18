@@ -111,7 +111,7 @@ export default function AdminRegistrations() {
                             px-5
                             py-4
                             outline-none
-                            placeholder:text-white/30
+                            placeholder:text-cream/30
                             focus:border-primary
                         "
                     />
@@ -119,7 +119,7 @@ export default function AdminRegistrations() {
 
                 <div className="grid md:grid-cols-2 gap-5 mt-10">
                     <div className="rounded-2xl border p-6 border-gold-soft/20 bg-white/5">
-                        <p className="text-white/50 uppercase tracking-[0.25em] text-xs">
+                        <p className="text-cream/50 uppercase tracking-[0.25em] text-xs">
                             Total Revenue
                         </p>
                         <h2 className="font-bebas text-6xl mt-2">
@@ -127,7 +127,7 @@ export default function AdminRegistrations() {
                         </h2>
                     </div>
                     <div className="rounded-2xl border p-6 border-gold-soft/20 bg-white/5">
-                        <p className="text-white/50 uppercase tracking-[0.25em] text-xs">
+                        <p className="text-cream/50 uppercase tracking-[0.25em] text-xs">
                             Total Participants
                         </p>
                         <h2 className="font-bebas text-6xl mt-2">
@@ -163,7 +163,7 @@ export default function AdminRegistrations() {
 
                 {loading && (
                     <div className="text-center py-20">
-                        <p className="text-white/60">
+                        <p className="text-cream/60">
                             Loading registrations...
                         </p>
                     </div>
@@ -189,7 +189,7 @@ export default function AdminRegistrations() {
                                         <div className="flex items-center gap-6">
  
                                             <div>
-                                                <p className="text-white/40 uppercase text-xs">
+                                                <p className="text-cream/40 uppercase text-xs">
                                                     Participant
                                                 </p>
                                                 <p className="font-bebas text-4xl">
@@ -215,7 +215,7 @@ export default function AdminRegistrations() {
 
                                         <div className="grid md:grid-cols-2 gap-5">
                                             <div>
-                                                <p className="text-white/40 text-xs uppercase">
+                                                <p className="text-cream/40 text-xs uppercase">
                                                     Email
                                                 </p>
                                                 <p className="break-all">
@@ -224,7 +224,7 @@ export default function AdminRegistrations() {
                                             </div>
 
                                             <div>
-                                                <p className="text-white/40 text-xs uppercase">
+                                                <p className="text-cream/40 text-xs uppercase">
                                                     Phone
                                                 </p>
                                                 <p>
@@ -233,7 +233,7 @@ export default function AdminRegistrations() {
                                             </div>
 
                                             <div>
-                                                <p className="text-white/40 text-xs uppercase">
+                                                <p className="text-cream/40 text-xs uppercase">
                                                     Gender
                                                 </p>
                                                 <p>
@@ -242,7 +242,7 @@ export default function AdminRegistrations() {
                                             </div>
 
                                             <div>
-                                                <p className="text-white/40 text-xs uppercase">
+                                                <p className="text-cream/40 text-xs uppercase">
                                                     Pass
                                                 </p>
                                                 <span
@@ -259,7 +259,7 @@ export default function AdminRegistrations() {
                                             </div>
 
                                             <div>
-                                                <p className="text-white/40 text-xs uppercase">
+                                                <p className="text-cream/40 text-xs uppercase">
                                                     Amount Received
                                                 </p>
                                                 <p className="font-bebas text-5xl text-gold-soft">
@@ -269,7 +269,7 @@ export default function AdminRegistrations() {
 
 
                                             <div>
-                                                <p className="text-white/40 text-xs uppercase">
+                                                <p className="text-cream/40 text-xs uppercase">
                                                     Email
                                                 </p>
                                                 <span
@@ -363,7 +363,7 @@ export default function AdminRegistrations() {
                                     No Registrations Found
                                 </p>
 
-                                <p className="text-white/50 mt-5">
+                                <p className="text-cream/50 mt-5">
                                     Try searching using a different name,
                                     email, phone number or CKC ID.
                                 </p>
@@ -415,7 +415,7 @@ export default function AdminRegistrations() {
                             {selected.name}
                         </h2>
 
-                        <p className="text-white/40 mt-2">
+                        <p className="text-cream/40 mt-2">
                             {selected.ckc_id}
                         </p>
                     </div>
@@ -430,35 +430,35 @@ export default function AdminRegistrations() {
 
                 <div className="grid md:grid-cols-2 gap-8 mt-10">
                     <div>
-                        <p className="text-white/40 uppercase text-xs">
+                        <p className="text-cream/40 uppercase text-xs">
                             Email
                         </p>
                         <p>{selected.email}</p>
                     </div>
 
                     <div>
-                        <p className="text-white/40 uppercase text-xs">
+                        <p className="text-cream/40 uppercase text-xs">
                             Phone
                         </p>
                         <p>{selected.phone}</p>
                     </div>
 
                     <div>
-                        <p className="text-white/40 uppercase text-xs">
+                        <p className="text-cream/40 uppercase text-xs">
                             Gender
                         </p>
                         <p>{selected.gender || "-"}</p>
                     </div>
 
                     <div>
-                        <p className="text-white/40 uppercase text-xs">
+                        <p className="text-cream/40 uppercase text-xs">
                             Pass
                         </p>
                         <p>{selected.pass_type}</p>
                     </div>
 
                     <div>
-                        <p className="text-white/40 uppercase text-xs">
+                        <p className="text-cream/40 uppercase text-xs">
                             Amount Received
                         </p>
                         <p className="font-bebas text-5xl text-gold-soft mt-2">
@@ -467,21 +467,21 @@ export default function AdminRegistrations() {
                     </div>
 
                     <div>
-                        <p className="text-white/40 uppercase text-xs">
+                        <p className="text-cream/40 uppercase text-xs">
                             Emergency Contact Name
                         </p>
                         <p>{selected.emergency_name || "-"}</p>
                     </div>
 
                     <div>
-                        <p className="text-white/40 uppercase text-xs">
+                        <p className="text-cream/40 uppercase text-xs">
                             Emergency Contact Number
                         </p>
                         <p>{selected.emergency_phone || "-"}</p>
                     </div>
 
                     <div className="md:col-span-2">
-                        <p className="text-white/40 uppercase text-xs">
+                        <p className="text-cream/40 uppercase text-xs">
                             Medical Notes
                         </p>
                         <p className="whitespace-pre-wrap">
@@ -490,7 +490,7 @@ export default function AdminRegistrations() {
                     </div>
 
                     <div>
-                        <p className="text-white/40 uppercase text-xs">
+                        <p className="text-cream/40 uppercase text-xs">
                             Day 1
                         </p>
                         <p>
@@ -499,7 +499,7 @@ export default function AdminRegistrations() {
                     </div>
 
                     <div>
-                        <p className="text-white/40 uppercase text-xs">
+                        <p className="text-cream/40 uppercase text-xs">
                             Day 2
                         </p>
                         <p>
@@ -508,7 +508,7 @@ export default function AdminRegistrations() {
                     </div>
 
                     <div>
-                        <p className="text-white/40 uppercase text-xs">
+                        <p className="text-cream/40 uppercase text-xs">
                             Registered
                         </p>
                         <p>

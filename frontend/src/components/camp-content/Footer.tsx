@@ -25,7 +25,7 @@ export default function Footer() {
                             QUICK LINKS
                         </h3>
 
-                        <div className="mt-6 flex flex-col gap-4 text-white/60">
+                        <div className="mt-6 flex flex-col gap-4 text-cream">
 
                             <a href="#schedule" className="hover:text-gold-soft transition">
                                 Schedule
@@ -54,7 +54,7 @@ export default function Footer() {
                             CONTACT
                         </h3>
 
-                        <div className="mt-6 flex flex-col gap-4 text-white/60">
+                        <div className="mt-6 flex flex-col gap-4 text-cream">
 
                             <a
                                 href="wa.me/919677278733"
@@ -91,11 +91,11 @@ export default function Footer() {
 
                 <div className="mt-12 pt-8 border-t border-gold-soft/20 flex flex-col md:flex-row items-center justify-between gap-4">
 
-                    <p className="text-white/40 text-sm">
+                    <p className="text-cream text-sm">
                         © 2026 Chennai Kendo Club. All Rights Reserved.
                     </p>
 
-                    <p className="text-white/40 text-sm">
+                    <p className="text-cream text-sm">
                         Designed & Developed by{" "}
                         <a
                             href="https://www.linkedin.com/in/krupa-koushik/"

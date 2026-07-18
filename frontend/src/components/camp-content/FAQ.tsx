@@ -115,7 +115,7 @@ export default function Schedule() {
 
                                         <div className="overflow-hidden">
 
-                                            <p className="text-white/80 leading-7 pr-8">
+                                            <p className="text-cream leading-7 pr-8">
                                                 {faq.answer}
                                             </p>
 

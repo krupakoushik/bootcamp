@@ -14,7 +14,7 @@ export default function Medical({
     setFormData,
 }: Props) {
     return (
-        <div className="rounded-3xl border border-gold-soft/50 bg-white/5 backdrop-blur-xl min-h-[650px] flex flex-col justify-between p-10 lg:p-14">
+        <div className="rounded-3xl border border-gold-soft/50 bg-white/5 backdrop-blur-xl min-h-162.5 flex flex-col justify-between p-10 lg:p-14">
 
             <div>
 
@@ -26,7 +26,7 @@ export default function Medical({
                     Anything we should know?
                 </h2>
 
-                <p className="text-white/60 mt-5 max-w-xl">
+                <p className="text-cream/60 mt-5 max-w-xl">
                     Tell us about medical conditions, food allergies, previous martial arts experience, or anything you'd like us to know. (Optional)
                 </p>
 

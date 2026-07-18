@@ -23,7 +23,7 @@ export default function Success({
                 TO THE DOJO.
             </h2>
 
-            <p className="mt-8 max-w-2xl text-white/70 leading-8">
+            <p className="mt-8 max-w-2xl text-cream/70 leading-8">
                 Thank you for registering for the Chennai Kendo Club Bootcamp.
                 We've received your registration details and payment proof.
                 Our team will verify your payment as soon as possible.
@@ -41,7 +41,7 @@ export default function Success({
                     CHECK YOUR EMAIL
                 </h3>
 
-                <p className="mt-5 text-white/70 leading-7">
+                <p className="mt-5 text-cream/70 leading-7">
                     Once your payment has been verified, we'll send your
                     confirmation email containing your unique event ticket
                     and personal QR code to:
@@ -65,7 +65,7 @@ export default function Success({
                     DON'T FORGET YOUR QR CODE
                 </h3>
 
-                <p className="mt-5 text-white/70 leading-7">
+                <p className="mt-5 text-cream/70 leading-7">
                     Bring your QR code on both days of the bootcamp.
                     Our volunteers will scan it at the venue to mark your
                     attendance. Participants who attend both days will
@@ -90,7 +90,7 @@ export default function Success({
                     AWAITS.
                 </h3>
 
-                <p className="mt-6 max-w-2xl text-white/70 leading-8">
+                <p className="mt-6 max-w-2xl text-cream/70 leading-8">
                     Follow Chennai Kendo Club for updates, training content,
                     future seminars and everything happening before the bootcamp.
                 </p>
@@ -114,7 +114,7 @@ export default function Success({
                             WHATSAPP
                         </h4>
 
-                        <p className="mt-5 text-white/60 leading-7">
+                        <p className="mt-5 text-cream/60 leading-7">
                             Meet fellow participants, receive important event
                             announcements and ask questions before the bootcamp.
                         </p>
@@ -136,7 +136,7 @@ export default function Success({
                             INSTAGRAM
                         </h4>
 
-                        <p className="mt-5 text-white/60 leading-7">
+                        <p className="mt-5 text-cream/60 leading-7">
                             Watch Kendo in action, meet our Senseis,
                             explore the dojo and stay updated with future
                             Chennai Kendo Club events.

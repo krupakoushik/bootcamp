@@ -169,7 +169,7 @@ export default function Payment({
                 YOUR PLACE
             </h2>
 
-            <p className="text-white/60 mt-6 max-w-2xl leading-8">
+            <p className="text-cream/60 mt-6 max-w-2xl leading-8">
                 Complete your payment using any UPI app and upload your payment
                 confirmation below. Once verified, we'll send your unique QR
                 ticket directly to your email.
@@ -206,7 +206,7 @@ export default function Payment({
                                 focus:border-primary
                             "
                     />
-                    <p className="text-white/70 mt-6 leading-8">
+                    <p className="text-cream/70 mt-6 leading-8">
                         Scan the QR code or copy the UPI ID below to complete your payment. Once done, return here and upload the payment screenshot.
                     </p>
 
@@ -242,7 +242,7 @@ export default function Payment({
 
                     </div>
 
-                    <p className="text-center text-white/40 mt-5 text-sm">
+                    <p className="text-center text-cream/40 mt-5 text-sm">
                         Scan using Google Pay, PhonePe, Paytm, BHIM or any UPI app.
                     </p>
 
@@ -262,7 +262,7 @@ export default function Payment({
                     SCREENSHOT
                 </h3>
 
-                <p className="text-white/70 mt-6 leading-8">
+                <p className="text-cream/70 mt-6 leading-8">
                     Upload the payment confirmation screenshot.
                     We'll manually verify it before issuing your Event Pass.
                 </p>
@@ -294,7 +294,7 @@ export default function Payment({
                         CLICK TO UPLOAD
                     </h4>
 
-                    <p className="text-white/50 mt-3">
+                    <p className="text-cream/50 mt-3">
                         PNG • JPG • JPEG
                     </p>
 
@@ -344,7 +344,7 @@ export default function Payment({
 
                         </p>
 
-                        <p className="text-white/60 mt-2 text-sm">
+                        <p className="text-cream/60 mt-2 text-sm">
 
                             This may take 30-60 seconds to train your patience levels.
                             Please don't close this page.
@@ -369,7 +369,7 @@ export default function Payment({
                 <button
                     onClick={submitRegistration}
                     disabled={loading || !formData.email.trim()}
-                    className="bg-primary disabled:bg-white/10 disabled:text-white/30 disabled:cursor-not-allowed px-10 py-4 rounded-xl font-anton uppercase tracking-[0.35em] hover:bg-gold-soft transition"
+                    className="bg-primary disabled:bg-white/10 disabled:text-cream/30 disabled:cursor-not-allowed px-10 py-4 rounded-xl font-anton uppercase tracking-[0.35em] hover:bg-gold-soft transition"
                 >
                 {loading ? (
                     <>

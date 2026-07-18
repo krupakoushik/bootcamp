@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import AdminNavbar from "@/components/admin/AdminNavbar";
+import { useNavigate } from "react-router-dom";
 import QRScanner from "@/components/admin/QRScanner";
 
 const API = "https://bootcamp-m8yr.onrender.com";
@@ -8,9 +8,10 @@ const API = "https://bootcamp-m8yr.onrender.com";
 type ScanResponse = {
     status: "success" | "duplicate";
     name: string;
-    ckc_id?: string;
-    pass_type?: string;
-    checked_in_at?: string;
+    ckc_id: string;
+    phone: string;
+    pass_type: string;
+    checked_in_at: string;
     day?: number;
 };
 
@@ -51,6 +52,14 @@ export default function AdminScan() {
             }
 
             else {
+                if (data.status === "success") {
+                    navigator.vibrate?.(100);
+                }
+
+                if (data.status === "duplicate") {
+                    navigator.vibrate?.([80, 80, 80]);
+                }
+
                 setResult(data);
             }
         }
@@ -60,42 +69,62 @@ export default function AdminScan() {
                 status: "error",
                 message: "Cannot connect to server.",
             });
+            navigator.vibrate?.([150, 50, 150]);
         }
 
         setTimeout(() => {
             setResult({
                 status: "waiting",
             });
-        }, 2000);
+        }, 5000);
     }
+
+    const navigate = useNavigate();
+
+    const cardStyle =
+        result.status === "success"
+            ? "border-green-500 bg-green-500/10"
+            : result.status === "duplicate"
+            ? "border-yellow-500 bg-yellow-500/10"
+            : result.status === "error"
+            ? "border-red-500 bg-red-500/10"
+            : "border-gold-soft/20 bg-black/50";
+
 
     return (
         <>
-            <AdminNavbar />
 
             <main className="mx-auto max-w-3xl p-6 space-y-8">
+
+                <button
+                    onClick={() => navigate("/admin")}
+                    className="pb-1 text-sm font-semibold transition text-red-400 hover:text-red-300"
+                >
+                    ← Dashboard
+                </button>
+
                 <div>
                     <h1 className="font-bebas text-6xl">
                         SCAN QR
                     </h1>
-                    <p className="text-white/60">
-                        Select attendance session
+                    <p className="text-cream/60">
+                        Select the attendance session below and scan the participant's QR code.
                     </p>
                 </div>
 
                 {/* DAY SELECTOR */}
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-3">
                     <button
                         onClick={() => setDay(1)}
                         className={`
-                            rounded-xl
+                            rounded-2xl
                             py-4
                             font-bold
                             transition
                             ${
                                 day === 1
-                                    ? "bg-green-600 text-white"
-                                    : "bg-white/10"
+                                    ? "bg-gold-soft text-cream shadow-lg shadow-gold-soft/30"
+                                    : "bg-primary/10"
                             }
                         `}
                     >
@@ -105,14 +134,14 @@ export default function AdminScan() {
                     <button
                         onClick={() => setDay(2)}
                         className={`
-                            rounded-xl
+                            rounded-2xl
                             py-4
                             font-bold
                             transition
                             ${
                                 day === 2
-                                    ? "bg-blue-600 text-white"
-                                    : "bg-white/10"
+                                    ? "bg-gold-soft text-cream shadow-lg shadow-gold-soft/30"
+                                    : "bg-primary/10"
                             }
                         `}
                     >
@@ -122,51 +151,69 @@ export default function AdminScan() {
 
                 <QRScanner onScan={handleScan} />
 
-                <div className="rounded-2xl border border-gold-soft/20 bg-black/40 p-6 min-h-40">
+                <div className={`rounded-2xl p-6 min-h-55 flex items-center transition-all duration-300 ease-out transition-all duration-300 ease-out ${cardStyle}`}>
                     {result.status === "waiting" && (
-                        <p className="text-white/60">
-                            Waiting for QR...
-                        </p>
-                    )}
-                    {result.status === "error" && (
-                        <div>
-                            <h2 className="text-red-400 text-2xl font-bold">
-                                ❌ Error
+                        <div className="w-full text-center">
+                            <h2 className="font-bebas text-4xl text-gold-soft">
+                                READY TO SCAN
                             </h2>
-                            <p className="mt-3">
+                            <p className="mt-3 text-cream/60">
+                                Point the camera towards the participant's QR code.
+                            </p>
+                            <div className="mt-5 inline-flex rounded-full bg-white/10 px-5 py-2">
+                                <span className={`font-bold ${day === 1 ? "text-green-400" : "text-blue-400"}`}>
+                                    {day === 1 ? "DAY 1" : "DAY 2"}
+                                </span>
+                            </div>
+                        </div>
+                    )}
+
+                    {result.status === "error" && (
+                        <div className="w-full">
+                            <h2 className="text-red-400 text-3xl font-bold">
+                                ❌ ERROR
+                            </h2>
+                            <p className="mt-4 text-lg">
                                 {result.message}
                             </p>
                         </div>
                     )}
 
                     {result.status === "duplicate" && (
-                        <div>
-                            <h2 className="text-yellow-400 text-2xl font-bold">
-                                ⚠ Already Checked In
+                        <div className="w-full">
+                            <h2 className="text-yellow-400 text-3xl font-bold">
+                                ⚠ ALREADY CHECKED IN
                             </h2>
-                            <p className="mt-3">
-                                {result.name}
-                            </p>
-                            <p>
-                                {result.checked_in_at}
-                            </p>
+                            <div className="mt-5 space-y-2 text-lg">
+                                <p><strong>{result.name}</strong></p>
+                                <p>{result.ckc_id}</p>
+                                <p>{result.pass_type}</p>
+                                <p>ph: {result.phone}</p>
+                                <p className="text-cream/60">
+                                    Checked in at {result.checked_in_at}
+                                </p>
+                            </div>
                         </div>
                     )}
 
                     {result.status === "success" && (
-                        <div>
-                            <h2 className="text-green-400 text-2xl font-bold">
-                                ✅ Attendance Marked
+                        <div className="w-full">
+                            <h2 className="text-green-400 text-3xl font-bold">
+                                ✅ ATTENDANCE MARKED
                             </h2>
-                            <p className="mt-3">
-                                {result.name}
-                            </p>
-                            <p>
-                                {result.ckc_id}
-                            </p>
-                            <p>
-                                {result.pass_type}
-                            </p>
+                            <div className="space-y-1">
+                                <h3 className="text-3xl font-bold">
+                                    {result.name}
+                                </h3>
+                                <p className="text-gold-soft">
+                                    {result.ckc_id}
+                                </p>
+                                <div className="pt-4 space-y-1 text-cream/80">
+                                    <p>{result.pass_type}</p>
+                                    <p>ph: {result.phone}</p>
+                                    <p>{result.checked_in_at}</p>
+                                </div>
+                            </div>
                         </div>
                     )}
                 </div>

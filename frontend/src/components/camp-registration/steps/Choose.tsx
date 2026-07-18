@@ -28,7 +28,7 @@ export default function Choose({
                     YOUR PLACE
                 </h2>
 
-                <p className="mt-6 text-white/70 max-w-2xl">
+                <p className="mt-6 text-cream max-w-2xl">
                     Select the pass that best fits you.
                 </p>
 

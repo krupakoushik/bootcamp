@@ -124,7 +124,10 @@ def scan_attendance(
             return {
                 "status": "duplicate",
                 "name": registration.name,
-                "checked_in_at": registration.day1_checked_in_at,
+                "ckc_id": registration.ckc_id,
+                "phone": registration.phone,
+                "pass_type": registration.pass_type,
+                "checked_in_at": registration.day1_checked_in_at.strftime("%I:%M %p"),
             }
 
         registration.day1_attended = True
@@ -136,7 +139,10 @@ def scan_attendance(
             return {
                 "status": "duplicate",
                 "name": registration.name,
-                "checked_in_at": registration.day2_checked_in_at,
+                "ckc_id": registration.ckc_id,
+                "phone": registration.phone,
+                "pass_type": registration.pass_type,
+                "checked_in_at": registration.day2_checked_in_at.strftime("%I:%M %p"),
             }
 
         registration.day2_attended = True
@@ -155,7 +161,8 @@ def scan_attendance(
         "status": "success",
         "name": registration.name,
         "ckc_id": registration.ckc_id,
+        "phone": registration.phone,
         "pass_type": registration.pass_type,
         "day": request.day,
-        "checked_in_at": now,
+        "checked_in_at": now.strftime("%I:%M %p"),
     }

@@ -29,7 +29,7 @@ export default function Email({
                     SEND YOUR TICKET?
                 </h2>
 
-                <p className="text-white/60 mt-5 max-w-xl">
+                <p className="text-cream mt-5 max-w-xl">
                     We'll send your confirmation email and QR ticket here after your payment is verified.
                 </p>
 
