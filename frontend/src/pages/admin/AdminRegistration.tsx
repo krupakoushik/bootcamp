@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Navigate } from "react-router-dom";
-import AdminNavbar from "@/components/common/AdminNavbar";
+import AdminNavbar from "@/components/admin/AdminNavbar";
 
 import type { Registration } from "@/types/admin";
 

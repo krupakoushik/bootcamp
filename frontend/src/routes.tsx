@@ -6,6 +6,7 @@ import CKCSeminar from "./pages/CKCBootcamp";
 import AdminLogin from "./pages/admin/AdminLogin";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminRegistrations from "./pages/admin/AdminRegistration"
+import AdminScan from "./pages/admin/AdminScan"
 
 export const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ export const router = createBrowserRouter([
           element:<AdminRegistrations />
       },
 
+      {
+          path:"/admin/scan",
+          element:<AdminScan />
+      },
 
       {
         path: "*",
