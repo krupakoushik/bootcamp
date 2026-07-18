@@ -78,7 +78,7 @@ export default function Dashboard() {
 
                 </div>
 
-                <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+                <div className="grid gap-6 lg:grid-cols-2 lg:grid-cols-2">
 
                     <div className="rounded-2xl border p-6 border-gold-soft/20 bg-white/5">
                         <p className="text-white/50 uppercase tracking-[0.25em] text-xs">
