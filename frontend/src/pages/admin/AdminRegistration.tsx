@@ -5,7 +5,7 @@ import type { Registration } from "@/types/admin";
 
 const API = "https://bootcamp-m8yr.onrender.com";
 
-export default function Admin() {
+export default function AdminRegistrations() {
 
     const token = localStorage.getItem("token");
 
@@ -263,6 +263,17 @@ export default function Admin() {
                                                 <p className="font-bebas text-5xl text-gold-soft">
                                                     ₹{r.amount_paid}
                                                 </p>
+                                            </div>
+
+
+                                            <div>
+                                                <p className="text-white/40 text-xs uppercase">
+                                                    Email
+                                                </p>
+                                                <span
+                                                className="inline-block rounded-full px-4 py-1 font-semibold ">
+                                                    {r.email_sent}
+                                                </span>
                                             </div>
 
                                         </div>

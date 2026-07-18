@@ -3,8 +3,9 @@ import { createBrowserRouter } from "react-router-dom";
 import AppLayout from "./layouts/AppLayouts";
 import NotFoundPage from "./pages/NotFoundPage";
 import CKCSeminar from "./pages/CKCBootcamp";
-import AdminLogin from "./pages/AdminLogin";
-import Admin from "./pages/Admin";
+import AdminLogin from "./pages/admin/AdminLogin";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import AdminRegistrations from "./pages/admin/AdminRegistration"
 
 export const router = createBrowserRouter([
   {
@@ -23,8 +24,14 @@ export const router = createBrowserRouter([
       
       {
           path:"/admin",
-          element:<Admin/>
+          element:<AdminDashboard />
       },
+      
+      {
+          path:"/admin/registrations",
+          element:<AdminRegistrations />
+      },
+
 
       {
         path: "*",
