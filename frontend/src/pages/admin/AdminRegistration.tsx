@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Navigate } from "react-router-dom";
+import AdminNavbar from "@/components/common/AdminNavbar";
 
 import type { Registration } from "@/types/admin";
 
@@ -80,7 +81,8 @@ export default function AdminRegistrations() {
     
 
     return (
-
+        <>
+        <AdminNavbar />
         <div className="max-w-7xl mx-auto p-6 text-cream">
             <div className="rounded-3xl border border-gold-soft/40 bg-white/5 backdrop-blur-xl p-8">
                 
@@ -568,5 +570,6 @@ export default function AdminRegistrations() {
 }
 
         </div>
+        </>
     );
 }

@@ -10,8 +10,6 @@ type DashboardStats = {
     revenue: number;
     day1_attendance: number;
     day2_attendance: number;
-    emails_sent: number;
-    failed_emails: number;
 };
 
 export default function Dashboard() {
@@ -138,24 +136,6 @@ export default function Dashboard() {
                         </p>
                         <h2 className="font-bebas text-6xl mt-2">
                             {stats.day2_attendance}
-                        </h2>
-                    </div>
-
-                    <div className="rounded-2xl border p-6 border-cyan-500/20 bg-cyan-500/5 text-cyan-400">
-                        <p className="text-white/50 uppercase tracking-[0.25em] text-xs">
-                            Emails Sent
-                        </p>
-                        <h2 className="font-bebas text-6xl mt-2">
-                            {stats.emails_sent}
-                        </h2>
-                    </div>
-
-                    <div className="rounded-2xl border p-6 border-orange-500/20 bg-orange-500/5 text-orange-400">
-                        <p className="text-white/50 uppercase tracking-[0.25em] text-xs">
-                            Failed Emails
-                        </p>
-                        <h2 className="font-bebas text-6xl mt-2">
-                            {stats.failed_emails}
                         </h2>
                     </div>
 
