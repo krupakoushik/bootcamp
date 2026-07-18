@@ -40,10 +40,6 @@ export default function AdminNavbar() {
                         <p className="font-anton text-xs uppercase tracking-[0.35em] text-gold-soft">
                             Chennai Kendo Club
                         </p>
-
-                        <h1 className="font-bebas text-3xl leading-none">
-                            Bootcamp Admin
-                        </h1>
                     </div>
                 </button>
 
