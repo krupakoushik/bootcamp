@@ -5,40 +5,6 @@ import type { Registration } from "@/types/admin";
 
 const API = "https://bootcamp-m8yr.onrender.com";
 
-function AttendanceBox({
-    title,
-    attended,
-}: {
-    title: string;
-    attended: boolean;
-}) {
-    return (
-        <div
-            className={`rounded-2xl border p-5 w-36 text-center ${
-                attended
-                    ? "border-green-500/30 bg-green-500/10"
-                    : "border-red-500/30 bg-red-500/10"
-            }`}
-        >
-            <p className="text-xs uppercase text-cream/50">{title}</p>
-
-            <p className="text-4xl mt-3">
-                {attended ? "✅" : "❌"}
-            </p>
-
-            <p
-                className={`mt-2 font-semibold ${
-                    attended
-                        ? "text-green-400"
-                        : "text-red-400"
-                }`}
-            >
-                {attended ? "Present" : "Absent"}
-            </p>
-        </div>
-    );
-}
-
 export default function AdminAttendance() {
     const token = localStorage.getItem("token");
 
@@ -205,17 +171,51 @@ export default function AdminAttendance() {
 
                                         </div>
 
-                                        <div className="grid grid-cols-2">
+                                        <div className="flex flex-wrap gap-3 mt-5">
 
-                                            <AttendanceBox
-                                                title="DAY 1"
-                                                attended={r.day1_attended}
-                                            />
+                                            <div
+                                                className={`inline-flex items-center gap-3 rounded-full px-4 py-2 border ${
+                                                    r.day1_attended
+                                                        ? "border-green-500/30 bg-green-500/10 text-green-400"
+                                                        : "border-white/10 bg-white/5 text-cream/50"
+                                                }`}
+                                            >
+                                                <span className="text-lg">
+                                                    {r.day1_attended ? "✓" : "—"}
+                                                </span>
 
-                                            <AttendanceBox
-                                                title="DAY 2"
-                                                attended={r.day2_attended}
-                                            />
+                                                <div>
+                                                    <p className="text-[10px] uppercase tracking-[0.25em] opacity-60">
+                                                        Day 1
+                                                    </p>
+
+                                                    <p className="font-medium">
+                                                        {r.day1_attended ? "Present" : "Absent"}
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            <div
+                                                className={`inline-flex items-center gap-3 rounded-full px-4 py-2 border ${
+                                                    r.day2_attended
+                                                        ? "border-green-500/30 bg-green-500/10 text-green-400"
+                                                        : "border-white/10 bg-white/5 text-cream/50"
+                                                }`}
+                                            >
+                                                <span className="text-lg">
+                                                    {r.day2_attended ? "✓" : "—"}
+                                                </span>
+
+                                                <div>
+                                                    <p className="text-[10px] uppercase tracking-[0.25em] opacity-60">
+                                                        Day 2
+                                                    </p>
+
+                                                    <p className="font-medium">
+                                                        {r.day2_attended ? "Present" : "Absent"}
+                                                    </p>
+                                                </div>
+                                            </div>
 
                                         </div>
 
