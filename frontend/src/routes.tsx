@@ -7,6 +7,7 @@ import AdminLogin from "./pages/admin/AdminLogin";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminRegistrations from "./pages/admin/AdminRegistration"
 import AdminScan from "./pages/admin/AdminScan"
+import Terms from "./pages/Terms"
 
 export const router = createBrowserRouter([
   {
@@ -16,6 +17,11 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <CKCSeminar />,
+      },
+
+      {
+          path:"/terms",
+          element:<Terms />
       },
 
       {
