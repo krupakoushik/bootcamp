@@ -118,7 +118,7 @@ export default function AdminAttendance() {
 
                     </div>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-5 mt-10">
+                    <div className="grid grid-cols-2 gap-5 mt-10">
 
                         <div className="rounded-2xl border p-6 border-green-500/20 bg-green-500/5">
                             <p className="uppercase text-xs text-green-300">
@@ -130,16 +130,6 @@ export default function AdminAttendance() {
                             </h2>
                         </div>
 
-                        <div className="rounded-2xl border p-6 border-green-500/20 bg-green-500/5">
-                            <p className="uppercase text-xs text-green-300">
-                                Day 2 Present
-                            </p>
-
-                            <h2 className="font-bebas text-6xl text-green-400 mt-2">
-                                {day2}
-                            </h2>
-                        </div>
-
                         <div className="rounded-2xl border p-6 border-red-500/20 bg-red-500/5">
                             <p className="uppercase text-xs text-red-300">
                                 Day 1 Absent
@@ -147,6 +137,16 @@ export default function AdminAttendance() {
 
                             <h2 className="font-bebas text-6xl text-red-400 mt-2">
                                 {absent1}
+                            </h2>
+                        </div>
+
+                        <div className="rounded-2xl border p-6 border-green-500/20 bg-green-500/5">
+                            <p className="uppercase text-xs text-green-300">
+                                Day 2 Present
+                            </p>
+
+                            <h2 className="font-bebas text-6xl text-green-400 mt-2">
+                                {day2}
                             </h2>
                         </div>
 
