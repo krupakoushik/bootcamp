@@ -85,7 +85,8 @@ export default function AdminAttendance() {
     const total = registrations.length;
     const day1 = registrations.filter((r) => r.day1_attended).length;
     const day2 = registrations.filter((r) => r.day2_attended).length;
-    const absent = total - day1;
+    const absent1 = total - day1;
+    const absent2 = total - day2;
     const rate =
         total === 0 ? 0 : Math.round((day1 / total) * 100);
 
@@ -117,7 +118,7 @@ export default function AdminAttendance() {
 
                     </div>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-10">
+                    <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-5 mt-10">
 
                         <div className="rounded-2xl border p-6 border-green-500/20 bg-green-500/5">
                             <p className="uppercase text-xs text-green-300">
@@ -145,9 +146,20 @@ export default function AdminAttendance() {
                             </p>
 
                             <h2 className="font-bebas text-6xl text-red-400 mt-2">
-                                {absent}
+                                {absent1}
                             </h2>
                         </div>
+
+                        <div className="rounded-2xl border p-6 border-red-500/20 bg-red-500/5">
+                            <p className="uppercase text-xs text-red-300">
+                                Day 2 Absent
+                            </p>
+
+                            <h2 className="font-bebas text-6xl text-red-400 mt-2">
+                                {absent2}
+                            </h2>
+                        </div>
+                    </div>
 
                         <div className="rounded-2xl border p-6 border-gold-soft/20 bg-white/5">
                             <p className="uppercase text-xs text-cream/50">
@@ -158,8 +170,6 @@ export default function AdminAttendance() {
                                 {rate}%
                             </h2>
                         </div>
-
-                    </div>
 
                     {loading ? (
                         <div className="py-20 text-center text-cream/60">
