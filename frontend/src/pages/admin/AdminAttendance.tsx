@@ -205,7 +205,7 @@ export default function AdminAttendance() {
 
                                         </div>
 
-                                        <div className="grid grid-cols-2 gap-5 mt-10">
+                                        <div className="grid grid-cols-2">
 
                                             <AttendanceBox
                                                 title="DAY 1"
