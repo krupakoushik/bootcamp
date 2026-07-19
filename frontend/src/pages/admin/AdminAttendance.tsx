@@ -205,7 +205,7 @@ export default function AdminAttendance() {
 
                                         </div>
 
-                                        <div className="flex gap-4 flex-wrap">
+                                        <div className="grid grid-cols-2 gap-5 mt-10">
 
                                             <AttendanceBox
                                                 title="DAY 1"
