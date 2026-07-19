@@ -1,9 +1,20 @@
-import Footer from "@/components/camp-content/Footer"
+import { useNavigate } from "react-router-dom";
 
 export default function Terms() {
+    
+    const navigate = useNavigate();
+    
     return (
         <>
             <main className="min-h-screen bg-black text-cream">
+
+                <button
+                    onClick={() => navigate("/")}
+                    className="text-red-400 hover:text-red-300 transition font-semibold"
+                >
+                    ← Back
+                </button>
+
                 <section className="mx-auto max-w-6xl px-6 py-24">
                     <p className="font-mono tracking-[0.45em] uppercase text-gold-soft text-sm">
                         Chennai Kendo Club
@@ -548,14 +559,9 @@ export default function Terms() {
                                 </div>
                             </div>
                         </section>
-
-                    <div className="mt-14 h-px w-full bg-linear-to-r from-transparent via-gold-soft/40 to-transparent" />    
-
                     </div>
                 </section>
             </main>
-
-            <Footer />
         </>
     );
 }
