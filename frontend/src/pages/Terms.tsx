@@ -64,6 +64,8 @@ export default function Terms() {
                             </div>
                         </section>
 
+                    <div className="mt-14 h-px w-full bg-linear-to-r from-transparent via-gold-soft/40 to-transparent" />    
+
                         {/* 2 */}
                         <section className="rounded-3xl border border-gold-soft/20 bg-white/5 backdrop-blur-xl p-8 md:p-10">
                             <div className="flex items-start gap-6">
@@ -90,6 +92,8 @@ export default function Terms() {
                                 </div>
                             </div>
                         </section>
+
+                    <div className="mt-14 h-px w-full bg-linear-to-r from-transparent via-gold-soft/40 to-transparent" />    
 
                         {/* 3 */}
                         <section className="rounded-3xl border border-gold-soft/20 bg-white/5 backdrop-blur-xl p-8 md:p-10">
@@ -121,6 +125,9 @@ export default function Terms() {
                                 </div>
                             </div>
                         </section>
+
+                    <div className="mt-14 h-px w-full bg-linear-to-r from-transparent via-gold-soft/40 to-transparent" />    
+
 
                         {/* 4 */}
                         <section className="rounded-3xl border border-gold-soft/20 bg-white/5 backdrop-blur-xl p-8 md:p-10">
@@ -161,6 +168,9 @@ export default function Terms() {
                             </div>
                         </section>
 
+                    <div className="mt-14 h-px w-full bg-linear-to-r from-transparent via-gold-soft/40 to-transparent" />    
+
+
                         {/* 5 */}
                         <section className="rounded-3xl border border-gold-soft/20 bg-white/5 backdrop-blur-xl p-8 md:p-10">
                             <div className="flex items-start gap-6">
@@ -194,6 +204,9 @@ export default function Terms() {
                                 </div>
                             </div>
                         </section>
+
+                    <div className="mt-14 h-px w-full bg-linear-to-r from-transparent via-gold-soft/40 to-transparent" />    
+
 
                         {/* 6 */}
                         <section className="rounded-3xl border border-gold-soft/20 bg-white/5 backdrop-blur-xl p-8 md:p-10">
@@ -231,6 +244,9 @@ export default function Terms() {
                             </div>
                         </section>
 
+                    <div className="mt-14 h-px w-full bg-linear-to-r from-transparent via-gold-soft/40 to-transparent" />    
+
+
                         {/* 7 */}
                         <section className="rounded-3xl border border-gold-soft/20 bg-white/5 backdrop-blur-xl p-8 md:p-10">
                         <div className="flex items-start gap-6">
@@ -263,6 +279,9 @@ export default function Terms() {
                                 </div>
                             </div>
                         </section>
+
+                    <div className="mt-14 h-px w-full bg-linear-to-r from-transparent via-gold-soft/40 to-transparent" />    
+
 
                         {/* 8 */}
                         <section className="rounded-3xl border border-gold-soft/20 bg-white/5 backdrop-blur-xl p-8 md:p-10">
@@ -301,6 +320,9 @@ export default function Terms() {
                             </div>
                         </section>
 
+                    <div className="mt-14 h-px w-full bg-linear-to-r from-transparent via-gold-soft/40 to-transparent" />    
+
+
                         {/* 9 */}
                         <section className="rounded-3xl border border-gold-soft/20 bg-white/5 backdrop-blur-xl p-8 md:p-10">
                             <div className="flex items-start gap-6">
@@ -336,6 +358,9 @@ export default function Terms() {
                             </div>
                         </section>
 
+                    <div className="mt-14 h-px w-full bg-linear-to-r from-transparent via-gold-soft/40 to-transparent" />    
+
+
                         {/* 10 */}
                         <section className="rounded-3xl border border-gold-soft/20 bg-white/5 backdrop-blur-xl p-8 md:p-10">
                             <div className="flex items-start gap-6">
@@ -360,6 +385,9 @@ export default function Terms() {
                                 </div>
                             </div>
                         </section>
+
+                    <div className="mt-14 h-px w-full bg-linear-to-r from-transparent via-gold-soft/40 to-transparent" />    
+
 
                         {/* 11 */}
                         <section className="rounded-3xl border border-gold-soft/20 bg-white/5 backdrop-blur-xl p-8 md:p-10">
@@ -392,6 +420,9 @@ export default function Terms() {
                             </div>
                         </section>
 
+                    <div className="mt-14 h-px w-full bg-linear-to-r from-transparent via-gold-soft/40 to-transparent" />    
+
+
                         {/* 12 */}
                         <section className="rounded-3xl border border-gold-soft/20 bg-white/5 backdrop-blur-xl p-8 md:p-10">
                             <div className="flex items-start gap-6">
@@ -418,6 +449,9 @@ export default function Terms() {
                                 </div>
                             </div>
                         </section>
+
+                    <div className="mt-14 h-px w-full bg-linear-to-r from-transparent via-gold-soft/40 to-transparent" />    
+
 
                         {/* 13 */}
                         <section className="rounded-3xl border border-gold-soft/20 bg-white/5 backdrop-blur-xl p-8 md:p-10">
@@ -446,6 +480,9 @@ export default function Terms() {
                                 </div>
                             </div>
                         </section>
+
+                    <div className="mt-14 h-px w-full bg-linear-to-r from-transparent via-gold-soft/40 to-transparent" />    
+
 
                         {/* 14 */}
                         <section className="rounded-3xl border border-gold-soft/20 bg-white/5 backdrop-blur-xl p-8 md:p-10">
@@ -479,6 +516,9 @@ export default function Terms() {
                             </div>
                         </section>
 
+                    <div className="mt-14 h-px w-full bg-linear-to-r from-transparent via-gold-soft/40 to-transparent" />    
+
+
                         {/* 15 */}
                         <section className="rounded-3xl border border-gold-soft/20 bg-white/5 backdrop-blur-xl p-8 md:p-10">
                             <div className="flex items-start gap-6">
@@ -508,6 +548,9 @@ export default function Terms() {
                                 </div>
                             </div>
                         </section>
+
+                    <div className="mt-14 h-px w-full bg-linear-to-r from-transparent via-gold-soft/40 to-transparent" />    
+
                     </div>
                 </section>
             </main>
