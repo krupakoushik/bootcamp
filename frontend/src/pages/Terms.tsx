@@ -15,7 +15,7 @@ export default function Terms() {
                     ← Back
                 </button>
 
-                <section className="mx-auto max-w-6xl px-6 py-24">
+                <section>
                     <p className="font-mono tracking-[0.45em] uppercase text-gold-soft text-sm">
                         Chennai Kendo Club
                     </p>
