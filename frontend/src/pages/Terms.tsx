@@ -19,7 +19,7 @@ export default function Terms() {
                     or attending the event, you agree to these terms.
                 </p>
 
-                <div className="mt-12 rounded-3xl border border-gold-soft/20 bg-primary/70 backdrop-blur-xl p-8 md:p-10">
+                <div className="mt-12 rounded-3xl border border-gold-soft/20 bg-white/5 backdrop-blur-xl p-8 md:p-10">
                     <p className="text-sm uppercase tracking-[0.35em] text-gold-soft">
                         Last Updated
                     </p>
@@ -33,7 +33,7 @@ export default function Terms() {
                 <div className="mt-12 space-y-8">
                     
                     {/* 1 */}
-                    <section className="rounded-3xl border border-gold-soft/20 bg-primary/70 backdrop-blur-xl p-8 md:p-10">
+                    <section className="rounded-3xl border border-gold-soft/20 bg-white/5 backdrop-blur-xl p-8 md:p-10">
                         <div className="flex items-start gap-6">
                             <span className="font-bebas text-7xl lg:text-8xl leading-none text-gold-soft/20 select-none">
                                 01
@@ -62,7 +62,7 @@ export default function Terms() {
                     </section>
 
                     {/* 2 */}
-                    <section className="rounded-3xl border border-gold-soft/20 bg-primary/70 backdrop-blur-xl p-8 md:p-10">
+                    <section className="rounded-3xl border border-gold-soft/20 bg-white/5 backdrop-blur-xl p-8 md:p-10">
                         <div className="flex items-start gap-6">
                             <span className="font-bebas text-7xl lg:text-8xl leading-none text-gold-soft/20 select-none">
                                 02
@@ -89,7 +89,7 @@ export default function Terms() {
                     </section>
 
                     {/* 3 */}
-                    <section className="rounded-3xl border border-gold-soft/20 bg-primary/70 backdrop-blur-xl p-8 md:p-10">
+                    <section className="rounded-3xl border border-gold-soft/20 bg-white/5 backdrop-blur-xl p-8 md:p-10">
                         <div className="flex items-start gap-6">
                             <span className="font-bebas text-7xl lg:text-8xl leading-none text-gold-soft/20 select-none">
                                 03
@@ -120,7 +120,7 @@ export default function Terms() {
                     </section>
 
                     {/* 4 */}
-                    <section className="rounded-3xl border border-gold-soft/20 bg-primary/70 backdrop-blur-xl p-8 md:p-10">
+                    <section className="rounded-3xl border border-gold-soft/20 bg-white/5 backdrop-blur-xl p-8 md:p-10">
                         <div className="flex items-start gap-6">
                             <span className="font-bebas text-7xl lg:text-8xl leading-none text-gold-soft/20 select-none">
                                 04
@@ -159,7 +159,7 @@ export default function Terms() {
                     </section>
 
                     {/* 5 */}
-                    <section className="rounded-3xl border border-gold-soft/20 bg-primary/70 backdrop-blur-xl p-8 md:p-10">
+                    <section className="rounded-3xl border border-gold-soft/20 bg-white/5 backdrop-blur-xl p-8 md:p-10">
                         <div className="flex items-start gap-6">
                             <span className="font-bebas text-7xl lg:text-8xl leading-none text-gold-soft/20 select-none">
                                 05
@@ -193,7 +193,7 @@ export default function Terms() {
                     </section>
 
                     {/* 6 */}
-                    <section className="rounded-3xl border border-gold-soft/20 bg-primary/70 backdrop-blur-xl p-8 md:p-10">
+                    <section className="rounded-3xl border border-gold-soft/20 bg-white/5 backdrop-blur-xl p-8 md:p-10">
                         <div className="flex items-start gap-6">
                             <span className="font-bebas text-7xl lg:text-8xl leading-none text-gold-soft/20 select-none">
                                 06
@@ -229,7 +229,7 @@ export default function Terms() {
                     </section>
 
                     {/* 7 */}
-                    <section className="rounded-3xl border border-gold-soft/20 bg-primary/70 backdrop-blur-xl p-8 md:p-10">
+                    <section className="rounded-3xl border border-gold-soft/20 bg-white/5 backdrop-blur-xl p-8 md:p-10">
                        <div className="flex items-start gap-6">
                             <span className="font-bebas text-7xl lg:text-8xl leading-none text-gold-soft/20 select-none">
                                 07
@@ -262,7 +262,7 @@ export default function Terms() {
                     </section>
 
                     {/* 8 */}
-                    <section className="rounded-3xl border border-gold-soft/20 bg-primary/70 backdrop-blur-xl p-8 md:p-10">
+                    <section className="rounded-3xl border border-gold-soft/20 bg-white/5 backdrop-blur-xl p-8 md:p-10">
                         <div className="flex items-start gap-6">
                             <span className="font-bebas text-7xl lg:text-8xl leading-none text-gold-soft/20 select-none">
                                 08
@@ -299,7 +299,7 @@ export default function Terms() {
                     </section>
 
                     {/* 9 */}
-                    <section className="rounded-3xl border border-gold-soft/20 bg-primary/70 backdrop-blur-xl p-8 md:p-10">
+                    <section className="rounded-3xl border border-gold-soft/20 bg-white/5 backdrop-blur-xl p-8 md:p-10">
                         <div className="flex items-start gap-6">
                             <span className="font-bebas text-7xl lg:text-8xl leading-none text-gold-soft/20 select-none">
                                 09
@@ -334,7 +334,7 @@ export default function Terms() {
                     </section>
 
                     {/* 10 */}
-                    <section className="rounded-3xl border border-gold-soft/20 bg-primary/70 backdrop-blur-xl p-8 md:p-10">
+                    <section className="rounded-3xl border border-gold-soft/20 bg-white/5 backdrop-blur-xl p-8 md:p-10">
                         <div className="flex items-start gap-6">
                             <span className="font-bebas text-7xl lg:text-8xl leading-none text-gold-soft/20 select-none">
                                 10
@@ -359,7 +359,7 @@ export default function Terms() {
                     </section>
 
                     {/* 11 */}
-                    <section className="rounded-3xl border border-gold-soft/20 bg-primary/70 backdrop-blur-xl p-8 md:p-10">
+                    <section className="rounded-3xl border border-gold-soft/20 bg-white/5 backdrop-blur-xl p-8 md:p-10">
                         <div className="flex items-start gap-6">
                             <span className="font-bebas text-7xl lg:text-8xl leading-none text-gold-soft/20 select-none">
                                 11
@@ -390,7 +390,7 @@ export default function Terms() {
                     </section>
 
                     {/* 12 */}
-                    <section className="rounded-3xl border border-gold-soft/20 bg-primary/70 backdrop-blur-xl p-8 md:p-10">
+                    <section className="rounded-3xl border border-gold-soft/20 bg-white/5 backdrop-blur-xl p-8 md:p-10">
                         <div className="flex items-start gap-6">
                             <span className="font-bebas text-7xl lg:text-8xl leading-none text-gold-soft/20 select-none">
                                 12
@@ -417,7 +417,7 @@ export default function Terms() {
                     </section>
 
                     {/* 13 */}
-                    <section className="rounded-3xl border border-gold-soft/20 bg-primary/70 backdrop-blur-xl p-8 md:p-10">
+                    <section className="rounded-3xl border border-gold-soft/20 bg-white/5 backdrop-blur-xl p-8 md:p-10">
                         <div className="flex items-start gap-6">
                             <span className="font-bebas text-7xl lg:text-8xl leading-none text-gold-soft/20 select-none">
                                 13
@@ -445,7 +445,7 @@ export default function Terms() {
                     </section>
 
                     {/* 14 */}
-                    <section className="rounded-3xl border border-gold-soft/20 bg-primary/70 backdrop-blur-xl p-8 md:p-10">
+                    <section className="rounded-3xl border border-gold-soft/20 bg-white/5 backdrop-blur-xl p-8 md:p-10">
                         <div className="flex items-start gap-6">
                             <span className="font-bebas text-7xl lg:text-8xl leading-none text-gold-soft/20 select-none">
                                 14
@@ -477,7 +477,7 @@ export default function Terms() {
                     </section>
 
                     {/* 15 */}
-                    <section className="rounded-3xl border border-gold-soft/20 bg-primary/70 backdrop-blur-xl p-8 md:p-10">
+                    <section className="rounded-3xl border border-gold-soft/20 bg-white/5 backdrop-blur-xl p-8 md:p-10">
                         <div className="flex items-start gap-6">
                             <span className="font-bebas text-7xl lg:text-8xl leading-none text-gold-soft/20 select-none">
                                 15
