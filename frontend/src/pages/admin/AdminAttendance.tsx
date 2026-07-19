@@ -130,7 +130,7 @@ export default function AdminAttendance() {
                             </h2>
                         </div>
 
-                        <div className="rounded-2xl border p-6 border-blue-500/20 bg-green-500/5">
+                        <div className="rounded-2xl border p-6 border-green-500/20 bg-green-500/5">
                             <p className="uppercase text-xs text-green-300">
                                 Day 2 Present
                             </p>
@@ -161,7 +161,7 @@ export default function AdminAttendance() {
                         </div>
                     </div>
 
-                        <div className="rounded-2xl border p-6 border-gold-soft/20 bg-white/5 md-5">
+                        <div className="rounded-2xl border p-6 border-gold-soft/20 bg-white/5 mt-5">
                             <p className="uppercase text-xs text-cream/50">
                                 Attendance
                             </p>
