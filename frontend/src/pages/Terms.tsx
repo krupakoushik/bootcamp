@@ -6,7 +6,7 @@ export default function Terms() {
     
     return (
         <>
-            <main className="min-h-screen bg-black text-cream">
+            <main className="mx-auto max-w-3xl p-6 space-y-8 bg-black text-cream">
 
                 <button
                     onClick={() => navigate("/")}
