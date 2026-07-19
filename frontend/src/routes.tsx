@@ -7,6 +7,7 @@ import AdminLogin from "./pages/admin/AdminLogin";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminRegistrations from "./pages/admin/AdminRegistration"
 import AdminScan from "./pages/admin/AdminScan"
+import AdminAttendance from "./pages/admin/AdminAttendance"
 import Terms from "./pages/Terms"
 
 export const router = createBrowserRouter([
@@ -42,6 +43,11 @@ export const router = createBrowserRouter([
       {
           path:"/admin/scan",
           element:<AdminScan />
+      },
+
+      {
+          path:"/admin/attendance",
+          element:<AdminAttendance />
       },
 
       {
