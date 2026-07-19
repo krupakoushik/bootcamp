@@ -46,8 +46,19 @@ export default function Waiver({
                         className="w-5 h-5"
                     />
 
-                    <span className="text-lg">
-                        I have read and agree.
+                    <span className="text-lg leading-8">
+                        I have read and agree to the{" "}
+                        <a
+                            href="/terms"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-gold-soft underline underline-offset-4 hover:text-cream transition"
+                        >
+                            Terms & Conditions
+                        </a>
+                        , acknowledge the physical nature of the event, consent to photography
+                        and videography, and agree to follow all safety instructions and event
+                        policies.
                     </span>
 
                 </label>
