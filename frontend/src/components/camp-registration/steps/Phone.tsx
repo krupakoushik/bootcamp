@@ -48,7 +48,7 @@ export default function Phone({
                             next();
                         }
                     }}
-                    className="mt-16 w-full bg-transparent border-b border-gold-soft/30 pb-5 text-5xl font-bebas outline-none"
+                    className="mt-16 w-full bg-transparent border-b border-gold-soft/30 pb-5 text-3xl lg:text-5xl font-bebas outline-none"
                 />
 
             </div>
