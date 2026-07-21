@@ -54,7 +54,7 @@ export default function Email({
 
             </div>
 
-            <div className="flex items-center gap-4 mt-5">
+            <div className="flex items-center gap-6 mt-5">
 
                 <button
                     onClick={previous}
@@ -66,7 +66,7 @@ export default function Email({
                 <button
                     onClick={next}
                     disabled={!formData.email.trim()}
-                    className="flex-1 bg-primary rounded-xl py-4 font-anton tracking-[0.35em] disabled:bg-white/10 disabled:text-white/30 disabled:cursor-not-allowed uppercase hover:bg-gold-soft transition"
+                    className="flex-1 bg-primary rounded-xl py-4 font-bebes tracking-[0.35em] disabled:bg-white/10 disabled:text-white/30 disabled:cursor-not-allowed uppercase hover:bg-gold-soft transition"
                 >
                     Continue →
                 </button>
