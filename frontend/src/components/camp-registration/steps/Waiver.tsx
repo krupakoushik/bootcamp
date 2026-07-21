@@ -65,11 +65,11 @@ export default function Waiver({
 
             </div>
 
-            <div className="flex justify-between">
+            <div className="flex items-center gap-6 font-bebes mt-5">
 
                 <button
                     onClick={previous}
-                    className="text-gold-soft hover:text-cream transition"
+                    className="px-5 text-gold-soft hover:text-cream transition"
                 >
                     ← Back
                 </button>
@@ -77,7 +77,7 @@ export default function Waiver({
                 <button
                     onClick={next}
                     disabled={!formData.waiver}
-                    className="bg-primary disabled:bg-white/10 disabled:text-cream/30 disabled:cursor-not-allowed px-10 py-4 rounded-xl font-anton uppercase tracking-[0.35em] hover:bg-gold-soft transition"
+                    className="flex-1 bg-primary rounded-xl py-4 tracking-[0.35em] disabled:bg-white/10 disabled:text-white/30 disabled:cursor-not-allowed uppercase hover:bg-gold-soft transition"
                 >
                     Continue →
                 </button>

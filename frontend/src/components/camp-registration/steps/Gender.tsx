@@ -95,18 +95,18 @@ export default function Gender({
 
             </div>
 
-            <div className="flex justify-between mt-5">
+            <div className="flex items-center gap-6 mt-5 font-bebes">
 
                 <button
                     onClick={previous}
-                    className="text-gold-soft hover:text-cream transition"
+                    className="px-5 text-gold-soft hover:text-cream transition"
                 >
                     ← Back
                 </button>
 
                 <button
                     onClick={next}
-                    className="bg-primary px-10 py-4 rounded-xl font-anton uppercase tracking-[0.35em] hover:bg-gold-soft transition"
+                    className="flex-1 bg-primary rounded-xl py-4 tracking-[0.35em] uppercase hover:bg-gold-soft transition"
                 >
                     Continue →
                 </button>

@@ -68,7 +68,7 @@ export default function Choose({
 
             </div>
 
-            <div className="flex items-center gap-6 mt-5">
+            <div className="flex items-center gap-6 mt-5 font-bebes">
 
                 <button
                     onClick={previous}
@@ -79,7 +79,7 @@ export default function Choose({
 
                 <button
                     onClick={next}
-                    className="flex-1 bg-primary rounded-xl py-4 font-bebes tracking-[0.35em] uppercase hover:bg-gold-soft transition"
+                    className="flex-1 bg-primary rounded-xl py-4 tracking-[0.35em] uppercase hover:bg-gold-soft transition"
                 >
                     Continue →
                 </button>
