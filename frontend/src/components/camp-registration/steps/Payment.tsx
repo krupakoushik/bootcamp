@@ -185,6 +185,7 @@ export default function Payment({
 
                     <input
                             type="number"
+                            autoFocus
                             min="1"
                             value={formData.amount}
                             onChange={(e) =>
