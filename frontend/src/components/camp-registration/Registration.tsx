@@ -46,7 +46,7 @@ export default function Registration() {
 
         pass: "2500",
 
-        amount: "2500",
+        amount: "0",
 
         paymentScreenshot: null as File | null,
     });
