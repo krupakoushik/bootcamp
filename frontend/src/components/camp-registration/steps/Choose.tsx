@@ -68,7 +68,7 @@ export default function Choose({
 
             </div>
 
-            <div className="flex items-center gap-6 mt-5 font-bebes">
+            <div className="flex items-center gap-6 mt-5 font-bebas">
 
                 <button
                     onClick={previous}

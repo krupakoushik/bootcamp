@@ -370,7 +370,7 @@ export default function Payment({
                 <button
                     onClick={submitRegistration}
                     disabled={loading || !formData.amount.trim()}
-                    className="bg-primary disabled:bg-white/10 disabled:text-cream/30 disabled:cursor-not-allowed px-10 py-4 rounded-xl font-bebes uppercase tracking-[0.35em] hover:bg-gold-soft transition"
+                    className="bg-primary disabled:bg-white/10 disabled:text-cream/30 disabled:cursor-not-allowed px-10 py-4 rounded-xl font-bebas uppercase tracking-[0.35em] hover:bg-gold-soft transition"
                 >
                 {loading ? (
                     <>
