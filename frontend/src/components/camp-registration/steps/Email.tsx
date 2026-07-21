@@ -54,7 +54,7 @@ export default function Email({
 
             </div>
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 mt-5">
 
                 <button
                     onClick={previous}
