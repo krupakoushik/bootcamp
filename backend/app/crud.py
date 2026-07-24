@@ -1,6 +1,6 @@
 import uuid
 from sqlalchemy.orm import Session
-from app.models import Registration
+from app.models.registrations import Registration
 from app.qr import generate_qr
 from sqlalchemy.exc import IntegrityError
 from fastapi import HTTPException

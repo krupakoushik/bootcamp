@@ -3,7 +3,7 @@ import { Navigate } from "react-router-dom";
 import AdminNavbar from "@/components/admin/AdminNavbar";
 import type { Registration } from "@/types/admin";
 
-const API = "https://bootcamp-m8yr.onrender.com";
+import API from "@/lib/api";
 
 export default function AdminAttendance() {
     const token = localStorage.getItem("token");

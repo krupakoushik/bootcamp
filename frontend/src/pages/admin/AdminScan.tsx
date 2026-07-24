@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import QRScanner from "@/components/admin/QRScanner";
 
-const API = "https://bootcamp-m8yr.onrender.com";
+import API from "@/lib/api";
 
 type ScanResponse = {
     status: "success" | "duplicate";

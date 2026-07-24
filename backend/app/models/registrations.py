@@ -1,9 +1,4 @@
-from sqlalchemy import Column
-from sqlalchemy import Integer
-from sqlalchemy import String
-from sqlalchemy import Boolean
-from sqlalchemy import Text
-from sqlalchemy import DateTime
+from sqlalchemy import Column, Integer, String, Boolean, Text, DateTime
 
 from sqlalchemy.sql import func
 
@@ -42,7 +37,9 @@ class Registration(Base):
 
     pass_type = Column(String(30), nullable=False)
 
-    amount_paid = Column(Integer, nullable=False, default=2500)
+    amount_paid = Column(Integer, nullable=False)
+
+    promo_code = Column(String(50), nullable=True)
 
     payment_screenshot = Column(String(500))
 

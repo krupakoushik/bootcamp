@@ -17,7 +17,7 @@ type Props = {
 };
 
 
-const API = "https://bootcamp-m8yr.onrender.com";
+import API from "@/lib/api";
 
 const UPI_ID = "vyapar.175693718407@hdfcbank";
 
@@ -32,11 +32,82 @@ export default function Payment({
 }: Props) {
 
     const [loading, setLoading] = useState(false);
+    const [promoLoading, setPromoLoading] = useState(false);
 
     const PASS_NAMES: Record<string, string> = {
         "2500": "Beginner Pass",
         "5000": "Supporter Pass",
         "8000": "Patron Pass",
+    };
+
+
+    const applyPromo = async () => {
+
+        if (!formData.promoCode.trim()) {
+            toast.error("Please enter a promo code.");
+            return;
+        }
+
+        setPromoLoading(true);
+
+        try {
+
+            const response = await fetch(`${API}/promos/validate`, {
+
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json",
+                },
+
+                body: JSON.stringify({
+                    code: formData.promoCode,
+                    pass_type: PASS_NAMES[formData.pass],
+                }),
+
+            });
+
+            const result = await response.json();
+
+            if (!response.ok || !result.valid) {
+
+                toast.error("Invalid promo code.");
+
+                setFormData((prev) => ({
+                    ...prev,
+                    promoCode: "",
+                    discount: 0,
+                    originalAmount: Number(prev.pass),
+                    finalAmount: Number(prev.pass),
+                }));
+
+                return;
+
+            }
+
+            setFormData((prev) => ({
+                ...prev,
+                originalAmount: result.original_amount,
+                discount: result.discount,
+                finalAmount: result.final_amount,
+            }));
+
+            toast.success("Promo code applied!");
+
+        }
+
+        catch {
+
+            toast.error("Couldn't validate promo code.");
+
+        }
+
+        finally {
+
+            setPromoLoading(false);
+
+        }
+
     };
 
 
@@ -84,8 +155,8 @@ export default function Payment({
             );
 
             data.append(
-                "amount_paid",
-                formData.amount
+                "promo_code",
+                formData.promoCode
             );
 
             data.append(
@@ -113,13 +184,13 @@ export default function Payment({
                 name: formData.name,
                 email: formData.email,
                 pass: PASS_NAMES[formData.pass],
-                amount: formData.amount,
+                promo: formData.promoCode,
             });
 
             posthog.capture("registration_completed", {
                 pass: PASS_NAMES[formData.pass],
-                amount: formData.amount,
-            });         
+                promo: formData.promoCode,
+            });
 
 
             next();
@@ -179,37 +250,81 @@ export default function Payment({
 
                 <div>
 
-                    <p className="font-anton tracking-[0.3em] uppercase text-gold-soft text-xs">
-                        CONFIRM THE AMOUNT YOU ARE PAYING
+                    <p className="font-anton tracking-[0.3em] uppercase text-gold-soft text-lg">
+                        REGISTRATION FEE
                     </p>
 
-                    <input
-                            type="number"
-                            autoFocus
-                            min="1"
-                            value={formData.amount}
-                            onChange={(e) =>
-                                setFormData({
-                                    ...formData,
-                                    amount: e.target.value,
-                                })
-                            }
-                            className="
-                                mt-4
-                                w-72
-                                bg-transparent
-                                border-b
-                                border-gold-soft
-                                pb-4
-                                text-8xl
-                                font-bebas
-                                outline-none
-                                focus:border-primary
-                            "
-                    />
+                    {formData.discount > 0 && (
+                        <p className="text-cream/40 line-through text-2xl">
+                            ₹{formData.originalAmount}
+                        </p>
+                    )}
+
+                    <h2 className="font-bebas text-8xl mt-2">
+                        ₹{formData.finalAmount}
+                    </h2>
+
                     <p className="text-cream/70 mt-6 leading-8">
-                        Scan the QR code or copy the UPI ID below to complete your payment. Once done, return here and upload the payment screenshot.
+                        Scan the QR code or copy the UPI ID below to complete your payment. Dont forget to upload the payment screenshot.
                     </p>
+
+                    <div className="mt-8 flex gap-3 items-end">
+
+                        <div className="flex-1">
+                            <label className="text-xs uppercase tracking-[0.3em] text-gold-soft">
+                                Promo Code
+                            </label>
+
+                            <input
+                                type="text"
+                                placeholder="Enter code"
+                                value={formData.promoCode}
+                                onChange={(e) =>
+                                    setFormData({
+                                        ...formData,
+                                        promoCode: e.target.value.toUpperCase(),
+                                    })
+                                }
+                                onKeyDown={(e) => {
+
+                                    if (e.key === "Enter") {
+
+                                        applyPromo();
+
+                                    }
+                                }}
+                            
+                                className="
+                                    mt-3
+                                    w-full
+                                    bg-transparent
+                                    border-b
+                                    border-gold-soft/40
+                                    pb-3
+                                    text-lg
+                                    outline-none
+                                    focus:border-primary
+                                    uppercase
+                                    tracking-widest
+                                "
+                            />
+                        </div>
+
+                        <button
+                            onClick={applyPromo}
+                            disabled={promoLoading || !formData.promoCode.trim()}
+                            className="px-8 py-3 rounded-xl border disabled:opacity-50 disabled:cursor-not-allowed border-gold-soft/30 hover:border-primary hover:bg-primary/10 transition font-bebas tracking-[0.2em]">
+                            {promoLoading ? "..." : "APPLY"}
+                        </button>
+
+                    </div>
+
+                    {formData.discount > 0 && (
+                        <p className="mt-4 text-green-400 text-sm">
+                            ✓ <span className="font-medium">{formData.promoCode}</span> applied! You saved ₹{formData.discount}.<br /><span className="text-gold-soft text-base">Please pay exactly ₹{formData.finalAmount}.</span>
+                        </p>
+                    )}
+
 
                         <div className="mt-6 rounded-xl border border-gold-soft/20 bg-white/5 p-5">
                             <p className="text-gold-soft text-xs tracking-[0.3em] uppercase">
@@ -369,7 +484,7 @@ export default function Payment({
 
                 <button
                     onClick={submitRegistration}
-                    disabled={loading || !formData.amount.trim()}
+                    disabled={loading}
                     className="bg-primary disabled:bg-white/10 disabled:text-cream/30 disabled:cursor-not-allowed px-10 py-4 rounded-xl font-bebas uppercase tracking-[0.35em] hover:bg-gold-soft transition"
                 >
                 {loading ? (

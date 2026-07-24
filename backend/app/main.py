@@ -1,18 +1,14 @@
 from fastapi import FastAPI
 
-from app.database import Base
-from app.database import engine
 from fastapi.middleware.cors import CORSMiddleware
 
-import app.models
+from app.models import registrations
+from app.models import promo
 
 from app.routes.admin import router as admin_router
-
 from app.routes.auth import router as auth_router
-
 from app.routes.registration import router as registration_router
-
-Base.metadata.create_all(bind=engine)
+from app.routes.promos import router as promo_router
 
 app = FastAPI(
     title="CKC Backend",
@@ -34,6 +30,7 @@ app.add_middleware(
 app.include_router(registration_router)
 app.include_router(admin_router)
 app.include_router(auth_router)
+app.include_router(promo_router)
 
 @app.get("/")
 def root():

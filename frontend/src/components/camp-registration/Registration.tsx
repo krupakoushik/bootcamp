@@ -30,6 +30,14 @@ const steps = [
 export default function Registration() {
     const [step, setStep] = useState(0);
 
+    const PASS_PRICES: Record<string, number> = {
+        "2500": 2500,
+        "5000": 5000,
+        "8000": 8000,
+    };
+
+    const DEFAULT_PASS = "2500";
+
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -44,9 +52,12 @@ export default function Registration() {
 
         waiver: false,
 
-        pass: "2500",
+        pass: DEFAULT_PASS,
 
-        amount: "0",
+        promoCode: "",
+        originalAmount: PASS_PRICES[DEFAULT_PASS],
+        discount: 0,
+        finalAmount: PASS_PRICES[DEFAULT_PASS],
 
         paymentScreenshot: null as File | null,
     });

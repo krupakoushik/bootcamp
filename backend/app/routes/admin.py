@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import asc, desc, func
 from app.dependencies import verify_admin
 from app.database import get_db
-from app.models import Registration
+from app.models.registrations import Registration
 from app.crud import verify_registration
 from datetime import datetime, timezone
 from app.schemas import AttendanceScan

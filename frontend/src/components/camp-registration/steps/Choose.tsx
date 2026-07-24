@@ -13,6 +13,13 @@ export default function Choose({
     formData,
     setFormData,
 }: Props) {
+
+    const PASS_PRICES: Record<string, number> = {
+        "2500": 2500,
+        "5000": 5000,
+        "8000": 8000,
+    };
+
     return (
         <div className="rounded-3xl text-cream border border-gold-soft/50 bg-white/5 backdrop-blur-xl min-h-175 flex flex-col justify-between p-10">
 
@@ -45,7 +52,12 @@ export default function Choose({
                                 setFormData({
                                     ...formData,
                                     pass: pass.price,
-                                    amount: pass.price,
+
+                                    originalAmount: PASS_PRICES[pass.price],
+                                    finalAmount: PASS_PRICES[pass.price],
+
+                                    discount: 0,
+                                    promoCode: "",
                                 })
                             }
                             className={`rounded-3xl border p-8 transition ${

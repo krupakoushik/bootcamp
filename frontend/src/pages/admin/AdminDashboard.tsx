@@ -2,7 +2,7 @@ import AdminNavbar from "@/components/admin/AdminNavbar";
 import { useCallback, useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 
-const API = "https://bootcamp-m8yr.onrender.com";
+import API from "@/lib/api";
 
 type DashboardStats = {
     participants: number;
