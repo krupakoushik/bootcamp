@@ -30,6 +30,8 @@ def register(
 
     pass_type: str = Form(...),
 
+    amount_paid: int = Form(...),
+
     promo_code: str = Form(""),
 
     payment_screenshot: UploadFile = File(...),
@@ -51,6 +53,12 @@ def register(
             detail="Invalid promo code.",
         )
 
+    if amount_paid < 500:
+        raise HTTPException(
+            status_code=400,
+            detail="Invalid payment amount.",
+        )
+
     registration = {
         "name": name,
         "email": email,
@@ -60,7 +68,7 @@ def register(
         "emergency_phone": emergency_phone,
         "medical": medical,
         "pass_type": pass_type,
-        "amount_paid": price["final"],
+        "amount_paid": amount_paid,
         "promo_code": promo_code.upper() if promo_code else None,
         "payment_screenshot": payment_url,
     }

@@ -240,7 +240,7 @@ export default function Payment({
                 YOUR PLACE
             </h2>
 
-            <p className="text-cream/60 mt-6 max-w-2xl leading-8">
+            <p className="text-cream/60 mt-6 max-w-3xl leading-8">
                 Complete your payment using any UPI app and upload your payment
                 confirmation below. Once verified, we'll send your unique QR
                 ticket directly to your email.
@@ -255,7 +255,7 @@ export default function Payment({
                     </p>
 
                     {formData.discount > 0 && (
-                        <p className="text-cream/40 line-through text-2xl">
+                        <p className="text-cream/40 line-through text-3xl">
                             ₹{formData.originalAmount}
                         </p>
                     )}
@@ -264,20 +264,13 @@ export default function Payment({
                         ₹{formData.finalAmount}
                     </h2>
 
-                    <p className="text-cream/70 mt-6 leading-8">
-                        Scan the QR code or copy the UPI ID below to complete your payment. Dont forget to upload the payment screenshot.
-                    </p>
+                    <div className="flex gap-3 items-end">
 
-                    <div className="mt-8 flex gap-3 items-end">
-
-                        <div className="flex-1">
-                            <label className="text-xs uppercase tracking-[0.3em] text-gold-soft">
-                                Promo Code
-                            </label>
+                        <div className="relative mt-4 w-full max-w-md">
 
                             <input
                                 type="text"
-                                placeholder="Enter code"
+                                placeholder="Enter promo code"
                                 value={formData.promoCode}
                                 onChange={(e) =>
                                     setFormData({
@@ -295,28 +288,43 @@ export default function Payment({
                                 }}
                             
                                 className="
-                                    mt-3
                                     w-full
+                                    h-12
+                                    rounded-3xl
+                                    border
+                                    border-gold-soft/30
                                     bg-transparent
-                                    border-b
-                                    border-gold-soft/40
-                                    pb-3
-                                    text-lg
-                                    outline-none
-                                    focus:border-primary
+                                    pl-6
+                                    pr-16
+                                    font-bebas
+                                    text-base
                                     uppercase
                                     tracking-widest
+                                    outline-none
+                                    focus:border-primary
                                 "
                             />
+                            <button
+                                onClick={applyPromo}
+                                disabled={promoLoading || !formData.promoCode.trim()}
+                                className={`
+                                    absolute
+                                    right-2
+                                    top-1/2
+                                    -translate-y-1/2
+                                    h-7
+                                    w-7
+                                    rounded-full
+                                    transition
+                                    text-base
+                                    font-bold
+                                    ${formData.promoCode.trim()
+                                            ? "bg-primary text-black"
+                                            : "text-cream/40"}
+                                `}>
+                                {promoLoading ? "..." : "→"}
+                            </button>
                         </div>
-
-                        <button
-                            onClick={applyPromo}
-                            disabled={promoLoading || !formData.promoCode.trim()}
-                            className="px-8 py-3 rounded-xl border disabled:opacity-50 disabled:cursor-not-allowed border-gold-soft/30 hover:border-primary hover:bg-primary/10 transition font-bebas tracking-[0.2em]">
-                            {promoLoading ? "..." : "APPLY"}
-                        </button>
-
                     </div>
 
                     {formData.discount > 0 && (
@@ -325,35 +333,78 @@ export default function Payment({
                         </p>
                     )}
 
+                    <p className="mt-6 font-anton tracking-[0.3em] uppercase text-gold-soft text-xs">
+                        CONFIRM PAYMENT AMOUNT
+                    </p>
 
-                        <div className="mt-6 rounded-xl border border-gold-soft/20 bg-white/5 p-5">
-                            <p className="text-gold-soft text-xs tracking-[0.3em] uppercase">
-                                UPI ID
-                            </p>
+                    <div className="relative mt-4 w-full max-w-md">
+                    <span className="absolute left-6 top-1/2 -translate-y-1/2 font-bebas text-3xl text-cream/60">
+                        ₹
+                    </span>
+                    <input
+                            type="number"
+                            autoFocus
+                            min="1"
+                            value={formData.finalAmount}
+                            onChange={(e) =>
+                                setFormData({
+                                    ...formData,
+                                    finalAmount: Number(e.target.value),
+                                })
+                            }
+                            className="
+                                    w-full
+                                    h-16
+                                    tracking-[0.1em]
+                                    font-bebas
+                                    rounded-3xl
+                                    border
+                                    border-gold-soft/30
+                                    bg-transparent
+                                    px-6
+                                    text-3xl 
+                                    sm:text-4xl
+                                    text-left
+                                    pl-16
+                                    uppercase
+                                    outline-none
+                                    focus:border-primary
+                            "
+                    />
+                    </div>
+                    <p className="text-cream/70 mt-6 leading-8">
+                        Scan the QR code or copy the UPI ID below to complete your payment. Dont forget to upload the payment screenshot.
+                    </p>
 
-                            <p className="mt-2 font-mono text-lg break-all select-all">
-                                {UPI_ID}
-                            </p>
-                        </div>
 
-                        <button
-                            onClick={copyUpiId}
-                            disabled={loading}
-                            className="mt-10 bg-primary hover:bg-gold-soft transition duration-300 rounded-2xl px-10 py-4 font-bebas tracking-[0.25em]"
-                        >
-                            📋 COPY UPI ID
-                        </button>
+                    <div className="mt-6 rounded-xl border border-gold-soft/20 bg-white/5 p-5">
+                        <p className="text-gold-soft text-xs tracking-[0.3em] uppercase">
+                            UPI ID
+                        </p>
+
+                        <p className="mt-2 font-base lg:text-lg break-all select-all">
+                            {UPI_ID}
+                        </p>
+                    </div>
+
+                    <button
+                        onClick={copyUpiId}
+                        disabled={loading}
+                        className="mt-10 w-full sm:w-auto bg-primary hover:bg-gold-soft transition duration-300 rounded-3xl px-10 py-4 font-bebas tracking-[0.25em]"
+                    >
+                        📋 COPY UPI ID
+                    </button>
  
                 </div>
 
                 <div>
 
-                    <div className="rounded-3xl aspect-square flex items-center justify-center p-6">
+                    <div className="rounded-3xl max-w-sm mx-auto flex items-center justify-center p-6">
 
                         <img
                             src={paymentQR}
                             alt="Payment QR"
-                            className="w-full h-full object-contain rounded-2xl"
+                            className="w-full h-full object-contain rounded-3xl"
                         />
 
                     </div>
@@ -406,7 +457,7 @@ export default function Payment({
                         📷
                     </div>
 
-                    <h4 className="font-bebas text-4xl mt-8">
+                    <h4 className="font-bebas text-2xl lg:text-4xl mt-8">
                         CLICK TO UPLOAD
                     </h4>
 
