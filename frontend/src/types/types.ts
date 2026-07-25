@@ -15,9 +15,14 @@ export interface FormData {
     pass: string;
 
     promoCode: string;
+
     originalAmount: number;
+
     discount: number;
-    finalAmount: number;
+
+    expectedAmount: number;
+
+    amountPaid: number;
 
     paymentScreenshot: File | null;
 }

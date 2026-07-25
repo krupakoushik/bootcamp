@@ -53,7 +53,7 @@ def register(
             detail="Invalid promo code.",
         )
 
-    if amount_paid < 500:
+    if amount_paid < 100:
         raise HTTPException(
             status_code=400,
             detail="Invalid payment amount.",
@@ -68,6 +68,7 @@ def register(
         "emergency_phone": emergency_phone,
         "medical": medical,
         "pass_type": pass_type,
+        "expected_amount": price["final_amount"],
         "amount_paid": amount_paid,
         "promo_code": promo_code.upper() if promo_code else None,
         "payment_screenshot": payment_url,

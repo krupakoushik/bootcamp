@@ -78,7 +78,8 @@ export default function Payment({
                     promoCode: "",
                     discount: 0,
                     originalAmount: Number(prev.pass),
-                    finalAmount: Number(prev.pass),
+                    expectedAmount: Number(prev.pass),
+                    amountPaid: Number(prev.pass),
                 }));
 
                 return;
@@ -89,7 +90,8 @@ export default function Payment({
                 ...prev,
                 originalAmount: result.original_amount,
                 discount: result.discount,
-                finalAmount: result.final_amount,
+                expectedAmount: result.final_amount,
+                amountPaid: result.final_amount,
             }));
 
             toast.success("Promo code applied!");
@@ -157,6 +159,11 @@ export default function Payment({
             data.append(
                 "promo_code",
                 formData.promoCode
+            );
+
+            data.append(
+                "amount_paid",
+                formData.amountPaid.toString()
             );
 
             data.append(
@@ -251,7 +258,7 @@ export default function Payment({
                 <div>
 
                     <p className="font-anton tracking-[0.3em] uppercase text-gold-soft text-lg">
-                        REGISTRATION FEE
+                        EXPECTED FEE
                     </p>
 
                     {formData.discount > 0 && (
@@ -261,7 +268,7 @@ export default function Payment({
                     )}
 
                     <h2 className="font-bebas text-8xl mt-2">
-                        ₹{formData.finalAmount}
+                        ₹{formData.expectedAmount}
                     </h2>
 
                     <div className="flex gap-3 items-end">
@@ -329,7 +336,7 @@ export default function Payment({
 
                     {formData.discount > 0 && (
                         <p className="mt-4 text-green-400 text-sm">
-                            ✓ <span className="font-medium">{formData.promoCode}</span> applied! You saved ₹{formData.discount}.<br /><span className="text-gold-soft text-base">Please pay exactly ₹{formData.finalAmount}.</span>
+                            ✓ <span className="font-medium">{formData.promoCode}</span> applied! You saved ₹{formData.discount}.<br /><span className="text-gold-soft text-base">Please pay exactly ₹{formData.expectedAmount}.</span>
                         </p>
                     )}
 
@@ -345,17 +352,17 @@ export default function Payment({
                             type="number"
                             autoFocus
                             min="1"
-                            value={formData.finalAmount}
+                            value={formData.amountPaid}
                             onChange={(e) =>
                                 setFormData({
                                     ...formData,
-                                    finalAmount: Number(e.target.value),
+                                    amountPaid: Number(e.target.value) || 0,
                                 })
                             }
                             className="
                                     w-full
                                     h-16
-                                    tracking-[0.1em]
+                                    tracking-widest
                                     font-bebas
                                     rounded-3xl
                                     border

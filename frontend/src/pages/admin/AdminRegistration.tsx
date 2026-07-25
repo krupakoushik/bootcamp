@@ -73,7 +73,9 @@ export default function AdminRegistrations() {
     const verified = registrations.filter(r => r.verified).length;
     const pending = total - verified;
 
-    const total_amount = registrations.reduce(
+    const total_amount = registrations
+    .filter(r => r.verified)
+    .reduce(
         (sum, r) => sum + parseInt(r.amount_paid || "0", 10),
         0
     );
@@ -267,6 +269,21 @@ export default function AdminRegistrations() {
                                                 </p>
                                             </div>
 
+                                            <div>
+                                                <p className="text-cream/40 text-xs uppercase">
+                                                    Email
+                                                </p>
+                                                {r.email_sent ? (
+                                                    <span className="text-green-400">
+                                                        ✓ Sent
+                                                    </span>
+                                                ) : (
+                                                    <span className="text-red-400">
+                                                        ✗ Not Sent
+                                                    </span>
+                                                )}
+                                            </div>
+
                                         </div>
                                     </div>
 
@@ -284,22 +301,11 @@ export default function AdminRegistrations() {
                                     </div>
                                    
 
-                                    <button
+                                    <img
+                                        src={r.payment_screenshot}
                                         onClick={() => setPreviewImage(r.payment_screenshot)}
-                                        className="
-                                            rounded-xl
-                                            border
-                                            border-primary/30
-                                            bg-primary/10
-                                            px-5
-                                            py-3
-                                            text-center
-                                            hover:bg-primary/20
-                                            transition
-                                        "
-                                    >
-                                        Payment Proof
-                                    </button>
+                                        className="h-20 w-20 rounded-xl object-cover cursor-pointer"
+                                    />
 
                                     {!r.verified && (
                                         <button
