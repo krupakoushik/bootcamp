@@ -54,7 +54,8 @@ export default function Choose({
                                     pass: pass.price,
 
                                     originalAmount: PASS_PRICES[pass.price],
-                                    finalAmount: PASS_PRICES[pass.price],
+                                    expectedAmount: PASS_PRICES[pass.price],
+                                    amountPaid: PASS_PRICES[pass.price],
 
                                     discount: 0,
                                     promoCode: "",

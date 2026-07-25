@@ -57,7 +57,8 @@ export default function Registration() {
         promoCode: "",
         originalAmount: PASS_PRICES[DEFAULT_PASS],
         discount: 0,
-        finalAmount: PASS_PRICES[DEFAULT_PASS],
+        expectedAmount: PASS_PRICES[DEFAULT_PASS],
+        amountPaid: PASS_PRICES[DEFAULT_PASS],
 
         paymentScreenshot: null as File | null,
     });
