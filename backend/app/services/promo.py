@@ -49,8 +49,8 @@ def calculate_price(
     final = max(original - discount, 0)
 
     return {
-        "original": original,
+        "original_amount": original,
         "discount": discount,
-        "final": final,
+        "final_amount": final,
         "promo": promo,
     }
