@@ -7,6 +7,7 @@ from fastapi import HTTPException
 from datetime import datetime
 
 from app.services.mail import send_registration_email
+from app.models.promo import PromoCode
 
 def create_registration(
     db: Session,
@@ -27,46 +28,30 @@ def create_registration(
 
 
     new_registration = Registration(
-
         uuid=str(uuid.uuid4()),
-
         name=registration["name"],
         email=registration["email"],
         phone=registration["phone"],
-
         gender=registration["gender"],
-
         emergency_name=registration["emergency_name"],
         emergency_phone=registration["emergency_phone"],
-
         medical=registration["medical"],
-
         pass_type=registration["pass_type"],
-        
         amount_paid=registration["amount_paid"],
-
+        promo_code=registration["promo_code"],
         payment_screenshot=registration["payment_screenshot"],
-
     )
 
     try:
-
         db.add(new_registration)
-
         db.flush()
-
         new_registration.ckc_id = f"CKC-BC26-{new_registration.id:04d}"
-
         db.commit()
-
         db.refresh(new_registration)
-
         return new_registration
 
     except IntegrityError:
-
         db.rollback()
-
         raise HTTPException(
             status_code=409,
             detail="This phone number is already registered."
@@ -90,6 +75,21 @@ def verify_registration(
         )
 
     if not registration.verified:
+        if registration.promo_code:
+
+            promo = (
+                db.query(PromoCode)
+                .filter(PromoCode.code == registration.promo_code.upper())
+                .first()
+            )
+
+            if promo:
+
+                if (
+                    promo.max_uses is None
+                    or promo.used_count < promo.max_uses
+                ):
+                    promo.used_count += 1
 
         registration.qr_code = generate_qr(registration)
         registration.verified = True
