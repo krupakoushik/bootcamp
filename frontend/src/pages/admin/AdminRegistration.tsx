@@ -170,7 +170,7 @@ export default function AdminRegistrations() {
                 )}
 
                 {!loading && (
-                    <div className="grid gap-5 mt-10">
+                    <div className="grid gap-2 mt-10">
                         {filteredRegistrations.map((r, index) => (
                             <div
                                 key={r.id}
