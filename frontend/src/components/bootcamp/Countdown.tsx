@@ -53,7 +53,7 @@ function TimeBlock({
 }) {
   return (
     <div className="text-center">
-      <h2 className="font-bebas text-6xl text-cream">{value} </h2>
+      <h2 className="font-bebas text-5xl lg:text-6xl text-cream">{value} </h2>
       <p className="font-inter text-xs tracking-[0.35em] text-cream uppercase">
         {label}
       </p>
