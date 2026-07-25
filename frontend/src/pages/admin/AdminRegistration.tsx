@@ -267,17 +267,6 @@ export default function AdminRegistrations() {
                                                 </p>
                                             </div>
 
-
-                                            <div>
-                                                <p className="text-cream/40 text-xs uppercase">
-                                                    Email
-                                                </p>
-                                                <span
-                                                className="inline-block rounded-full px-4 py-1 font-semibold ">
-                                                    {r.email_sent}
-                                                </span>
-                                            </div>
-
                                         </div>
                                     </div>
 
