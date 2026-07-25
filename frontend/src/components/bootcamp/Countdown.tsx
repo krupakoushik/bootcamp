@@ -35,11 +35,11 @@ export default function Countdown() {
   }, []);
 
   return (
-    <div className="flex gap-8 justify-center">
-      <TimeBlock value={time.days} label="DAYS" />
-      <TimeBlock value={time.hours} label="HOURS" />
-      <TimeBlock value={time.minutes} label="MINUTES" />
-      <TimeBlock value={time.seconds} label="SECONDS" />
+    <div className="flex justify-center w-full">
+        <TimeBlock value={time.days} label="DAYS" />
+        <TimeBlock value={time.hours} label="HOURS" />
+        <TimeBlock value={time.minutes} label="MINUTES" />
+        <TimeBlock value={time.seconds} label="SECONDS" />
     </div>
   );
 }
@@ -52,8 +52,8 @@ function TimeBlock({
   label: string;
 }) {
   return (
-    <div className="text-center">
-      <h2 className="font-bebas text-4xl lg:text-6xl text-cream">{value} </h2>
+    <div className="flex-1 text-center min-w-0">
+      <h2 className="font-bebas text-6xl text-cream">{value} </h2>
       <p className="font-inter text-xs tracking-[0.35em] text-cream uppercase">
         {label}
       </p>
