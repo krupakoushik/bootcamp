@@ -35,7 +35,7 @@ export default function Countdown() {
   }, []);
 
   return (
-    <div className="grid grid-cols-4 gap-2 sm:gap-8">
+    <div className="grid grid-cols-4 gap-5 sm:gap-8">
         <TimeBlock value={time.days} label="DAYS" />
         <TimeBlock value={time.hours} label="HOURS" />
         <TimeBlock value={time.minutes} label="MINUTES" />
@@ -53,10 +53,10 @@ function TimeBlock({
 }) {
   return (
     <div className="flex-1 text-center min-w-0">
-      <h2 className="font-bebas text-4xl sm:text-6xl text-cream">
+      <h2 className="font-bebas text-6xl text-cream">
         {value}
       </h2>
-      <p className="font-inter text-[9px] sm:text-xs tracking-[0.15em] sm:tracking-[0.35em] uppercase text-cream">
+      <p className="font-inter text-[9px] sm:text-xs tracking-[0.35em] uppercase text-cream">
         {label}
       </p>
     </div>
