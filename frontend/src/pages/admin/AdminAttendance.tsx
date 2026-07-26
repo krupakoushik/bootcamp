@@ -1,12 +1,12 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { Navigate } from "react-router-dom";
+import Protection from "./Protection";
 import AdminNavbar from "@/components/admin/AdminNavbar";
 import type { Registration } from "@/types/admin";
 
 import API from "@/lib/api";
 
 export default function AdminAttendance() {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("token")!;
 
     const [registrations, setRegistrations] = useState<Registration[]>([]);
     const [loading, setLoading] = useState(true);
@@ -44,10 +44,6 @@ export default function AdminAttendance() {
         );
     }, [registrations, search]);
 
-    if (!token) {
-        return <Navigate to="/admin/login" replace />;
-    }
-
     const total = registrations.length;
     const day1 = registrations.filter((r) => r.day1_attended).length;
     const day2 = registrations.filter((r) => r.day2_attended).length;
@@ -57,7 +53,7 @@ export default function AdminAttendance() {
         total === 0 ? 0 : Math.round((day1 / total) * 100);
 
     return (
-        <>
+        <Protection>
             <AdminNavbar />
 
             <div className="max-w-7xl mx-auto p-6 text-cream">
@@ -229,6 +225,6 @@ export default function AdminAttendance() {
 
                 </div>
             </div>
-        </>
+        </Protection>
     );
 }

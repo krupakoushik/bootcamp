@@ -1,8 +1,8 @@
 import AdminNavbar from "@/components/admin/AdminNavbar";
 import { useCallback, useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
 
 import API from "@/lib/api";
+import Protection from "./Protection";
 
 type DashboardStats = {
     participants: number;
@@ -15,7 +15,7 @@ type DashboardStats = {
 
 export default function Dashboard() {
 
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("token")!;
 
     const [stats, setStats] = useState<DashboardStats | null>(null);
     const [loading, setLoading] = useState(true);
@@ -43,10 +43,6 @@ export default function Dashboard() {
         refreshDashboard();
     }, [refreshDashboard]);
 
-    if (!token) {
-        return <Navigate to="/admin/login" replace />;
-    }
-
     if (loading || !stats) {
         return (
             <>
@@ -62,7 +58,7 @@ export default function Dashboard() {
     }
 
     return (
-        <>
+        <Protection>
             <AdminNavbar />
             
             <main className="mx-auto max-w-7xl px-6 py-10 text-cream">
@@ -147,6 +143,6 @@ export default function Dashboard() {
                 </div>
 
             </main>
-        </>
+        </Protection>
     );
 }

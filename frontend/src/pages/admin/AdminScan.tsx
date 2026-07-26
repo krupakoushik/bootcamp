@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import Protection from "@/pages/admin/Protection";
+
 import QRScanner from "@/components/admin/QRScanner";
 
 import API from "@/lib/api";
@@ -64,9 +66,10 @@ export default function AdminScan() {
     }
 
     return (
-        <>
+        <Protection>
+
             <main className="mx-auto max-w-3xl p-6 space-y-8">
-                
+
                 <button
                     onClick={() => navigate("/admin")}
                     className="text-red-400 hover:text-red-300 transition font-semibold"
@@ -196,17 +199,11 @@ export default function AdminScan() {
 
                         <div className="mt-8 space-y-2 text-lg">
 
-                            <p>
-                                {participant.pass_type}
-                            </p>
+                            <p>{participant.pass_type}</p>
 
-                            <p>
-                                📞 {participant.phone}
-                            </p>
+                            <p>📞 {participant.phone}</p>
 
-                            <p>
-                                {participant.checked_in_at}
-                            </p>
+                            <p>{participant.checked_in_at}</p>
 
                         </div>
 
@@ -220,6 +217,6 @@ export default function AdminScan() {
 
             )}
 
-        </>
+        </Protection>
     );
 }

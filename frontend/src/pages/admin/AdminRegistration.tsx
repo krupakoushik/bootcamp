@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { Navigate } from "react-router-dom";
+import Protection from "./Protection";
 import AdminNavbar from "@/components/admin/AdminNavbar";
 
 import type { Registration } from "@/types/admin";
@@ -8,8 +8,7 @@ import API from "@/lib/api";
 
 export default function AdminRegistrations() {
 
-    const token = localStorage.getItem("token");
-
+    const token = localStorage.getItem("token")!;
     const [registrations, setRegistrations] = useState<Registration[]>([]);
     const [loading, setLoading] = useState(true);
     const [search, setSearch] = useState("");
@@ -65,10 +64,6 @@ export default function AdminRegistrations() {
             });
     }, [registrations, search, filter]);
 
-    if (!token) {
-        return <Navigate to="/admin/login" replace />;
-    }
-
     const total = registrations.length;
     const verified = registrations.filter(r => r.verified).length;
     const pending = total - verified;
@@ -83,7 +78,7 @@ export default function AdminRegistrations() {
     
 
     return (
-        <>
+        <Protection>
         <AdminNavbar />
         <div className="max-w-7xl mx-auto p-6 text-cream">
             <div className="rounded-3xl border border-gold-soft/40 bg-white/5 backdrop-blur-xl p-8">
@@ -565,6 +560,6 @@ export default function AdminRegistrations() {
 }
 
         </div>
-        </>
+        </Protection>
     );
 }

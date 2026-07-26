@@ -1,61 +1,60 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import API from "@/lib/api";
 
 export default function AdminLogin() {
+    const navigate = useNavigate();
 
     const [username, setUsername] = useState("");
-
     const [password, setPassword] = useState("");
+    const [loading, setLoading] = useState(false);
+
+    async function handleKeyDown(
+        e: React.KeyboardEvent<HTMLInputElement>
+    ) {
+        if (
+            e.key === "Enter" &&
+            username.trim() &&
+            password.trim() &&
+            !loading
+        ) {
+            await login();
+        }
+    }
 
     async function login() {
+        setLoading(true);
 
-        const response = await fetch(
-
-            `${API}/auth/login`,
-
-            {
-
+        try {
+            const response = await fetch(`${API}/auth/login`, {
                 method: "POST",
-
                 headers: {
-
                     "Content-Type": "application/json",
-
                 },
-
                 body: JSON.stringify({
-
-                    username,
-
+                    username: username.trim(),
                     password,
-
                 }),
+            });
 
+            if (!response.ok) {
+                alert("Wrong credentials");
+                return;
             }
 
-        );
+            const data = await response.json();
 
-        if (!response.ok) {
+            localStorage.setItem("token", data.token);
 
-            alert("Wrong credentials");
-
-            return;
-
+            navigate("/admin");
+        } finally {
+            setLoading(false);
         }
-
-        const data = await response.json();
-
-        localStorage.setItem("token", data.token);
-
-        window.location.href = "/admin";
-
     }
 
     return (
-
         <div className="min-h-screen flex items-center justify-center px-6">
-
             <div className="w-full max-w-md rounded-3xl border border-gold-soft/50 bg-white/5 backdrop-blur-xl p-10 text-cream">
 
                 <h1 className="font-bebas text-7xl text-center">
@@ -70,8 +69,11 @@ export default function AdminLogin() {
 
                     <input
                         type="text"
+                        autoFocus
+                        autoComplete="username"
                         placeholder="Username"
                         value={username}
+                        onKeyDown={handleKeyDown}
                         onChange={(e) => setUsername(e.target.value)}
                         className="
                             w-full
@@ -90,8 +92,10 @@ export default function AdminLogin() {
 
                     <input
                         type="password"
+                        autoComplete="current-password"
                         placeholder="Password"
                         value={password}
+                        onKeyDown={handleKeyDown}
                         onChange={(e) => setPassword(e.target.value)}
                         className="
                             w-full
@@ -112,7 +116,11 @@ export default function AdminLogin() {
 
                 <button
                     onClick={login}
-                    disabled={!username.trim() || !password.trim()}
+                    disabled={
+                        loading ||
+                        !username.trim() ||
+                        !password.trim()
+                    }
                     className="
                         mt-8
                         w-full
@@ -130,13 +138,10 @@ export default function AdminLogin() {
                         hover:text-black
                     "
                 >
-                    Login
+                    {loading ? "Signing In..." : "Sign In"}
                 </button>
 
             </div>
-
         </div>
-
     );
-
 }
