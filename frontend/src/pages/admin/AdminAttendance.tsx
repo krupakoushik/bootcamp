@@ -56,8 +56,8 @@ export default function AdminAttendance() {
         <Protection>
             <AdminNavbar />
 
-            <div className="max-w-7xl mx-auto p-6 text-cream">
-                <div className="rounded-3xl border border-gold-soft/40 bg-white/5 backdrop-blur-xl p-8">
+            <div className="max-w-full mx-auto p-1 lg:p-6 text-cream">
+                <div className="rounded-3xl border border-gold-soft/40 bg-white/5 backdrop-blur-xl p-4 lg:p-8">
 
                     <div className="flex flex-col lg:flex-row lg:justify-between lg:items-end gap-6">
 
