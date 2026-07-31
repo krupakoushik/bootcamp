@@ -10,8 +10,8 @@ export default function Schedule() {
                             />
                         </div>
                         <div>
-                            <h3 className="font-bebas text-8xl">DOJO ETIQUETTE</h3>
-                            <ul className="space-y-4 mt-6">
+                            <h3 className="font-bebas text-7xl lg:text-8xl tracking-normal text-cream uppercase">DOJO ETIQUETTE</h3>
+                            <ul className="space-y-5 mt-8 text-lg leading-relaxed">
                                 <li><span className="text-gold-soft"> 𒉽 </span>Bow when entering and leaving the dojo.</li>
                                 <li><span className="text-gold-soft"> 𒉽 </span>Respect instructors and fellow kendoka.</li>
                                 <li><span className="text-gold-soft"> 𒉽 </span>Wear comfortable track pants and a t-shirt.</li>

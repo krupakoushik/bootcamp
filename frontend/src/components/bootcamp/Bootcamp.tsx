@@ -37,13 +37,13 @@ export default function Bootcamp() {
                 <img
                     src={Text}
                     alt="Seminar Text"
-                    className="w-full max-w-lg h-auto object-contain"
+                    className="w-full max-w-xl h-auto object-contain"
                 />
 
                 <p className="font-bebas text-[1.5rem] text-extrabold text-cream/80 leading-[0.8]">
                     AUG 1 • AUG 2
                     <br />
-                    <span className="text-gold-soft text-[0.6rem] lg:text-[0.8rem] tracking-[0.3em]">
+                    <span className="text-gold-soft text-xs lg:text-sm tracking-[0.3em]">
                         — Smashers 1.0, OMR | Beginner Friendly | 10 AM to 4 PM —
                     </span>
                 </p>
