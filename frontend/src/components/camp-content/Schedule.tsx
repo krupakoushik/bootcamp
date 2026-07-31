@@ -4,7 +4,7 @@ export default function Schedule() {
                     <div className="flex flex-col rounded-3xl border border-gold-soft/50 bg-white/5 p-8">
                     <div className="font-anton tracking-[0.8em] text-gold-soft uppercase lg:text-center">
                         Day 1
-                        <h2 className="font-bebas text-7xl lg:text-8xl tracking-normal text-cream uppercase leading-none">Saturday,<br />Aug 1</h2>
+                        <h2 className="font-bebas text-7xl lg:text-8xl tracking-normal text-cream uppercase leading-none">Saturday, Aug 1</h2>
                     </div>
                         <ul className="space-y-4 mt-6 text-cream">
                             <li>9:30 — 10:15 <span className="text-gold-soft"> 𒉽 </span> Registration and Verification</li>
@@ -19,7 +19,7 @@ export default function Schedule() {
                     <div className="flex flex-col rounded-3xl border border-gold-soft/50 bg-white/5 p-8">
                     <div className="font-anton tracking-[0.8em] text-gold-soft uppercase lg:text-center">
                         Day 2
-                        <h2 className="font-bebas text-7xl lg:text-8xl tracking-normal text-cream uppercase leading-none">Sunday,<br />Aug 2</h2>
+                        <h2 className="font-bebas text-7xl lg:text-8xl tracking-normal text-cream uppercase leading-none">Sunday, Aug 2</h2>
                     </div>
                         <ul className="space-y-4 mt-6 text-cream">
                             <li>9:30 — 10:15 <span className="text-gold-soft"> 𒉽 </span> Registration and Verification</li>
