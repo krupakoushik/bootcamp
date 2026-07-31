@@ -133,7 +133,7 @@ export default function AdminScan() {
                 {error && (
                     <div className="rounded-2xl border border-red-500 bg-red-500/10 p-5">
                         <h2 className="text-red-400 text-xl font-bold">
-                            ❌ Error
+                            ❌ INVALID QR
                         </h2>
 
                         <p className="mt-2">
@@ -175,8 +175,8 @@ export default function AdminScan() {
                             border
                             ${
                                 participant.status === "success"
-                                    ? "border-green-500 bg-green-950"
-                                    : "border-yellow-500 bg-yellow-950"
+                                    ? "border-green-500 bg-green-900/70 backdrop-blur-xl"
+                                    : "border-yellow-500 bg-yellow-900/70"
                             }
                         `}
                     >
@@ -184,7 +184,7 @@ export default function AdminScan() {
                         <h2 className="text-3xl font-bold">
 
                             {participant.status === "success"
-                                ? "✅ ATTENDANCE MARKED"
+                                ? "✓ CHECKED IN"
                                 : "⚠ ALREADY CHECKED IN"}
 
                         </h2>

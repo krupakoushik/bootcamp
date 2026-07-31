@@ -7,6 +7,7 @@ from app.models.registrations import Registration
 from app.crud import verify_registration
 from datetime import datetime, timezone
 from app.schemas import AttendanceScan
+from zoneinfo import ZoneInfo
 
 router = APIRouter(
     prefix="/admin",
@@ -116,7 +117,7 @@ def scan_attendance(
             detail="Registration has not been verified.",
         )
 
-    now = datetime.now(timezone.utc)
+    now = datetime.now(ZoneInfo("Asia/Kolkata"))
 
     if request.day == 1:
 
