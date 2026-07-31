@@ -55,7 +55,7 @@ export default function Schedule() {
                                 px-8
                                 py-4
                                 font-bebas
-                                text-md
+                                text-sm
                                 lg:text-xl
                                 tracking-[0.3em]
                                 text-cream
