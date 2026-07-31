@@ -61,7 +61,7 @@ export default function Bootcamp() {
                                     block: "start",
                                 });
                         }}
-                        className="bg-primary font-bebas text-cream font-extrabold px-24 py-4 rounded-2xl tracking-[0.3em] hover:bg-gold-soft transition duration-300"
+                        className="bg-primary font-bebas text-cream font-extrabold px-24 py-4 rounded-2xl tracking-[0.3em] hover:bg-gold-soft hover:text-black transition duration-300"
                     >
                         REGISTER →
                     </button>

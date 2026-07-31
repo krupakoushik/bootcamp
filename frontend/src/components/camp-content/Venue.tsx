@@ -39,31 +39,12 @@ export default function Schedule() {
 
                         </ul>
 
+                        <div className="mt-10" />
                         <a
                             href="https://maps.app.goo.gl/Hdcj8fwPMtmnvSb58"
                             target="_blank"
                             rel="noreferrer"
-                            className="
-                                mt-10
-                                inline-flex
-                                w-full
-                                sm:w-auto
-                                items-center
-                                justify-center
-                                rounded-2xl
-                                bg-primary
-                                px-8
-                                py-4
-                                font-bebas
-                                text-sm
-                                lg:text-xl
-                                tracking-[0.3em]
-                                text-cream
-                                transition
-                                hover:bg-gold-soft
-                                hover:text-black
-                            "
-                        >
+                            className="bg-primary font-bebas text-cream font-extrabold px-24 py-4 rounded-2xl tracking-[0.3em] hover:bg-gold-soft transition duration-300 hover:text-black">
                             GET DIRECTIONS →
                         </a>
                     </div>
