@@ -169,9 +169,17 @@ export default function AdminAttendance() {
                                                 {r.name}
                                             </h2>
 
-                                            <p className="text-cream/60 mt-1">
-                                                {r.pass_type}
-                                            </p>
+                                            <span
+                                                className={`inline-block rounded-full px-4 py-1 font-semibold ${
+                                                    r.pass_type === "Beginner Pass"
+                                                        ? "bg-blue-500/20 text-blue-300"
+                                                        : r.pass_type === "Supporter Pass"
+                                                        ? "bg-yellow-500/20 text-yellow-300"
+                                                        : "bg-purple-500/20 text-purple-300"
+                                                }`}
+                                                >
+                                                    {r.pass_type}
+                                            </span>
 
                                             <p className="text-cream/40 mt-3">
                                                 {r.phone}
