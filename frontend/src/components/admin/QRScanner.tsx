@@ -10,59 +10,73 @@ export default function QRScanner({
     onScan,
     resumeSignal,
 }: Props) {
-
     const scannerRef = useRef<Html5Qrcode | null>(null);
-    const scanning = useRef(true);
+    const scanning = useRef(false);
+
+    async function startScanner() {
+        const scanner = scannerRef.current;
+        if (!scanner) return;
+
+        // Don't start again if it's already running
+        if (scanner.isScanning) {
+            scanning.current = true;
+            return;
+        }
+
+        try {
+            await scanner.start(
+                {
+                    facingMode: "environment",
+                },
+                {
+                    fps: 10,
+                    qrbox: {
+                        width: 280,
+                        height: 280,
+                    },
+                },
+                async (decodedText) => {
+                    if (!scanning.current) return;
+
+                    scanning.current = false;
+
+                    try {
+                        await scanner.stop();
+                    } catch {}
+
+                    onScan(decodedText);
+                },
+                () => {}
+            );
+
+            scanning.current = true;
+        } catch (err) {
+            console.error(err);
+        }
+    }
 
     useEffect(() => {
-        scanning.current = true;
-    }, [resumeSignal]);
-
-    useEffect(() => {
-        const scanner = new Html5Qrcode("reader");
-        scannerRef.current = scanner;
-
-        const startScanner = async () => {
-            try {
-                await scanner.start(
-                    {
-                        facingMode: "environment",
-                    },
-                    {
-                        fps: 10,
-                        qrbox: {
-                            width: 280,
-                            height: 280,
-                        },
-                    },
-                    (decodedText) => {
-                        if (!scanning.current) return;
-
-                        scanning.current = false;
-
-                        onScan(decodedText);
-                    },
-                    () => {}
-                );
-            } catch (err) {
-                console.error(err);
-            }
-        };
+        scannerRef.current = new Html5Qrcode("reader");
 
         startScanner();
 
         return () => {
-            if (
-                scannerRef.current &&
-                scannerRef.current.isScanning
-            ) {
-                scannerRef.current
+            const scanner = scannerRef.current;
+
+            if (scanner?.isScanning) {
+                scanner
                     .stop()
-                    .then(() => scannerRef.current?.clear())
+                    .then(() => scanner.clear())
                     .catch(() => {});
+            } else {
+                scanner?.clear().catch(() => {});
             }
         };
-    }, [onScan]);
+    }, []);
+
+    useEffect(() => {
+        startScanner();
+    }, [resumeSignal]);
 
     return (
         <div className="overflow-hidden rounded-2xl border border-gold-soft/20 bg-black h-[55vh]">

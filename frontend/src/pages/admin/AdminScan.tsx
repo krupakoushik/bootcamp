@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Protection from "@/pages/admin/Protection";
@@ -6,6 +6,7 @@ import Protection from "@/pages/admin/Protection";
 import QRScanner from "@/components/admin/QRScanner";
 
 import API from "@/lib/api";
+
 
 type ScanResponse = {
     status: "success" | "duplicate";
@@ -19,35 +20,39 @@ type ScanResponse = {
 export default function AdminScan() {
     const navigate = useNavigate();
     const [day, setDay] = useState<1 | 2>(1);
-    const [participant, setParticipant] =
-        useState<ScanResponse | null>(null);
+    const [participant, setParticipant] = useState<ScanResponse | null>(null);
     const [resumeSignal, setResumeSignal] = useState(0);
     const [error, setError] = useState<string | null>(null);
+    const processing = useRef(false);
     
     async function handleScan(uuid: string) {
+
+        if (processing.current) return;
+
+        processing.current = true;
+
         try {
+
             setError(null);
-            const response = await fetch(
-                `${API}/admin/scan`,
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        Authorization: `Bearer ${localStorage.getItem("token")}`,
-                    },
-                    body: JSON.stringify({
-                        uuid,
-                        day,
-                    }),
-                }
-            );
+
+            const response = await fetch(`${API}/admin/scan`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${localStorage.getItem("token")}`,
+                },
+                body: JSON.stringify({
+                    uuid,
+                    day,
+                }),
+            });
 
             const data = await response.json();
 
             if (!response.ok) {
                 navigator.vibrate?.([150, 50, 150]);
                 setError(data.detail);
-                setResumeSignal((v) => v + 1);
+                setResumeSignal(v => v + 1);
                 return;
             }
 
@@ -56,12 +61,19 @@ export default function AdminScan() {
             } else {
                 navigator.vibrate?.([80, 80, 80]);
             }
+
             setParticipant(data);
 
         } catch {
+
             navigator.vibrate?.([150, 50, 150]);
             setError("Cannot connect to server.");
-            setResumeSignal((v) => v + 1);
+            setResumeSignal(v => v + 1);
+
+        } finally {
+
+            processing.current = false;
+
         }
     }
 
@@ -160,7 +172,10 @@ export default function AdminScan() {
                     "
                     onClick={() => {
                         setParticipant(null);
-                        setResumeSignal((v) => v + 1);
+
+                        setTimeout(() => {
+                            setResumeSignal((v) => v + 1);
+                        }, 150);
                     }}
                 >
 
