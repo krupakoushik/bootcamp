@@ -23,7 +23,7 @@ export default function Content() {
 
             <Bootcamp />
 
-            <div className="max-w-7xl mx-auto">
+            <div className="max-w-full mx-auto p-1 lg:p-6">
 
                 <Discover />
 

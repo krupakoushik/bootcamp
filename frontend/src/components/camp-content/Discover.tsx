@@ -20,7 +20,7 @@ export default function Discover() {
                 <div className="flex items-center justify-center">
                     <img
                         src={Logo}
-                        className="w-105 max-w-full object-contain"
+                        className="w-full max-w-lg object-contain"
                     />
                 </div>
         </div>

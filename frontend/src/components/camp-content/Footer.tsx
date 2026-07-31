@@ -3,7 +3,7 @@ import Logo from "@/assets/kendo/kendo-w-l-gpt.png"
 export default function Footer() {
     return(
         <footer className="mt-5">
-            <div className="rounded-3xl border border-gold-soft bg-white/5 backdrop-blur-xl p-10 lg:p-14">
+            <div className="rounded-3xl border border-gold-soft/50 bg-white/5 backdrop-blur-xl p-10 lg:p-14">
 
                 <div className="grid lg:grid-cols-3 lg:text-left text-center gap-12">
 

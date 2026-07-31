@@ -1,9 +1,9 @@
-import WhoShouldAttend from "../components/bootcamp/Content";
+import Content from "../components/bootcamp/Content";
 
 export default function CKCSeminar() {
   return (
     <>
-      <WhoShouldAttend />
+      <Content />
     </>
   );
 }
