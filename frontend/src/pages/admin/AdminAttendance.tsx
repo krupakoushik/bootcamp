@@ -57,8 +57,8 @@ export default function AdminAttendance() {
     const day2 = registrations.filter((r) => r.day2_attended).length;
     const absent1 = total - day1;
     const absent2 = total - day2;
-    const rate =
-        total === 0 ? 0 : Math.round((day1 / total) * 100);
+    const rate1 = total === 0 ? 0 : Math.round((day1 / total) * 100);
+    const rate2 = total === 0 ? 0 : Math.round((day2 / total) * 100);
 
     return (
         <Protection>
@@ -129,17 +129,27 @@ export default function AdminAttendance() {
                                 {absent2}
                             </h2>
                         </div>
-                    </div>
 
                         <div className="rounded-2xl border p-6 border-gold-soft/20 bg-white/5 mt-5">
-                            <p className="uppercase text-xs text-cream/50">
-                                Overall Attendance
+                            <p className="uppercase text-xs text-cream">
+                                Day 1 Attendance Percentage
                             </p>
 
                             <h2 className="font-bebas text-6xl mt-2">
-                                {rate}%
+                                {rate1}%
                             </h2>
                         </div>
+
+                        <div className="rounded-2xl border p-6 border-gold-soft/20 bg-white/5 mt-5">
+                            <p className="uppercase text-xs text-cream">
+                                Day 2 Attendance Percentage
+                            </p>
+
+                            <h2 className="font-bebas text-6xl mt-2">
+                                {rate2}
+                            </h2>
+                        </div>
+                    </div>
 
                     {loading ? (
                         <div className="py-20 text-center text-cream/60">
