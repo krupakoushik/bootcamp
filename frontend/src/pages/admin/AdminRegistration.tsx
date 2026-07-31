@@ -81,7 +81,7 @@ export default function AdminRegistrations() {
         <Protection>
         <AdminNavbar />
         <div className="max-w-full mx-auto p-1 lg:p-6 text-cream">
-            <div className="rounded-3xl border border-gold-soft/40 bg-white/5 backdrop-blur-xl p-1 lg:p-8">
+            <div className="rounded-3xl border border-gold-soft/40 bg-white/5 backdrop-blur-xl p-4 lg:p-8">
                 
                 <div className="flex flex-col sm:flex-row sm:items-center gap-4">
                     <div>
