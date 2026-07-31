@@ -10,73 +10,63 @@ export default function QRScanner({
     onScan,
     resumeSignal,
 }: Props) {
-    const scannerRef = useRef<Html5Qrcode | null>(null);
-    const scanning = useRef(false);
 
-    async function startScanner() {
-        const scanner = scannerRef.current;
-        if (!scanner) return;
+        const scannerRef = useRef<Html5Qrcode | null>(null);
+        const scanning = useRef(true);
+        const lastScan = useRef("");
 
-        // Don't start again if it's already running
-        if (scanner.isScanning) {
+        useEffect(() => {
             scanning.current = true;
-            return;
-        }
+            lastScan.current = "";
+        }, [resumeSignal]);
 
-        try {
-            await scanner.start(
-                {
-                    facingMode: "environment",
-                },
-                {
-                    fps: 10,
-                    qrbox: {
-                        width: 280,
-                        height: 280,
+        useEffect(() => {
+
+            const scanner = new Html5Qrcode("reader");
+            scannerRef.current = scanner;
+
+            scanner
+                .start(
+                    {
+                        facingMode: "environment",
                     },
-                },
-                async (decodedText) => {
-                    if (!scanning.current) return;
+                    {
+                        fps: 10,
+                        qrbox: {
+                            width: 280,
+                            height: 280,
+                        },
+                    },
+                    (decodedText) => {
 
-                    scanning.current = false;
+                        console.log("Decoded:", decodedText);
 
-                    try {
-                        await scanner.stop();
-                    } catch {}
+                        if (!scanning.current) return;
 
-                    onScan(decodedText);
-                },
-                () => {}
-            );
+                        if (decodedText === lastScan.current) return;
 
-            scanning.current = true;
-        } catch (err) {
-            console.error(err);
-        }
-    }
+                        lastScan.current = decodedText;
+                        scanning.current = false;
 
-    useEffect(() => {
-        scannerRef.current = new Html5Qrcode("reader");
+                        onScan(decodedText);
 
-        startScanner();
+                    },
+                    () => {}
+                )
+                .catch(console.error);
 
-        return () => {
-            const scanner = scannerRef.current;
+            return () => {
 
-            if (scanner?.isScanning) {
-                scanner
-                    .stop()
-                    .then(() => scanner.clear())
-                    .catch(() => {});
-            } else {
-                scanner?.clear().catch(() => {});
-            }
-        };
-    }, []);
+                if (scanner.isScanning) {
+                    scanner
+                        .stop()
+                        .then(() => scanner.clear())
+                        .catch(console.error);
+                }
 
-    useEffect(() => {
-        startScanner();
-    }, [resumeSignal]);
+            };
+
+        }, []);
 
     return (
         <div className="overflow-hidden rounded-2xl border border-gold-soft/20 bg-black h-[55vh]">

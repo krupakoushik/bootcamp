@@ -26,7 +26,7 @@ export default function AdminScan() {
     const processing = useRef(false);
     
     async function handleScan(uuid: string) {
-
+        console.log("SCAN:", uuid, new Date().toLocaleTimeString());
         if (processing.current) return;
 
         processing.current = true;
