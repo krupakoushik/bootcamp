@@ -182,7 +182,7 @@ export default function AdminAttendance() {
                                             </span>
 
                                             <p className="text-cream/40 mt-3">
-                                                {r.phone}
+                                                Phone: {r.phone}
                                             </p>
 
                                         </div>
