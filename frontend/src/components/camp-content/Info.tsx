@@ -14,7 +14,7 @@ export default function Schedule() {
                     </div>
                     <div className="flex flex-col rounded-3xl border border-gold-soft/50 bg-white/5 p-8">
                         <h3 className="font-bebas text-cream text-6xl lg:text-8xl">SHOW UP.<br />WE'LL HANDLE THE REST.</h3>
-                        <p>Never held a sword before?<br />Perfect.<br /><br />That's exactly who this bootcamp was designed for.</p>
+                        <p className="mt-4 max-w-lg text-cream leading-relaxed">Never held a sword before?<br />Perfect.<br /><br />That's exactly who this bootcamp was designed for.</p>
                         <ul className="space-y-4 mt-6 text-cream">
                             <li><span className="text-gold-soft"> 𒉽 </span> Loaner shinai included</li>
                             <li><span className="text-gold-soft"> 𒉽 </span> Fresh vegetarian lunch both days</li> 
