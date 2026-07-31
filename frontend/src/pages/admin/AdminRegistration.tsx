@@ -80,7 +80,7 @@ export default function AdminRegistrations() {
     return (
         <Protection>
         <AdminNavbar />
-        <div className="max-w-7xl mx-auto p-6 text-cream">
+        <div className="max-w-full mx-auto p-1 lg:p-6 text-cream">
             <div className="rounded-3xl border border-gold-soft/40 bg-white/5 backdrop-blur-xl p-8">
                 
                 <div className="flex flex-col sm:flex-row sm:items-center gap-4">
@@ -239,9 +239,6 @@ export default function AdminRegistrations() {
                                             </div>
 
                                             <div>
-                                                <p className="text-cream/40 text-xs uppercase">
-                                                    Pass
-                                                </p>
                                                 <span
                                                 className={`inline-block rounded-full px-4 py-1 font-semibold ${
                                                     r.pass_type === "Beginner Pass"
