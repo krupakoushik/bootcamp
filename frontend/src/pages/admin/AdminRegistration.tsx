@@ -134,7 +134,7 @@ export default function AdminRegistrations() {
                 </div>
                     
                     
-                <div className="grid md:grid-cols-2 gap-5 mt-5">
+                <div className="grid grid-cols-2 gap-5 mt-5">
                     <div className="border-green-500/20 bg-green-500/5 rounded-2xl border p-6">
                         <div>
                             <p className="text-green-300 uppercase tracking-[0.25em] text-xs">
