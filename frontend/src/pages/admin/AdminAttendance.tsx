@@ -37,11 +37,19 @@ export default function AdminAttendance() {
     const filtered = useMemo(() => {
         const q = search.toLowerCase();
 
-        return registrations.filter((r) =>
-            r.name.toLowerCase().includes(q) ||
-            r.phone.includes(q) ||
-            (r.ckc_id ?? "").toLowerCase().includes(q)
-        );
+        return registrations
+            .filter((r) =>
+                r.name.toLowerCase().includes(q) ||
+                r.phone.includes(q) ||
+                (r.ckc_id ?? "").toLowerCase().includes(q)
+            )
+            .sort((a, b) => {
+                if (a.day1_attended === b.day1_attended) {
+                    return a.name.localeCompare(b.name);
+                }
+
+                return Number(a.day1_attended) - Number(b.day1_attended);
+            });
     }, [registrations, search]);
 
     const total = registrations.length;
@@ -74,7 +82,7 @@ export default function AdminAttendance() {
                         <input
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
-                            placeholder="Search..."
+                            placeholder="Search name, phone or CKC ID..."
                             className="w-full lg:w-96 rounded-2xl border border-gold-soft/30 bg-white/5 px-5 py-4 outline-none"
                         />
 
@@ -125,7 +133,7 @@ export default function AdminAttendance() {
 
                         <div className="rounded-2xl border p-6 border-gold-soft/20 bg-white/5 mt-5">
                             <p className="uppercase text-xs text-cream/50">
-                                Attendance
+                                Overall Attendance
                             </p>
 
                             <h2 className="font-bebas text-6xl mt-2">
@@ -149,8 +157,12 @@ export default function AdminAttendance() {
 
                                         <div>
 
-                                            <p className="text-gold-soft text-xs uppercase tracking-[0.35em]">
-                                                #{index + 1} • {r.ckc_id}
+                                            <p className="text-cream/40 text-sm">
+                                                Participant #{index + 1}
+                                            </p>
+
+                                            <p className="font-bebas text-2xl text-gold-soft">
+                                                {r.ckc_id}
                                             </p>
 
                                             <h2 className="font-bebas text-5xl mt-2">
@@ -167,7 +179,7 @@ export default function AdminAttendance() {
 
                                         </div>
 
-                                        <div className="flex flex-wrap gap-3 mt-5">
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-5 lg:mt-0">
 
                                             <div
                                                 className={`inline-flex items-center gap-3 rounded-full px-4 py-2 border ${
@@ -176,8 +188,8 @@ export default function AdminAttendance() {
                                                         : "border-red-500/30 bg-red-500/10 text-red-400"
                                                 }`}
                                             >
-                                                <span className="text-lg">
-                                                    {r.day1_attended ? "✓" : "—"}
+                                                <span className="text-2xl font-bold">
+                                                    {r.day1_attended ? "✓" : "○"}
                                                 </span>
 
                                                 <div>
@@ -186,7 +198,7 @@ export default function AdminAttendance() {
                                                     </p>
 
                                                     <p className="font-medium">
-                                                        {r.day1_attended ? "Present" : "Absent"}
+                                                        {r.day1_attended ? "Present" : "Not Checked In"}
                                                     </p>
                                                 </div>
                                             </div>
@@ -198,8 +210,8 @@ export default function AdminAttendance() {
                                                         : "border-red-500/30 bg-red-500/10 text-red-400"
                                                 }`}
                                             >
-                                                <span className="text-lg">
-                                                    {r.day2_attended ? "✓" : "—"}
+                                                <span className="text-2xl font-bold">
+                                                    {r.day2_attended ? "✓" : "○"}
                                                 </span>
 
                                                 <div>
@@ -208,7 +220,7 @@ export default function AdminAttendance() {
                                                     </p>
 
                                                     <p className="font-medium">
-                                                        {r.day2_attended ? "Present" : "Absent"}
+                                                        {r.day2_attended ? "Present" : "Not Checked In"}
                                                     </p>
                                                 </div>
                                             </div>
