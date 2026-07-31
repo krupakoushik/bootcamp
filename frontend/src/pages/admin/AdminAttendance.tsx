@@ -146,7 +146,7 @@ export default function AdminAttendance() {
                             </p>
 
                             <h2 className="font-bebas text-6xl mt-2">
-                                {rate2}
+                                {rate2}%
                             </h2>
                         </div>
                     </div>
