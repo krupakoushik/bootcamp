@@ -83,7 +83,7 @@ export default function AdminRegistrations() {
         <div className="max-w-7xl mx-auto p-6 text-cream">
             <div className="rounded-3xl border border-gold-soft/40 bg-white/5 backdrop-blur-xl p-8">
                 
-                <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-4">
                     <div>
                         <p className="font-anton tracking-[0.45em] uppercase text-gold-soft text-xs">
                             Chennai Kendo Club
@@ -100,7 +100,7 @@ export default function AdminRegistrations() {
                         placeholder="Search registrations..."
                         className="
                             w-full
-                            lg:w-96
+                            lg:max-w-sm
                             rounded-2xl
                             border
                             border-gold-soft/30
@@ -265,16 +265,13 @@ export default function AdminRegistrations() {
                                             </div>
 
                                             <div>
-                                                <p className="text-cream/40 text-xs uppercase">
-                                                    Email
-                                                </p>
                                                 {r.email_sent ? (
                                                     <span className="text-green-400">
-                                                        ✓ Sent
+                                                        ✓ Email Sent
                                                     </span>
                                                 ) : (
                                                     <span className="text-red-400">
-                                                        ✗ Not Sent
+                                                        ✗ Email Not Sent
                                                     </span>
                                                 )}
                                             </div>
@@ -282,7 +279,7 @@ export default function AdminRegistrations() {
                                         </div>
                                     </div>
 
-                                    <div className="flex flex-col justify-between gap-5 min-w-57.5">
+                                    <div className="flex flex-col gap-5 w-full lg:w-auto">
                                     <div>
                                         {r.verified ? (
                                             <span className="inline-flex rounded-full bg-green-500/20 text-green-400 px-4 py-2 font-semibold">
@@ -294,12 +291,11 @@ export default function AdminRegistrations() {
                                             </span>
                                         )}
                                     </div>
-                                   
 
                                     <img
                                         src={r.payment_screenshot}
                                         onClick={() => setPreviewImage(r.payment_screenshot)}
-                                        className="h-20 w-20 rounded-xl object-cover cursor-pointer"
+                                        className="h-24 w-24 rounded-xl object-cover self-start lg:self-auto cursor-pointer"
                                     />
 
                                     {!r.verified && (
@@ -317,8 +313,9 @@ export default function AdminRegistrations() {
                                                 await refreshRegistrations();
                                             }}
                                             className="
+                                                w-full
                                                 rounded-xl
-                                                py-3
+                                                py-4
                                                 bg-green-600
                                                 hover:bg-gold-soft
                                                 hover:text-black
@@ -331,8 +328,9 @@ export default function AdminRegistrations() {
                                         <button
                                             onClick={() => setSelected(r)}
                                             className="
+                                                w-full
                                                 rounded-xl
-                                                py-3
+                                                py-4
                                                 border
                                                 border-gold-soft/30
                                                 hover:bg-white/10
@@ -389,7 +387,8 @@ export default function AdminRegistrations() {
                     border
                     border-gold-soft/30
                     bg-[#111]
-                    p-10
+                    p-5
+                    sm:p-10
                     text-cream
                     max-h-[90vh]
                     overflow-y-auto

@@ -49,11 +49,26 @@ def send_registration_email(
         raise
 
 
+def send_reminder_email(
+    recipient: str,
+    name: str,
+):
+    template = env.get_template("reminder_email.html")
+
+    html = template.render(
+        name=name,
+    )
+
+    response = resend.Emails.send({
+        "from": "Chennai Kendo Club <Admissions@chennaikendoclub.in>",
+        "reply_to": ["krupakoushikkona@gmail.com", "Chandana.menon@gmail.com"],
+        "to": [recipient],
+        "subject": "🥋 Reminder: Your Kendo Bootcamp Starts Tomorrow",
+        "html": html,
+    })
+
 if __name__ == "__main__":
-    send_registration_email(
-        recipient="jyothiipandit@gmail.com",
-        name="jyothi pandit",
-        ckc_id="CKC-BC26-0001",
-        pass_type="Supporter Pass",
-        qr_url="https://res.cloudinary.com/z03yj9uk/image/upload/v1784031773/ckc/qrcodes/CKC-BC26-0023.png",
+    send_reminder_email(
+        recipient="krupakoushikkona@gmail.com",
+        name="krupa koushik",
     )
