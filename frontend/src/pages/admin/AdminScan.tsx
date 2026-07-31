@@ -24,6 +24,7 @@ export default function AdminScan() {
     const [resumeSignal, setResumeSignal] = useState(0);
     const [error, setError] = useState<string | null>(null);
     const processing = useRef(false);
+    const dayRef = useRef<1 | 2>(1);
     
     async function handleScan(uuid: string) {
         console.log("SCAN:", uuid, new Date().toLocaleTimeString());
@@ -43,7 +44,7 @@ export default function AdminScan() {
                 },
                 body: JSON.stringify({
                     uuid,
-                    day,
+                    day: dayRef.current,
                 }),
             });
 
@@ -102,7 +103,10 @@ export default function AdminScan() {
                 <div className="grid grid-cols-2 gap-3">
 
                     <button
-                        onClick={() => setDay(1)}
+                        onClick={() => {
+                            dayRef.current = 1;
+                            setDay(1);
+                        }}
                         className={`
                             rounded-2xl
                             py-4
@@ -119,7 +123,10 @@ export default function AdminScan() {
                     </button>
 
                     <button
-                        onClick={() => setDay(2)}
+                        onClick={() => {
+                            dayRef.current = 2;
+                            setDay(2);
+                        }}
                         className={`
                             rounded-2xl
                             py-4
