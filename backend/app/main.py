@@ -19,8 +19,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
-        "https://ckc-bootcamp.vercel.app",
-        "https://bootcamp.chennaikendoclub.in",
+        "https://ckc-boootcaampp.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
